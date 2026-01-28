@@ -997,7 +997,7 @@
             opacity: 0.8;
         }
 
-        /* Responsive */
+        /* Responsive - Tablet */
         @media (max-width: 768px) {
             header h1 {
                 font-size: 1.8em;
@@ -1015,26 +1015,418 @@
             .content {
                 padding: 20px;
             }
+
+            .hero {
+                padding: 20px;
+            }
+
+            .hero-highlights {
+                justify-content: center;
+            }
+
+            .weather-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .weather-stats {
+                justify-content: center;
+            }
+
+            .packing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .links-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
+        /* Responsive - Mobile */
         @media (max-width: 480px) {
             body {
-                padding-top: 70px;
-                padding-left: 10px;
-                padding-right: 10px;
+                padding-top: 65px;
+                padding-left: 8px;
+                padding-right: 8px;
                 padding-bottom: 10px;
             }
 
+            .container {
+                border-radius: 15px;
+            }
+
             header {
-                padding: 25px 15px;
+                padding: 20px 15px;
             }
 
             header h1 {
-                font-size: 1.5em;
+                font-size: 1.4em;
+                line-height: 1.2;
+            }
+
+            header .dates {
+                font-size: 1em;
+            }
+
+            .navbar {
+                padding: 0 10px;
+            }
+
+            .navbar-container {
+                height: 55px;
+            }
+
+            .navbar-brand {
+                font-size: 0.95em;
+            }
+
+            .navbar-links {
+                top: 55px;
+                padding: 10px;
+                max-height: 70vh;
+                overflow-y: auto;
+            }
+
+            .navbar-link {
+                padding: 14px 15px;
+                font-size: 0.95em;
+                border-radius: 8px;
+                background: rgba(255,255,255,0.05);
+            }
+
+            .navbar-link:active {
+                background: rgba(0, 212, 255, 0.3);
+            }
+
+            .hero {
+                padding: 15px;
+            }
+
+            .hero-title {
+                font-size: 1.1em;
+            }
+
+            .hero-text {
+                font-size: 0.9em;
+            }
+
+            .hero-text p {
+                margin-bottom: 10px;
+            }
+
+            .hero-highlights {
+                gap: 8px;
+                margin-top: 15px;
+            }
+
+            .hero-highlight {
+                padding: 6px 12px;
+                font-size: 0.8em;
+            }
+
+            .content {
+                padding: 15px;
+            }
+
+            .section {
+                margin-bottom: 25px;
             }
 
             .section-title {
-                font-size: 1.2em;
+                font-size: 1.15em;
+                padding-bottom: 8px;
+                gap: 8px;
+            }
+
+            .section-icon {
+                font-size: 1.1em;
+            }
+
+            .travel-card {
+                padding: 15px;
+                border-radius: 12px;
+            }
+
+            .travel-card h3 {
+                font-size: 1em;
+                margin-bottom: 12px;
+            }
+
+            .airport-code {
+                font-size: 1.4em;
+            }
+
+            .airport-name {
+                font-size: 0.8em;
+            }
+
+            .flight-arrow {
+                font-size: 1.5em;
+                margin: 10px 0;
+            }
+
+            .tag {
+                font-size: 0.75em;
+                padding: 4px 10px;
+            }
+
+            .trip-card {
+                padding: 15px;
+                border-radius: 10px;
+            }
+
+            .trip-card h4 {
+                font-size: 0.95em;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+
+            .trip-info {
+                gap: 6px;
+            }
+
+            .trip-stat {
+                font-size: 0.8em;
+                padding: 3px 8px;
+            }
+
+            .difficulty {
+                font-size: 0.7em;
+            }
+
+            .trip-links {
+                margin-top: 10px;
+                gap: 6px;
+            }
+
+            .trip-link {
+                padding: 8px 10px;
+                font-size: 0.75em;
+            }
+
+            .trip-link svg {
+                width: 14px;
+                height: 14px;
+            }
+
+            .filters {
+                padding: 15px;
+                border-radius: 10px;
+            }
+
+            .filters-title {
+                font-size: 0.9em;
+                margin-bottom: 12px;
+            }
+
+            .filter-groups {
+                gap: 15px;
+            }
+
+            .filter-group label {
+                font-size: 0.8em;
+            }
+
+            .filter-btn {
+                padding: 8px 12px;
+                font-size: 0.8em;
+            }
+
+            .trips-count {
+                font-size: 0.85em;
+                padding: 8px;
+            }
+
+            .weather-intro {
+                padding: 15px;
+                border-radius: 12px;
+            }
+
+            .weather-intro p {
+                font-size: 0.9em;
+            }
+
+            .weather-stats {
+                gap: 10px;
+            }
+
+            .weather-stat {
+                padding: 10px 14px;
+                flex: 1;
+                min-width: 90px;
+            }
+
+            .weather-stat .value {
+                font-size: 1.1em;
+            }
+
+            .weather-stat .label {
+                font-size: 0.7em;
+            }
+
+            .weather-card {
+                padding: 15px;
+                border-radius: 10px;
+            }
+
+            .weather-card h4 {
+                font-size: 1em;
+                margin-bottom: 12px;
+            }
+
+            .weather-card li {
+                font-size: 0.9em;
+                padding: 6px 0;
+            }
+
+            .app-item {
+                padding: 8px;
+            }
+
+            .app-item .app-name {
+                font-size: 0.9em;
+            }
+
+            .app-item .app-desc {
+                font-size: 0.8em;
+            }
+
+            .weather-note {
+                padding: 12px 15px;
+                border-radius: 10px;
+                gap: 10px;
+            }
+
+            .weather-note p {
+                font-size: 0.85em;
+            }
+
+            .packing-progress {
+                height: 28px;
+                border-radius: 14px;
+            }
+
+            .packing-progress-text {
+                font-size: 0.8em;
+            }
+
+            .packing-actions {
+                gap: 8px;
+            }
+
+            .packing-btn {
+                padding: 10px 16px;
+                font-size: 0.85em;
+                flex: 1;
+                text-align: center;
+            }
+
+            .packing-category {
+                padding: 15px;
+                border-radius: 10px;
+            }
+
+            .packing-category h5 {
+                font-size: 0.95em;
+                margin-bottom: 10px;
+            }
+
+            .packing-item {
+                padding: 10px 0;
+            }
+
+            .packing-item input[type="checkbox"] {
+                width: 22px;
+                height: 22px;
+                margin-right: 10px;
+            }
+
+            .packing-item label {
+                font-size: 0.9em;
+            }
+
+            .packing-item .note {
+                font-size: 0.75em;
+            }
+
+            .info-box {
+                padding: 15px;
+                border-radius: 10px;
+            }
+
+            .info-box h4 {
+                font-size: 1em;
+            }
+
+            .info-box ul {
+                font-size: 0.9em;
+                margin-left: 15px;
+                line-height: 1.6;
+            }
+
+            .links-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .link-card {
+                padding: 15px 10px;
+                border-radius: 10px;
+            }
+
+            .link-card .icon {
+                font-size: 1.5em;
+                margin-bottom: 6px;
+            }
+
+            .link-card span {
+                font-size: 0.85em;
+            }
+
+            .link-card p {
+                font-size: 0.75em !important;
+                margin-top: 3px !important;
+            }
+
+            footer {
+                padding: 20px 15px;
+            }
+
+            footer p {
+                font-size: 0.9em;
+            }
+        }
+
+        /* Responsive - Extra small */
+        @media (max-width: 360px) {
+            header h1 {
+                font-size: 1.25em;
+            }
+
+            .section-title {
+                font-size: 1.05em;
+            }
+
+            .weather-stat {
+                min-width: 80px;
+                padding: 8px 10px;
+            }
+
+            .weather-stat .value {
+                font-size: 1em;
+            }
+
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .packing-item label {
+                font-size: 0.85em;
+            }
+
+            .hero-highlight {
+                padding: 5px 10px;
+                font-size: 0.75em;
             }
         }
     </style>
