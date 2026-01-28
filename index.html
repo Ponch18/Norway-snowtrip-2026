@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Norway Snow Trip 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 50%, #006699 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        header .dates {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-bottom: 15px;
+        }
+
+        header .group-info {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            font-size: 1.1em;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #0099cc;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #00d4ff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Card Viaggi */
+        .travel-cards {
+            display: grid;
+            gap: 20px;
+        }
+
+        .travel-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 5px solid #0099cc;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .travel-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 153, 204, 0.2);
+        }
+
+        .travel-card.outbound {
+            border-left-color: #4CAF50;
+        }
+
+        .travel-card.return {
+            border-left-color: #FF6B6B;
+        }
+
+        .travel-card.shuttle {
+            border-left-color: #FF9800;
+        }
+
+        .travel-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .flight-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .airport {
+            text-align: center;
+        }
+
+        .airport-code {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #0099cc;
+        }
+
+        .airport-name {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .flight-arrow {
+            font-size: 2em;
+            color: #0099cc;
+        }
+
+        .flight-details {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 0.95em;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .tag-green {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .tag-orange {
+            background: #FF9800;
+            color: white;
+        }
+
+        .tag-blue {
+            background: #2196F3;
+            color: white;
+        }
+
+        /* Gite */
+        .trips-grid {
+            display: grid;
+            gap: 15px;
+        }
+
+        .trip-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .trip-card:hover {
+            transform: scale(1.02);
+        }
+
+        .trip-card h4 {
+            color: #1565c0;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .trip-card p {
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .trip-info {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .trip-stat {
+            background: rgba(21, 101, 192, 0.1);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            color: #1565c0;
+        }
+
+        .difficulty {
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: bold;
+            color: white;
+        }
+
+        .difficulty-bs {
+            background: #4CAF50;
+        }
+
+        .difficulty-ms {
+            background: #FF9800;
+        }
+
+        .difficulty-os {
+            background: #f44336;
+        }
+
+        .difficulty-unknown {
+            background: #9e9e9e;
+        }
+
+        /* Link Gite */
+        .trip-links {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .trip-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.8em;
+            font-weight: 500;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .trip-link svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        .trip-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .trip-link.gulliver {
+            background: #2e7d32;
+            color: white;
+        }
+
+        .trip-link.wikiloc {
+            background: #1976d2;
+            color: white;
+        }
+
+        .trip-link.strava {
+            background: #fc4c02;
+            color: white;
+        }
+
+        .trip-link.garmin {
+            background: #007dbe;
+            color: white;
+        }
+
+        /* Filtri */
+        .filters {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .filters-title {
+            font-size: 1em;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .filter-groups {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .filter-group {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .filter-group label {
+            display: block;
+            font-size: 0.85em;
+            color: #666;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .filter-btn {
+            padding: 6px 12px;
+            border: 2px solid #ddd;
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85em;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: #0099cc;
+            color: #0099cc;
+        }
+
+        .filter-btn.active {
+            background: #0099cc;
+            border-color: #0099cc;
+            color: white;
+        }
+
+        .filter-btn.active-bs {
+            background: #4CAF50;
+            border-color: #4CAF50;
+        }
+
+        .filter-btn.active-ms {
+            background: #FF9800;
+            border-color: #FF9800;
+        }
+
+        .filter-btn.active-os {
+            background: #f44336;
+            border-color: #f44336;
+        }
+
+        .trips-count {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #e3f2fd;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .trip-card.hidden {
+            display: none;
+        }
+
+        /* Lista Materiale */
+        .checklist {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .checklist-category {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .checklist-category h4 {
+            color: #0099cc;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+
+        .checklist-category ul {
+            list-style: none;
+        }
+
+        .checklist-category li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checklist-category li:last-child {
+            border-bottom: none;
+        }
+
+        .checklist-category li::before {
+            content: "☐";
+            font-size: 1.2em;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border: 2px solid #FF9800;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .info-box.weather {
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+            border-color: #03a9f4;
+        }
+
+        .info-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+        }
+
+        .info-box.weather h4 {
+            color: #0277bd;
+        }
+
+        /* Link Utili */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .link-card {
+            background: linear-gradient(135deg, #0099cc 0%, #006699 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 153, 204, 0.4);
+        }
+
+        .link-card .icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .link-card span {
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .flight-info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .flight-arrow {
+                transform: rotate(90deg);
+            }
+
+            .content {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            header {
+                padding: 25px 15px;
+            }
+
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            .section-title {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Norway Snow Trip 2026</h1>
+            <div class="dates">21 - 28 Marzo 2026</div>
+            <div class="group-info">8 persone | 6 sciatori | 2 snowboarder</div>
+        </header>
+
+        <div class="content">
+            <!-- Sezione Viaggi -->
+            <div class="section">
+                <h2 class="section-title">Viaggi</h2>
+
+                <div class="travel-cards">
+                    <div class="travel-card shuttle">
+                        <h3>Navetta Cuneo - Milano</h3>
+                        <p><span class="tag tag-orange">80€ a testa</span> Include andata e ritorno</p>
+                    </div>
+
+                    <div class="travel-card outbound">
+                        <h3>Volo di Andata - 21 Marzo</h3>
+                        <div class="flight-info">
+                            <div class="airport">
+                                <div class="airport-code">MXP</div>
+                                <div class="airport-name">Milano Malpensa</div>
+                                <div><strong>13:15</strong></div>
+                            </div>
+                            <div class="flight-arrow">✈️ →</div>
+                            <div class="airport">
+                                <div class="airport-code">TOS</div>
+                                <div class="airport-name">Tromsø</div>
+                                <div><strong>17:35</strong></div>
+                            </div>
+                        </div>
+                        <div class="flight-details" style="margin-top: 15px;">
+                            <span class="tag tag-green">EasyJet 3975</span>
+                        </div>
+                    </div>
+
+                    <div class="travel-card return">
+                        <h3>Volo di Ritorno - 28 Marzo</h3>
+                        <div class="flight-info">
+                            <div class="airport">
+                                <div class="airport-code">TOS</div>
+                                <div class="airport-name">Tromsø</div>
+                                <div><strong>18:25</strong></div>
+                            </div>
+                            <div class="flight-arrow">✈️ →</div>
+                            <div class="airport">
+                                <div class="airport-code">MXP</div>
+                                <div class="airport-name">Milano Malpensa</div>
+                                <div><strong>22:50</strong></div>
+                            </div>
+                        </div>
+                        <div class="flight-details" style="margin-top: 15px;">
+                            <span class="tag tag-green">EasyJet 3976</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sezione Gite -->
+            <div class="section">
+                <h2 class="section-title">Possibili Gite - Lyngen Alps</h2>
+                <p style="margin-bottom: 20px; color: #666;">Ecco le gite che possiamo fare durante la settimana. Decideremo giorno per giorno in base al meteo e alle condizioni!</p>
+
+                <!-- Filtri -->
+                <div class="filters">
+                    <div class="filters-title">Filtra gite:</div>
+                    <div class="filter-groups">
+                        <div class="filter-group">
+                            <label>Difficolta</label>
+                            <div class="filter-buttons" id="difficulty-filters">
+                                <button class="filter-btn active" data-filter="all" data-type="difficulty">Tutte</button>
+                                <button class="filter-btn" data-filter="bs" data-type="difficulty">BS</button>
+                                <button class="filter-btn" data-filter="ms" data-type="difficulty">MS</button>
+                                <button class="filter-btn" data-filter="os" data-type="difficulty">OS</button>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <label>Dislivello</label>
+                            <div class="filter-buttons" id="elevation-filters">
+                                <button class="filter-btn active" data-filter="all" data-type="elevation">Tutti</button>
+                                <button class="filter-btn" data-filter="low" data-type="elevation">&lt; 1000m</button>
+                                <button class="filter-btn" data-filter="mid" data-type="elevation">1000-1200m</button>
+                                <button class="filter-btn" data-filter="high" data-type="elevation">&gt; 1200m</button>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <label>Esposizione</label>
+                            <div class="filter-buttons" id="exposure-filters">
+                                <button class="filter-btn active" data-filter="all" data-type="exposure">Tutte</button>
+                                <button class="filter-btn" data-filter="nord" data-type="exposure">Nord</button>
+                                <button class="filter-btn" data-filter="sud" data-type="exposure">Sud</button>
+                                <button class="filter-btn" data-filter="ovest" data-type="exposure">Ovest</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trips-count" id="trips-count">Visualizzate: 18 gite su 18</div>
+
+                <div class="trips-grid" id="trips-grid">
+                    <div class="trip-card" data-difficulty="os" data-elevation="1330" data-exposure="ovest">
+                        <h4>Storgalten da Sandneset <span class="difficulty difficulty-os">BS/OS</span></h4>
+                        <div class="trip-info">
+                            <span class="trip-stat">+1330 m</span>
+                            <span class="trip-stat">11.5 km</span>
+                            <span class="trip-stat">Esp. Ovest</span>
+                        </div>
+                        <div class="trip-links">
+                            <a href="https://www.gulliver.it/itinerari/storgalten-da-sandneset-per-il-versante-ovest/" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
+                            <a href="https://it.wikiloc.com/percorsi-sci-di-montagna/tromso-and-lyngen-alps-storgalten-lassofjellet-17036136" target="_blank" class="trip-link wikiloc"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>Wikiloc</a>
+                            <a href="https://www.strava.com/routes/3401512451051323692" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                        </div>
+                    </div>
+
+                    <div class="trip-card" data-difficulty="bs" data-elevation="1200" data-exposure="ovest">
+                        <h4>Stetinden da Sor Lenangen <span class="difficulty difficulty-bs">BS</span></h4>
+                        <div class="trip-info">
+                            <span class="trip-stat">+1200 m</span>
+                            <span class="trip-stat">12.5 km</span>
+                            <span class="trip-stat">Esp. Ovest</span>
+                        </div>
+                        <div class="trip-links">
+                            <a href="https://www.gulliver.it/itinerari/stetinden-da-sor-lenangen/" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
+                            <a href="https://www.strava.com/routes/3401516350288728364" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                            <a href="https://connect.garmin.com/modern/activity/18684363007" target="_blank" class="trip-link garmin"><svg viewBox="0 0 24 24"><path d="M12 2L2 19h20L12 2zm0 4l6.5 11h-13L12 6z"/></svg>Garmin</a>
+                        </div>
+                    </div>
+
+                    <div class="trip-card" data-difficulty="bs" data-elevation="1115" data-exposure="nord">
+                        <h4>Steinfjellet da Botn <span class="difficulty difficulty-bs">BS</span></h4>
+                        <div class="trip-info">
+                            <span class="trip-stat">+1115 m</span>
+                            <span class="trip-stat">6.2 km</span>
+                            <span class="trip-stat">Esp. Nord-Est</span>
+                        </div>
+                        <div class="trip-links">
+                            <a href="https://www.gulliver.it/itinerari/steinfjellet-da-botn-in-sor-lenangen/" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
+                            <a href="https://www.strava.com/routes/3401511893409062378" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                            <a href="https://connect.garmin.com/modern/activity/18697677779" target="_blank" class="trip-link garmin"><svg viewBox="0 0 24 24"><path d="M12 2L2 19h20L12 2zm0 4l6.5 11h-13L12 6z"/></svg>Garmin</a>
+                        </div>
+                    </div>
+
+                    <div class="trip-card" data-difficulty="bs" data-elevation="1050" data-exposure="nord">
+                        <h4>Rornesfjellet da Lyngseidet <span class="difficulty difficulty-bs">BS</span></h4>
+                        <div class="trip-info">
+                            <span class="trip-stat">+1050 m</span>
+                            <span class="trip-stat">11.6 km</span>
+                            <span class="trip-stat">Esp. Nord-Est</span>
+                        </div>
+                        <div class="trip-links">
+                            <a href="https://www.gulliver.it/itinerari/rornesfjellet-da-lyngseidet/#main" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
+                            <a href="https://www.strava.com/routes/3401511416736967936" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                            <a href="https://connect.garmin.com/modern/activity/18689307515" target="_blank" class="trip-link garmin"><svg viewBox="0 0 24 24"><path d="M12 2L2 19h20L12 2zm0 4l6.5 11h-13L12 6z"/></svg>Garmin</a>
+                        </div>
+                    </div>
+
+                    <div class="trip-card" data-difficulty="bs" data-elevation="1250" data-exposure="sud">
+                        <h4>Fastdalstinden SE-S <span class="difficulty difficulty-bs">BS</span></h4>
+                        <div class="trip-info">
+                            <span class="trip-stat">+1250 m</span>
+                            <span class="trip-stat">11.8 km</span>
+                            <span class="trip-stat">Esp. Sud-Est</span>
+                        </div>
+                        <div class="trip-links">
+                            <a href="https://www.gulliver.it/itinerari/fastdalstinden-per-versante-se-s/" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
+                            <a href="https://www.strava.com/routes/3401515357863106070" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                        </div>
+                    </div>
+
+                    <div class="trip-card" data-difficulty="bs" data-elevation="1238" data-exposure="ovest">
+                        <h4>Sorbmegaisa (Oderdalen) <span class="difficulty difficulty-bs">BS</span></h4>
+                        <div class="trip-info">
+                            <span class="trip-stat">+1238 m</span>
+                            <span class="trip-stat">Esp. Ovest</span>
+                        </div>
+                        <div class="trip-links">
+                            <a href="https://www.gulliver.it/itinerari/sorbmegaisa-oderdalen-dal-kyofjord/#main" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
+                        </div>
+                    </div>
+
+                    <div class="trip-card" data-difficulty="bs" data-elevation="1160" data-exposure="sud">
+                        <h4>Fastdalstinden da Lyngen <span class="difficulty difficulty-bs">BS</span></h4>
+                        <div class="trip-info">
+                            <span class="trip-stat">+1160 m</span>
+                            <span class="trip-stat">11.5 km</span>
+                            <span class="trip-stat">Esp. Sud-Ovest</span>
+                        </div>
+                        <div class="trip-links">
+                            <a href="https://www.gulliver.it/itinerari/fastdalstindenda-lyngen/" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
+                            <a href="https://www.strava.com/routes/3401518729626466604" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                        </div>
+                    </div>
+
+                    <div class="trip-card" data-difficulty="bs" data-elevation="1200" data-exposure="nord">
+                        <h4>Kavringtinden / Golsavarre <span class="difficulty difficulty-bs">BS</span></h4>
+                        <div class="trip-info">
+                            <span class="trip-stat">+1200 m</span>
+                            <span class="trip-stat">12.7 km</span>
+                            <span class="trip-stat">Esp. Nord-Est</span>
+                        </div>
+                        <div class="trip-links">
+                            <a href="https://www.gulliver.it/itinerari/kavringtinden-da-lyngseidet/" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
+                            <a href="https://it.wikiloc.com/percorsi-sci-di-montagna/lyngen-alps-kavringtinden-peak-165941775" target="_blank" class="trip-link wikiloc"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>Wikiloc</a>
+                            <a href="https://www.strava.com/routes/3401521145478882794" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                            <a href="https://connect.garmin.com/modern/activity/18689307515" target="_blank" class="trip-link garmin"><svg viewBox="0 0 24 24"><path d="M12 2L2 19h20L12 2zm0 4l6.5 11h-13L12 6z"/></svg>Garmin</a>
+                        </div>
+                    </div>
+
+                    <div class="trip-card" data-difficulty="bs" data-elevation="950" data-exposure="sud">
+                        <h4>Rornestinden <span class="difficulty difficulty-bs">BS</span></h4>
+                        <div class="trip-info">
+                            <span class="trip-stat">+950 m</span>
+                            <span class="trip-stat">10.0 km</span>
+                            <span class="trip-stat">Esp. Sud-Est</span>
+                        </div>
+                        <div class="trip-links">
+                            <a href="https://www.gulliver.it/itinerari/rornestinden-versante-se/" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
+                            <a href="https://www.strava.com/routes/3401520549316564268" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                        </div>
+                    </div>
+
+                    <div class="trip-card" data-difficulty="bs" data-elevation="1163" data-exposure="sud">
+                        <h4>Giilavarri da Olderdalen <span class="difficulty difficulty-bs">BS</span></h4>
+                        <div class="trip-info">
+                            <span class="trip-stat">+1163 m</span>
+                            <span class="trip-stat">9.8 km</span>
+                            <span class="trip-stat">Esp. Sud-Est</span>
+                        </div>
+                        <div class="trip-links">
+                            <a href="https://www.gulliver.it/itinerari/giilavarri-da-olderdalen/" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
+                            <a href="https://it.wikiloc.com/percorsi-sci-di-montagna/giilavarri-da-olderdalen-207936336" target="_blank" class="trip-link wikiloc"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>Wikiloc</a>
+                            <a href="https://www.strava.com/routes/3401521797800218880" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                        </div>
+                    </div>
+
+                    <div class="trip-card" data-difficulty="unknown" data-elevation="1250" data-exposure="sud">
+                        <h4>Rissavarri <span class="difficulty difficulty-unknown">?</span></h4>
+                        <div class="trip-info">
+                            <span class="trip-stat">+1250 m</span>
+                            <span class="trip-stat">10.0 km</span>
+                            <span class="trip-stat">Esp. Sud-Ovest</span>
+                        </div>
+                        <div class="trip-links">
+                            <a href="https://it.wikiloc.com/percorsi-sci-di-montagna/rissavarri-lyngen-noruega-202532587" target="_blank" class="trip-link wikiloc"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>Wikiloc</a>
+                            <a href="https://www.strava.com/routes/3401522709319328000" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                        </div>
+                    </div>
+
+                    <div class="trip-card" data-difficulty="unknown" data-elevation="1200" data-exposure="other">
+                        <h4>Storhaugen <span class="difficulty difficulty-unknown">?</span></h4>
+                        <div class="trip-info">
+                            <span class="trip-stat">+1200 m</span>
+                            <span class="trip-stat">12.4 km</span>
+                        </div>
+                        <div class="trip-links">
+                            <a href="https://it.wikiloc.com/percorsi-sci-di-montagna/storhaugen-35943619" target="_blank" class="trip-link wikiloc"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>Wikiloc</a>
+                            <a href="https://www.strava.com/routes/3401523431485689322" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                        </div>
+                    </div>
+
+                    <div class="trip-card" data-difficulty="ms" data-elevation="1104" data-exposure="sud">
+                        <h4>Kjevagtinden da Havnnes <span class="difficulty difficulty-ms">MS</span></h4>
+                        <div class="trip-info">
+                            <span class="trip-stat">+1104 m</span>
+                            <span class="trip-stat">10.3 km</span>
+                            <span class="trip-stat">Esp. Sud-Ovest</span>
+                        </div>
+                        <div class="trip-links">
+                            <a href="https://www.gulliver.it/itinerari/kjevagtinden-da-havnnes/" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
+                            <a href="https://it.wikiloc.com/percorsi-sci-di-montagna/kjelvagtinden-35870747" target="_blank" class="trip-link wikiloc"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>Wikiloc</a>
+                            <a href="https://www.strava.com/routes/3401523782395352364" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                        </div>
+                    </div>
+
+                    <div class="trip-card" data-difficulty="ms" data-elevation="1105" data-exposure="nord">
+                        <h4>Stortuva da Oldervik <span class="difficulty difficulty-ms">MS</span></h4>
+                        <div class="trip-info">
+                            <span class="trip-stat">+1105 m</span>
+                            <span class="trip-stat">14.7 km</span>
+                            <span class="trip-stat">Esp. Nord</span>
+                        </div>
+                        <div class="trip-links">
+                            <a href="https://www.gulliver.it/itinerari/stortuva-da-oldervik/" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
+                            <a href="https://it.wikiloc.com/percorsi-sci-di-montagna/oldervik-164419463" target="_blank" class="trip-link wikiloc"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>Wikiloc</a>
+                            <a href="https://www.strava.com/routes/3401526142095060172" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                        </div>
+                    </div>
+
+                    <div class="trip-card" data-difficulty="ms" data-elevation="980" data-exposure="sud">
+                        <h4>Ullstinden da Snarbyeidet <span class="difficulty difficulty-ms">MS</span></h4>
+                        <div class="trip-info">
+                            <span class="trip-stat">+980 m</span>
+                            <span class="trip-stat">10.5 km</span>
+                            <span class="trip-stat">Esp. Sud-Ovest</span>
+                        </div>
+                        <div class="trip-links">
+                            <a href="https://www.gulliver.it/itinerari/ullstinden-da-snarbyeidet/" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
+                            <a href="https://www.strava.com/routes/3401524888175392990" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                            <a href="https://connect.garmin.com/modern/activity/18650847435" target="_blank" class="trip-link garmin"><svg viewBox="0 0 24 24"><path d="M12 2L2 19h20L12 2zm0 4l6.5 11h-13L12 6z"/></svg>Garmin</a>
+                        </div>
+                    </div>
+
+                    <div class="trip-card" data-difficulty="bs" data-elevation="1150" data-exposure="ovest">
+                        <h4>Storfjellet (Breivikeidet) <span class="difficulty difficulty-bs">BS</span></h4>
+                        <div class="trip-info">
+                            <span class="trip-stat">+1150 m</span>
+                            <span class="trip-stat">12.2 km</span>
+                            <span class="trip-stat">Esp. Ovest</span>
+                        </div>
+                        <div class="trip-links">
+                            <a href="https://www.gulliver.it/itinerari/storfjellet-da-ponte-breivikeidet/" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
+                            <a href="https://www.strava.com/routes/3401525327546975488" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                        </div>
+                    </div>
+
+                    <div class="trip-card" data-difficulty="unknown" data-elevation="1050" data-exposure="other">
+                        <h4>Stormheimfjellet <span class="difficulty difficulty-unknown">?</span></h4>
+                        <div class="trip-info">
+                            <span class="trip-stat">+1050 m</span>
+                            <span class="trip-stat">12.3 km</span>
+                        </div>
+                        <div class="trip-links">
+                            <a href="https://www.strava.com/routes/3401527998365532460" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                            <a href="https://connect.garmin.com/modern/activity/18668336044" target="_blank" class="trip-link garmin"><svg viewBox="0 0 24 24"><path d="M12 2L2 19h20L12 2zm0 4l6.5 11h-13L12 6z"/></svg>Garmin</a>
+                        </div>
+                    </div>
+
+                    <div class="trip-card" data-difficulty="unknown" data-elevation="700" data-exposure="other">
+                        <h4>Traccia 7 Ponch <span class="difficulty difficulty-unknown">?</span></h4>
+                        <div class="trip-info">
+                            <span class="trip-stat">+700 m</span>
+                            <span class="trip-stat">9.4 km</span>
+                        </div>
+                        <div class="trip-links">
+                            <a href="https://www.strava.com/routes/3401530418737577182" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                            <a href="https://connect.garmin.com/modern/activity/18699892521" target="_blank" class="trip-link garmin"><svg viewBox="0 0 24 24"><path d="M12 2L2 19h20L12 2zm0 4l6.5 11h-13L12 6z"/></svg>Garmin</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px; padding: 15px; background: #f5f5f5; border-radius: 10px;">
+                    <p style="margin-bottom: 10px; font-weight: bold; color: #333;">Legenda difficolta:</p>
+                    <p style="font-size: 0.9em; color: #666;">
+                        <span class="difficulty difficulty-bs" style="margin-right: 5px;">BS</span> Buon Sciatore |
+                        <span class="difficulty difficulty-ms" style="margin-left: 10px; margin-right: 5px;">MS</span> Medio Superiore |
+                        <span class="difficulty difficulty-os" style="margin-left: 10px; margin-right: 5px;">OS</span> Ottimo Sciatore
+                    </p>
+                </div>
+
+                <p style="margin-top: 15px; font-style: italic; color: #888;">Consulta la mappa per vedere tutti i punti di partenza delle gite!</p>
+            </div>
+
+            <!-- Sezione Meteo -->
+            <div class="section">
+                <h2 class="section-title">Meteo e Condizioni</h2>
+
+                <div class="info-box weather">
+                    <h4>Cosa aspettarsi a Tromsø a fine Marzo</h4>
+                    <ul style="margin-left: 20px; line-height: 1.8;">
+                        <li>Temperature: da -5°C a +3°C</li>
+                        <li>Ore di luce: circa 14-16 ore (il sole sta tornando!)</li>
+                        <li>Possibilità di vedere l'aurora boreale</li>
+                        <li>Neve abbondante in quota</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Sezione Materiale -->
+            <div class="section">
+                <h2 class="section-title">Materiale Obbligatorio</h2>
+
+                <div class="checklist">
+                    <div class="checklist-category">
+                        <h4>Sicurezza</h4>
+                        <ul>
+                            <li>ARTVA (Apparecchio Ricerca Travolti Valanga)</li>
+                            <li>Pala da neve</li>
+                            <li>Sonda</li>
+                            <li>Zaino da scialpinismo con attacco sci/board</li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist-category">
+                        <h4>Attrezzatura Sci/Snowboard</h4>
+                        <ul>
+                            <li>Sci da scialpinismo / Splitboard</li>
+                            <li>Pelli di foca</li>
+                            <li>Scarponi da scialpinismo</li>
+                            <li>Bastoncini</li>
+                            <li>Ramponi / Rampant</li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist-category">
+                        <h4>Abbigliamento</h4>
+                        <ul>
+                            <li>Giacca da sci impermeabile</li>
+                            <li>Pantaloni da sci impermeabili</li>
+                            <li>Intimo tecnico (vari strati)</li>
+                            <li>Guanti caldi + guanti di ricambio</li>
+                            <li>Casco</li>
+                            <li>Maschera da sci</li>
+                            <li>Occhiali da sole</li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist-category">
+                        <h4>Accessori Utili</h4>
+                        <ul>
+                            <li>Crema solare alta protezione</li>
+                            <li>Burro cacao</li>
+                            <li>Borraccia termica</li>
+                            <li>Snack energetici</li>
+                            <li>Powerbank</li>
+                            <li>Fascia o buff per il viso</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Utili -->
+            <div class="section">
+                <h2 class="section-title">Info Utili</h2>
+
+                <div class="info-box">
+                    <h4>Da ricordare</h4>
+                    <ul style="margin-left: 20px; line-height: 1.8;">
+                        <li>La Norvegia NON è nell'UE ma è nello spazio Schengen: basta la carta d'identità</li>
+                        <li>Valuta: Corona norvegese (NOK) - ma carte accettate ovunque</li>
+                        <li>Fuso orario: stesso dell'Italia</li>
+                        <li>Prese elettriche: tipo C/F (come Italia)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Link Utili -->
+            <div class="section">
+                <h2 class="section-title">Link Utili</h2>
+
+                <div class="links-grid">
+                    <a href="https://join.settleup.app/HVCp4H6nmCefaBOGgC6B" target="_blank" class="link-card">
+                        <div class="icon">💰</div>
+                        <span>Settle Up</span>
+                        <p style="font-size: 0.85em; margin-top: 5px; opacity: 0.9;">Divisione spese</p>
+                    </a>
+
+                    <a href="https://maps.app.goo.gl/RDVFmapBTrqNF3S1A" target="_blank" class="link-card">
+                        <div class="icon">🗺️</div>
+                        <span>Mappa Gite</span>
+                        <p style="font-size: 0.85em; margin-top: 5px; opacity: 0.9;">Punti di partenza</p>
+                    </a>
+
+                    <a href="https://maps.app.goo.gl/NmLzUd1PWth94usZ7" target="_blank" class="link-card">
+                        <div class="icon">🏠</div>
+                        <span>La Nostra Casa</span>
+                        <p style="font-size: 0.85em; margin-top: 5px; opacity: 0.9;">Dove dormiremo</p>
+                    </a>
+
+                    <a href="https://docs.google.com/spreadsheets/d/1BnO8kYl09LOESdp1AWH29nXL7yfaWIa_kJKdZ1bNpx4/edit?gid=0#gid=0" target="_blank" class="link-card">
+                        <div class="icon">📋</div>
+                        <span>Foglio Gite</span>
+                        <p style="font-size: 0.85em; margin-top: 5px; opacity: 0.9;">Elenco completo</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Norway Snow Trip 2026 | Tromsø</p>
+        </footer>
+    </div>
+    <script>
+        // Filtri
+        const filters = {
+            difficulty: 'all',
+            elevation: 'all',
+            exposure: 'all'
+        };
+
+        function applyFilters() {
+            const cards = document.querySelectorAll('.trip-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const difficulty = card.dataset.difficulty;
+                const elevation = parseInt(card.dataset.elevation);
+                const exposure = card.dataset.exposure;
+
+                let show = true;
+
+                // Filtro difficolta
+                if (filters.difficulty !== 'all') {
+                    if (filters.difficulty === 'bs' && difficulty !== 'bs') show = false;
+                    if (filters.difficulty === 'ms' && difficulty !== 'ms') show = false;
+                    if (filters.difficulty === 'os' && difficulty !== 'os') show = false;
+                }
+
+                // Filtro dislivello
+                if (filters.elevation !== 'all') {
+                    if (filters.elevation === 'low' && elevation >= 1000) show = false;
+                    if (filters.elevation === 'mid' && (elevation < 1000 || elevation > 1200)) show = false;
+                    if (filters.elevation === 'high' && elevation <= 1200) show = false;
+                }
+
+                // Filtro esposizione
+                if (filters.exposure !== 'all') {
+                    if (filters.exposure === 'nord' && !exposure.includes('nord')) show = false;
+                    if (filters.exposure === 'sud' && !exposure.includes('sud')) show = false;
+                    if (filters.exposure === 'ovest' && exposure !== 'ovest') show = false;
+                }
+
+                if (show) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            document.getElementById('trips-count').textContent =
+                `Visualizzate: ${visibleCount} gite su ${cards.length}`;
+        }
+
+        // Event listeners per i filtri
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const type = this.dataset.type;
+                const filter = this.dataset.filter;
+
+                // Rimuovi active da tutti i bottoni dello stesso gruppo
+                this.parentElement.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.remove('active', 'active-bs', 'active-ms', 'active-os');
+                });
+
+                // Aggiungi active al bottone cliccato
+                this.classList.add('active');
+                if (type === 'difficulty' && filter !== 'all') {
+                    this.classList.add('active-' + filter);
+                }
+
+                // Aggiorna il filtro
+                filters[type] = filter;
+                applyFilters();
+            });
+        });
+    </script>
+</body>
+</html>
