@@ -15,8 +15,170 @@
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             min-height: 100vh;
-            padding: 20px;
+            padding-top: 70px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
             color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 0 20px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+        }
+
+        .navbar-brand {
+            color: #00d4ff;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .navbar-brand:hover {
+            color: #fff;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .navbar-link {
+            color: #ccc;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .navbar-link:hover {
+            background: rgba(0, 212, 255, 0.2);
+            color: #00d4ff;
+        }
+
+        .navbar-link.active {
+            background: #00d4ff;
+            color: #1a1a2e;
+        }
+
+        /* Mobile navbar */
+        .navbar-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #00d4ff;
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-toggle {
+                display: block;
+            }
+
+            .navbar-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: rgba(26, 26, 46, 0.98);
+                flex-direction: column;
+                padding: 15px;
+                gap: 5px;
+            }
+
+            .navbar-links.open {
+                display: flex;
+            }
+
+            .navbar-link {
+                padding: 12px 15px;
+                border-radius: 10px;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 153, 204, 0.05) 100%);
+            padding: 30px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .hero-content {
+            max-width: 100%;
+        }
+
+        .hero-title {
+            font-size: 1.3em;
+            color: #0099cc;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hero-text {
+            color: #555;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+
+        .hero-text p {
+            margin-bottom: 12px;
+        }
+
+        .hero-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .hero-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .hero-highlight {
+            background: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            color: #0099cc;
+            border: 1px solid #e0f4ff;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Section icon */
+        .section-icon {
+            font-size: 1.2em;
         }
 
         .container {
@@ -48,11 +210,49 @@
         }
 
         header .group-info {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 10px 20px;
-            border-radius: 30px;
-            display: inline-block;
-            font-size: 1.1em;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 5px;
+        }
+
+        header .group-stat {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            padding: 12px 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        header .group-stat:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        header .group-stat .stat-icon {
+            font-size: 1.5em;
+        }
+
+        header .group-stat .stat-content {
+            text-align: left;
+        }
+
+        header .group-stat .stat-number {
+            font-size: 1.4em;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        header .group-stat .stat-label {
+            font-size: 0.75em;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .content {
@@ -422,6 +622,163 @@
             font-size: 1.2em;
         }
 
+        /* Packing List Interattiva */
+        .packing-section {
+            margin-bottom: 25px;
+        }
+
+        .packing-section h4 {
+            color: #0099cc;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .packing-section h4 .emoji {
+            font-size: 1.3em;
+        }
+
+        .packing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .packing-category {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid #0099cc;
+        }
+
+        .packing-category.documents { border-left-color: #4CAF50; }
+        .packing-category.backpack { border-left-color: #FF9800; }
+        .packing-category.technical { border-left-color: #2196F3; }
+        .packing-category.safety { border-left-color: #f44336; }
+        .packing-category.casual { border-left-color: #9C27B0; }
+        .packing-category.electronics { border-left-color: #00BCD4; }
+        .packing-category.hygiene { border-left-color: #E91E63; }
+        .packing-category.extras { border-left-color: #607D8B; }
+        .packing-category.apps { border-left-color: #673AB7; }
+
+        .packing-category h5 {
+            color: #333;
+            margin-bottom: 12px;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .packing-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .packing-item:last-child {
+            border-bottom: none;
+        }
+
+        .packing-item:hover {
+            background: rgba(0, 153, 204, 0.05);
+            margin: 0 -10px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 6px;
+        }
+
+        .packing-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            cursor: pointer;
+            accent-color: #0099cc;
+        }
+
+        .packing-item label {
+            cursor: pointer;
+            flex: 1;
+            font-size: 0.95em;
+            color: #333;
+        }
+
+        .packing-item.checked label {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .packing-item .note {
+            font-size: 0.8em;
+            color: #888;
+            font-style: italic;
+        }
+
+        .packing-progress {
+            background: #e9ecef;
+            border-radius: 20px;
+            height: 24px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .packing-progress-bar {
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+            height: 100%;
+            border-radius: 20px;
+            transition: width 0.3s ease;
+        }
+
+        .packing-progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.85em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .packing-actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .packing-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.2s ease;
+        }
+
+        .packing-btn.reset {
+            background: #f44336;
+            color: white;
+        }
+
+        .packing-btn.reset:hover {
+            background: #d32f2f;
+        }
+
+        .packing-btn.check-all {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .packing-btn.check-all:hover {
+            background: #388E3C;
+        }
+
         /* Info Box */
         .info-box {
             background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
@@ -528,17 +885,52 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#top" class="navbar-brand">🏔️ Norway 2026</a>
+            <button class="navbar-toggle" onclick="toggleNavbar()">☰</button>
+            <div class="navbar-links" id="navbar-links">
+                <a href="#top" class="navbar-link">Home</a>
+                <a href="#voli" class="navbar-link">Voli</a>
+                <a href="#gite" class="navbar-link">Gite</a>
+                <a href="#meteo" class="navbar-link">Meteo</a>
+                <a href="#checklist" class="navbar-link">Checklist</a>
+                <a href="#info" class="navbar-link">Info</a>
+                <a href="#link" class="navbar-link">Link</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" id="top">
         <header>
             <h1>Norway Snow Trip 2026</h1>
             <div class="dates">21 - 28 Marzo 2026</div>
-            <div class="group-info">8 persone | 6 sciatori | 2 snowboarder</div>
         </header>
+
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-content">
+                <h2 class="hero-title">🧭 Il nostro viaggio</h2>
+                <div class="hero-text">
+                    <p><strong>Norway Snow Trip 2026</strong> è un viaggio invernale nel nord della Norvegia, pensato per chi ama la montagna, la neve e le esperienze outdoor in ambienti spettacolari.</p>
+                    <p>Base principale sarà <strong>Tromsø</strong> e l'area dei <strong>Lyngen Alps</strong>, una delle zone più iconiche dell'Artico per sci, snowboard, paesaggi incontaminati e possibilità di osservare l'<strong>aurora boreale</strong>.</p>
+                    <p>Questo sito raccoglie tutte le informazioni utili per organizzare il viaggio: voli, spostamenti, idee di gite, attività alternative, consigli pratici e checklist. L'obiettivo è avere un punto unico e chiaro dove il gruppo possa orientarsi, pianificare e condividere tutto senza perdere informazioni.</p>
+                </div>
+                <div class="hero-highlights">
+                    <span class="hero-highlight">🎿 Scialpinismo</span>
+                    <span class="hero-highlight">🏂 Splitboard</span>
+                    <span class="hero-highlight">🌌 Aurora Boreale</span>
+                    <span class="hero-highlight">🏔️ Lyngen Alps</span>
+                    <span class="hero-highlight">❄️ Neve Artica</span>
+                </div>
+            </div>
+        </div>
 
         <div class="content">
             <!-- Sezione Viaggi -->
-            <div class="section">
-                <h2 class="section-title">Viaggi</h2>
+            <div class="section" id="voli">
+                <h2 class="section-title"><span class="section-icon">✈️</span> Viaggi</h2>
 
                 <div class="travel-cards">
                     <div class="travel-card shuttle">
@@ -589,8 +981,8 @@
             </div>
 
             <!-- Sezione Gite -->
-            <div class="section">
-                <h2 class="section-title">Possibili Gite - Lyngen Alps</h2>
+            <div class="section" id="gite">
+                <h2 class="section-title"><span class="section-icon">🏔️</span> Possibili Gite - Lyngen Alps</h2>
                 <p style="margin-bottom: 20px; color: #666;">Ecco le gite che possiamo fare durante la settimana. Decideremo giorno per giorno in base al meteo e alle condizioni!</p>
 
                 <!-- Filtri -->
@@ -883,8 +1275,8 @@
             </div>
 
             <!-- Sezione Meteo -->
-            <div class="section">
-                <h2 class="section-title">Meteo e Condizioni</h2>
+            <div class="section" id="meteo">
+                <h2 class="section-title"><span class="section-icon">🌤️</span> Meteo e Condizioni</h2>
 
                 <div class="info-box weather">
                     <h4>Cosa aspettarsi a Tromsø a fine Marzo</h4>
@@ -897,62 +1289,146 @@
                 </div>
             </div>
 
-            <!-- Sezione Materiale -->
-            <div class="section">
-                <h2 class="section-title">Materiale Obbligatorio</h2>
+            <!-- Checklist di Viaggio -->
+            <div class="section" id="checklist">
+                <h2 class="section-title"><span class="section-icon">🎒</span> Checklist di Viaggio & Packing List</h2>
 
-                <div class="checklist">
-                    <div class="checklist-category">
-                        <h4>Sicurezza</h4>
-                        <ul>
-                            <li>ARTVA (Apparecchio Ricerca Travolti Valanga)</li>
-                            <li>Pala da neve</li>
-                            <li>Sonda</li>
-                            <li>Zaino da scialpinismo con attacco sci/board</li>
-                        </ul>
+                <div class="packing-progress">
+                    <div class="packing-progress-bar" id="packing-progress-bar" style="width: 0%"></div>
+                    <span class="packing-progress-text" id="packing-progress-text">0 / 0 completati</span>
+                </div>
+
+                <div class="packing-actions">
+                    <button class="packing-btn check-all" onclick="checkAllItems()">Seleziona tutto</button>
+                    <button class="packing-btn reset" onclick="resetChecklist()">Reset checklist</button>
+                </div>
+
+                <div class="packing-grid">
+                    <!-- Documenti & pratiche -->
+                    <div class="packing-category documents">
+                        <h5><span class="emoji">📄</span> Documenti & pratiche</h5>
+                        <div class="packing-item"><input type="checkbox" id="doc1"><label for="doc1">Carta d'identità valida per espatrio (o passaporto)</label></div>
+                        <div class="packing-item"><input type="checkbox" id="doc2"><label for="doc2">Tessera sanitaria europea (TEAM)</label></div>
+                        <div class="packing-item"><input type="checkbox" id="doc3"><label for="doc3">Assicurazione viaggio / sport invernali</label></div>
+                        <div class="packing-item"><input type="checkbox" id="doc4"><label for="doc4">Biglietti aerei (digitale + offline)</label></div>
+                        <div class="packing-item"><input type="checkbox" id="doc5"><label for="doc5">Prenotazioni alloggi / attività</label></div>
+                        <div class="packing-item"><input type="checkbox" id="doc6"><label for="doc6">Patente (se si guida)</label></div>
+                        <div class="packing-item"><input type="checkbox" id="doc7"><label for="doc7">Carta di credito <span class="note">(molto usata, contanti quasi inutili)</span></label></div>
+                        <div class="packing-item"><input type="checkbox" id="doc8"><label for="doc8">Copie digitali dei documenti (cloud / telefono)</label></div>
                     </div>
 
-                    <div class="checklist-category">
-                        <h4>Attrezzatura Sci/Snowboard</h4>
-                        <ul>
-                            <li>Sci da scialpinismo / Splitboard</li>
-                            <li>Pelli di foca</li>
-                            <li>Scarponi da scialpinismo</li>
-                            <li>Bastoncini</li>
-                            <li>Ramponi / Rampant</li>
-                        </ul>
+                    <!-- Zaino / bagaglio a mano -->
+                    <div class="packing-category backpack">
+                        <h5><span class="emoji">🎒</span> Zaino / bagaglio a mano</h5>
+                        <div class="packing-item"><input type="checkbox" id="bag1"><label for="bag1">Zaino giornaliero (20–30 L)</label></div>
+                        <div class="packing-item"><input type="checkbox" id="bag2"><label for="bag2">Occhiali da sole</label></div>
+                        <div class="packing-item"><input type="checkbox" id="bag3"><label for="bag3">Mascherina da sci</label></div>
+                        <div class="packing-item"><input type="checkbox" id="bag4"><label for="bag4">Crema solare <span class="note">(riflesso neve!)</span></label></div>
+                        <div class="packing-item"><input type="checkbox" id="bag5"><label for="bag5">Burrocacao</label></div>
+                        <div class="packing-item"><input type="checkbox" id="bag6"><label for="bag6">Salviettine / gel igienizzante</label></div>
+                        <div class="packing-item"><input type="checkbox" id="bag7"><label for="bag7">Bottiglia/borraccia</label></div>
+                        <div class="packing-item"><input type="checkbox" id="bag8"><label for="bag8">Snack energetici / barrette</label></div>
+                        <div class="packing-item"><input type="checkbox" id="bag9"><label for="bag9">Power bank</label></div>
+                        <div class="packing-item"><input type="checkbox" id="bag10"><label for="bag10">Cuffie</label></div>
                     </div>
 
-                    <div class="checklist-category">
-                        <h4>Abbigliamento</h4>
-                        <ul>
-                            <li>Giacca da sci impermeabile</li>
-                            <li>Pantaloni da sci impermeabili</li>
-                            <li>Intimo tecnico (vari strati)</li>
-                            <li>Guanti caldi + guanti di ricambio</li>
-                            <li>Casco</li>
-                            <li>Maschera da sci</li>
-                            <li>Occhiali da sole</li>
-                        </ul>
+                    <!-- Abbigliamento tecnico -->
+                    <div class="packing-category technical">
+                        <h5><span class="emoji">🧥</span> Abbigliamento tecnico (sci / snowboard)</h5>
+                        <div class="packing-item"><input type="checkbox" id="tech1"><label for="tech1">Giacca impermeabile e antivento</label></div>
+                        <div class="packing-item"><input type="checkbox" id="tech2"><label for="tech2">Pantaloni impermeabili</label></div>
+                        <div class="packing-item"><input type="checkbox" id="tech3"><label for="tech3">Intimo termico (2–3 cambi)</label></div>
+                        <div class="packing-item"><input type="checkbox" id="tech4"><label for="tech4">Mid layer caldo (pile / piumino leggero)</label></div>
+                        <div class="packing-item"><input type="checkbox" id="tech5"><label for="tech5">Calze tecniche (2–3 paia)</label></div>
+                        <div class="packing-item"><input type="checkbox" id="tech6"><label for="tech6">Guanti impermeabili</label></div>
+                        <div class="packing-item"><input type="checkbox" id="tech7"><label for="tech7">Sottoguanti <span class="note">(consigliati)</span></label></div>
+                        <div class="packing-item"><input type="checkbox" id="tech8"><label for="tech8">Berretto / passamontagna / buff</label></div>
+                        <div class="packing-item"><input type="checkbox" id="tech9"><label for="tech9">Casco</label></div>
+                        <div class="packing-item"><input type="checkbox" id="tech10"><label for="tech10">Scarponi (se propri)</label></div>
+                        <div class="packing-item"><input type="checkbox" id="tech11"><label for="tech11">Tavola / sci (se non noleggiati)</label></div>
                     </div>
 
-                    <div class="checklist-category">
-                        <h4>Accessori Utili</h4>
-                        <ul>
-                            <li>Crema solare alta protezione</li>
-                            <li>Burro cacao</li>
-                            <li>Borraccia termica</li>
-                            <li>Snack energetici</li>
-                            <li>Powerbank</li>
-                            <li>Fascia o buff per il viso</li>
-                        </ul>
+                    <!-- Sicurezza & gite -->
+                    <div class="packing-category safety">
+                        <h5><span class="emoji">🏔️</span> Sicurezza & gite</h5>
+                        <p style="font-size: 0.85em; color: #666; margin-bottom: 10px; font-style: italic;">Solo se partecipi a escursioni in ambiente innevato</p>
+                        <div class="packing-item"><input type="checkbox" id="safe1"><label for="safe1">ARTVA</label></div>
+                        <div class="packing-item"><input type="checkbox" id="safe2"><label for="safe2">Pala</label></div>
+                        <div class="packing-item"><input type="checkbox" id="safe3"><label for="safe3">Sonda</label></div>
+                        <div class="packing-item"><input type="checkbox" id="safe4"><label for="safe4">Zaino airbag <span class="note">(se disponibile)</span></label></div>
+                        <div class="packing-item"><input type="checkbox" id="safe5"><label for="safe5">Imbrago <span class="note">(se richiesto)</span></label></div>
+                        <div class="packing-item"><input type="checkbox" id="safe6"><label for="safe6">Ramponcini / coltelli <span class="note">(se previsti)</span></label></div>
+                        <div class="packing-item"><input type="checkbox" id="safe7"><label for="safe7">Guanti di ricambio</label></div>
+                        <div class="packing-item"><input type="checkbox" id="safe8"><label for="safe8">Thermos <span class="note">(super consigliato)</span></label></div>
+                    </div>
+
+                    <!-- Abbigliamento civile -->
+                    <div class="packing-category casual">
+                        <h5><span class="emoji">👕</span> Abbigliamento "civile" (tempo libero / sera)</h5>
+                        <div class="packing-item"><input type="checkbox" id="cas1"><label for="cas1">Scarpe calde e impermeabili</label></div>
+                        <div class="packing-item"><input type="checkbox" id="cas2"><label for="cas2">Pantaloni comodi</label></div>
+                        <div class="packing-item"><input type="checkbox" id="cas3"><label for="cas3">Maglioni / felpe calde</label></div>
+                        <div class="packing-item"><input type="checkbox" id="cas4"><label for="cas4">T-shirt</label></div>
+                        <div class="packing-item"><input type="checkbox" id="cas5"><label for="cas5">Intimo</label></div>
+                        <div class="packing-item"><input type="checkbox" id="cas6"><label for="cas6">Pigiama</label></div>
+                        <div class="packing-item"><input type="checkbox" id="cas7"><label for="cas7">Costume <span class="note">(sauna / hot tub 🔥)</span></label></div>
+                        <div class="packing-item"><input type="checkbox" id="cas8"><label for="cas8">Ciabatte</label></div>
+                    </div>
+
+                    <!-- Elettronica -->
+                    <div class="packing-category electronics">
+                        <h5><span class="emoji">🔌</span> Elettronica</h5>
+                        <div class="packing-item"><input type="checkbox" id="elec1"><label for="elec1">Smartphone</label></div>
+                        <div class="packing-item"><input type="checkbox" id="elec2"><label for="elec2">Caricatore</label></div>
+                        <div class="packing-item"><input type="checkbox" id="elec3"><label for="elec3">Power bank</label></div>
+                        <div class="packing-item"><input type="checkbox" id="elec4"><label for="elec4">Fotocamera / GoPro</label></div>
+                        <div class="packing-item"><input type="checkbox" id="elec5"><label for="elec5">Cavi vari</label></div>
+                        <div class="packing-item"><input type="checkbox" id="elec6"><label for="elec6">Adattatore prese <span class="note">(EU standard, come Italia)</span></label></div>
+                        <div class="packing-item"><input type="checkbox" id="elec7"><label for="elec7">Schede di memoria</label></div>
+                    </div>
+
+                    <!-- Igiene & salute -->
+                    <div class="packing-category hygiene">
+                        <h5><span class="emoji">🧴</span> Igiene & salute</h5>
+                        <div class="packing-item"><input type="checkbox" id="hyg1"><label for="hyg1">Spazzolino / dentifricio</label></div>
+                        <div class="packing-item"><input type="checkbox" id="hyg2"><label for="hyg2">Deodorante</label></div>
+                        <div class="packing-item"><input type="checkbox" id="hyg3"><label for="hyg3">Shampoo / docciaschiuma</label></div>
+                        <div class="packing-item"><input type="checkbox" id="hyg4"><label for="hyg4">Crema mani <span class="note">(freddo + vento)</span></label></div>
+                        <div class="packing-item"><input type="checkbox" id="hyg5"><label for="hyg5">Farmaci personali</label></div>
+                        <div class="packing-item"><input type="checkbox" id="hyg6"><label for="hyg6">Antidolorifici / cerotti</label></div>
+                        <div class="packing-item"><input type="checkbox" id="hyg7"><label for="hyg7">Cerotti per vesciche</label></div>
+                        <div class="packing-item"><input type="checkbox" id="hyg8"><label for="hyg8">Collirio <span class="note">(aria secca)</span></label></div>
+                    </div>
+
+                    <!-- Extra utili -->
+                    <div class="packing-category extras">
+                        <h5><span class="emoji">❄️</span> Extra super utili in Norvegia</h5>
+                        <div class="packing-item"><input type="checkbox" id="ext1"><label for="ext1">Thermos</label></div>
+                        <div class="packing-item"><input type="checkbox" id="ext2"><label for="ext2">Scaldamani</label></div>
+                        <div class="packing-item"><input type="checkbox" id="ext3"><label for="ext3">Lucina frontale</label></div>
+                        <div class="packing-item"><input type="checkbox" id="ext4"><label for="ext4">Zainetto pieghevole</label></div>
+                        <div class="packing-item"><input type="checkbox" id="ext5"><label for="ext5">Sacche impermeabili</label></div>
+                        <div class="packing-item"><input type="checkbox" id="ext6"><label for="ext6">Tappi per orecchie</label></div>
+                        <div class="packing-item"><input type="checkbox" id="ext7"><label for="ext7">Mascherina antivento</label></div>
+                        <div class="packing-item"><input type="checkbox" id="ext8"><label for="ext8">App meteo installate</label></div>
+                    </div>
+
+                    <!-- App consigliate -->
+                    <div class="packing-category apps">
+                        <h5><span class="emoji">📱</span> App consigliate (prima di partire)</h5>
+                        <div class="packing-item"><input type="checkbox" id="app1"><label for="app1">Google Maps (mappe offline)</label></div>
+                        <div class="packing-item"><input type="checkbox" id="app2"><label for="app2">Meteo (YR.no / Windy)</label></div>
+                        <div class="packing-item"><input type="checkbox" id="app3"><label for="app3">App compagnia aerea</label></div>
+                        <div class="packing-item"><input type="checkbox" id="app4"><label for="app4">Traduttore offline</label></div>
+                        <div class="packing-item"><input type="checkbox" id="app5"><label for="app5">App aurora boreale</label></div>
+                        <div class="packing-item"><input type="checkbox" id="app6"><label for="app6">App trasporti locali</label></div>
                     </div>
                 </div>
             </div>
 
             <!-- Info Utili -->
-            <div class="section">
-                <h2 class="section-title">Info Utili</h2>
+            <div class="section" id="info">
+                <h2 class="section-title"><span class="section-icon">ℹ️</span> Info Utili</h2>
 
                 <div class="info-box">
                     <h4>Da ricordare</h4>
@@ -966,8 +1442,8 @@
             </div>
 
             <!-- Link Utili -->
-            <div class="section">
-                <h2 class="section-title">Link Utili</h2>
+            <div class="section" id="link">
+                <h2 class="section-title"><span class="section-icon">🔗</span> Link Utili</h2>
 
                 <div class="links-grid">
                     <a href="https://join.settleup.app/HVCp4H6nmCefaBOGgC6B" target="_blank" class="link-card">
@@ -1073,6 +1549,175 @@
                 // Aggiorna il filtro
                 filters[type] = filter;
                 applyFilters();
+            });
+        });
+
+        // Packing List functionality
+        const STORAGE_KEY = 'norway-trip-packing-list';
+
+        function saveChecklistState() {
+            const checkboxes = document.querySelectorAll('.packing-item input[type="checkbox"]');
+            const state = {};
+            checkboxes.forEach(cb => {
+                state[cb.id] = cb.checked;
+            });
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        }
+
+        function loadChecklistState() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved) {
+                const state = JSON.parse(saved);
+                Object.keys(state).forEach(id => {
+                    const checkbox = document.getElementById(id);
+                    if (checkbox) {
+                        checkbox.checked = state[id];
+                        updateItemStyle(checkbox);
+                    }
+                });
+            }
+            updateProgress();
+        }
+
+        function updateItemStyle(checkbox) {
+            const item = checkbox.closest('.packing-item');
+            if (checkbox.checked) {
+                item.classList.add('checked');
+            } else {
+                item.classList.remove('checked');
+            }
+        }
+
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.packing-item input[type="checkbox"]');
+            const total = checkboxes.length;
+            const checked = Array.from(checkboxes).filter(cb => cb.checked).length;
+            const percentage = total > 0 ? (checked / total) * 100 : 0;
+
+            const progressBar = document.getElementById('packing-progress-bar');
+            const progressText = document.getElementById('packing-progress-text');
+
+            progressBar.style.width = percentage + '%';
+            progressText.textContent = `${checked} / ${total} completati`;
+
+            // Cambia colore in base al progresso
+            if (percentage === 100) {
+                progressBar.style.background = 'linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%)';
+            } else if (percentage > 50) {
+                progressBar.style.background = 'linear-gradient(135deg, #8BC34A 0%, #4CAF50 100%)';
+            } else {
+                progressBar.style.background = 'linear-gradient(135deg, #FFC107 0%, #FF9800 100%)';
+            }
+        }
+
+        function resetChecklist() {
+            if (confirm('Sei sicuro di voler resettare tutta la checklist?')) {
+                const checkboxes = document.querySelectorAll('.packing-item input[type="checkbox"]');
+                checkboxes.forEach(cb => {
+                    cb.checked = false;
+                    updateItemStyle(cb);
+                });
+                saveChecklistState();
+                updateProgress();
+            }
+        }
+
+        function checkAllItems() {
+            const checkboxes = document.querySelectorAll('.packing-item input[type="checkbox"]');
+            checkboxes.forEach(cb => {
+                cb.checked = true;
+                updateItemStyle(cb);
+            });
+            saveChecklistState();
+            updateProgress();
+        }
+
+        // Event listeners per i checkbox
+        document.querySelectorAll('.packing-item input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                updateItemStyle(this);
+                saveChecklistState();
+                updateProgress();
+            });
+        });
+
+        // Click su tutta la riga per toggle
+        document.querySelectorAll('.packing-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (e.target.tagName !== 'INPUT') {
+                    const checkbox = this.querySelector('input[type="checkbox"]');
+                    checkbox.checked = !checkbox.checked;
+                    updateItemStyle(checkbox);
+                    saveChecklistState();
+                    updateProgress();
+                }
+            });
+        });
+
+        // Carica lo stato salvato all'avvio
+        document.addEventListener('DOMContentLoaded', loadChecklistState);
+        loadChecklistState(); // Chiamata immediata per gestire il caso in cui DOMContentLoaded sia già avvenuto
+
+        // Navbar toggle per mobile
+        function toggleNavbar() {
+            const links = document.getElementById('navbar-links');
+            links.classList.toggle('open');
+        }
+
+        // Chiudi navbar quando si clicca su un link (mobile)
+        document.querySelectorAll('.navbar-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const links = document.getElementById('navbar-links');
+                links.classList.remove('open');
+            });
+        });
+
+        // Scroll spy - evidenzia link attivo nella navbar
+        function updateActiveNavLink() {
+            const sections = document.querySelectorAll('.section[id]');
+            const navLinks = document.querySelectorAll('.navbar-link');
+
+            let currentSection = 'top';
+            const scrollPos = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollPos >= sectionTop) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + currentSection) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Home attivo se siamo in cima
+            if (window.scrollY < 200) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                document.querySelector('.navbar-link[href="#top"]').classList.add('active');
+            }
+        }
+
+        window.addEventListener('scroll', updateActiveNavLink);
+        updateActiveNavLink();
+
+        // Smooth scroll per i link della navbar
+        document.querySelectorAll('.navbar-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                if (target) {
+                    const navbarHeight = 70;
+                    const targetPosition = target.offsetTop - navbarHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
