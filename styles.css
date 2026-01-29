@@ -1046,6 +1046,17 @@ footer p {
     opacity: 0.8;
 }
 
+/* Responsive - Web view (not mobile) */
+@media (min-width: 769px) {
+    .travel-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .travel-card.shuttle {
+        grid-column: span 2;
+    }
+}
+
 /* Responsive - Tablet */
 @media (max-width: 768px) {
     header h1 {
