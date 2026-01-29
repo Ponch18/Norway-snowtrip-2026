@@ -1016,15 +1016,6 @@ footer p {
         font-size: 1.8em;
     }
 
-    .flight-info {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .flight-arrow {
-        transform: rotate(90deg);
-    }
-
     .content {
         padding: 20px;
     }
@@ -1234,26 +1225,38 @@ footer p {
     }
 
     .filters {
-        padding: 15px;
+        padding: 12px;
         border-radius: 10px;
+        margin-bottom: 15px;
     }
 
     .filters-title {
         font-size: 0.9em;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
     }
 
     .filter-groups {
-        gap: 15px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .filter-group {
+        min-width: 100%;
     }
 
     .filter-group label {
         font-size: 0.8em;
+        margin-bottom: 6px;
+    }
+
+    .filter-buttons {
+        gap: 5px;
     }
 
     .filter-btn {
-        padding: 8px 12px;
-        font-size: 0.8em;
+        padding: 6px 10px;
+        font-size: 0.75em;
+        border-radius: 16px;
     }
 
     .trips-count {
