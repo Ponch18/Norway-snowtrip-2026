@@ -1,0 +1,129 @@
+[
+  {
+    "name": "Storgalten da Sandneset",
+    "lat": 69.9217656,
+    "lng": 20.19218909,
+    "url": "https://www.gulliver.it/itinerari/storgalten-da-sandneset-per-il-versante-ovest/",
+    "source": "Gulliver.it"
+  },
+  {
+    "name": "Stetinden da Sor Lenangen",
+    "lat": 69.87013969,
+    "lng": 20.20385742,
+    "url": "https://www.gulliver.it/itinerari/stetinden-da-sor-lenangen/",
+    "source": "Gulliver.it"
+  },
+  {
+    "name": "Steinfjellet da Botn",
+    "lat": 69.76494441,
+    "lng": 19.9848175,
+    "url": "https://www.gulliver.it/itinerari/steinfjellet-da-botn-in-sor-lenangen/",
+    "source": "Gulliver.it"
+  },
+  {
+    "name": "Rornesfjellet da Lyngseidet",
+    "lat": 69.56510603,
+    "lng": 20.07339477,
+    "url": "https://www.gulliver.it/itinerari/rornesfjellet-da-lyngseidet/#main",
+    "source": "Gulliver.it"
+  },
+  {
+    "name": "Fastdalstinden SE-S",
+    "lat": 69.57891642,
+    "lng": 20.23475646,
+    "url": "https://www.gulliver.it/itinerari/fastdalstinden-per-versante-se-s/",
+    "source": "Gulliver.it"
+  },
+  {
+    "name": "Sorbmegaisa (Oderdalen)",
+    "lat": 69.576101,
+    "lng": 20.217846,
+    "url": "https://www.gulliver.it/itinerari/sorbmegaisa-oderdalen-dal-kyofjord/#main",
+    "source": "Gulliver.it"
+  },
+  {
+    "name": "Fastdalstinden da Lyngen",
+    "lat": 69.575478,
+    "lng": 20.218836,
+    "url": "https://www.gulliver.it/itinerari/fastdalstindenda-lyngen/",
+    "source": "Gulliver.it"
+  },
+  {
+    "name": "Kavringtinden / Golsavarre",
+    "lat": 69.5762866,
+    "lng": 20.2188699,
+    "url": "https://www.gulliver.it/itinerari/kavringtinden-da-lyngseidet/",
+    "source": "Gulliver.it"
+  },
+  {
+    "name": "Rornestinden",
+    "lat": 69.5762866,
+    "lng": 20.2188699,
+    "url": "https://www.gulliver.it/itinerari/rornestinden-versante-se/",
+    "source": "Gulliver.it"
+  },
+  {
+    "name": "Giilavarri da Olderdalen",
+    "lat": 69.608054,
+    "lng": 20.526379,
+    "url": "https://www.gulliver.it/itinerari/giilavarri-da-olderdalen/",
+    "source": "Gulliver.it"
+  },
+  {
+    "name": "Rissavarri",
+    "lat": 69.675164,
+    "lng": 20.497925,
+    "url": "https://de.wikiloc.com/routen-skiwandern/rissavarri-16792946",
+    "source": "Wikiloc"
+  },
+  {
+    "name": "Storhaugen",
+    "lat": 69.745919,
+    "lng": 20.510063,
+    "url": "https://www.westcoastpeaks.com/Peaks/storhaugen.html",
+    "source": "Norwegian Mountains / Web Search"
+  },
+  {
+    "name": "Kjevagtinden da Havnnes",
+    "lat": 69.78820577,
+    "lng": 20.56726455,
+    "url": "https://www.gulliver.it/itinerari/kjevagtinden-da-havnnes/",
+    "source": "Gulliver.it"
+  },
+  {
+    "name": "Stortuva da Oldervik",
+    "lat": 69.74498568,
+    "lng": 19.67994689,
+    "url": "https://www.gulliver.it/itinerari/stortuva-da-oldervik/",
+    "source": "Gulliver.it"
+  },
+  {
+    "name": "Ullstinden da Snarbyeidet",
+    "lat": 69.77016858,
+    "lng": 19.55497741,
+    "url": "https://www.gulliver.it/itinerari/ullstinden-da-snarbyeidet/",
+    "source": "Gulliver.it"
+  },
+  {
+    "name": "Storfjellet (Breivikeidet)",
+    "lat": 69.63296347,
+    "lng": 19.41421508,
+    "url": "https://www.gulliver.it/itinerari/storfjellet-da-ponte-breivikeidet/",
+    "source": "Gulliver.it"
+  },
+  {
+    "name": "Stormheimfjellet",
+    "lat": 69.625072,
+    "lng": 19.595302,
+    "url": "https://www.wikiloc.com/back-country-skiing-trails/stormheimfjellet-1181-meters-791194",
+    "source": "Wikiloc"
+  },
+  {
+    "name": "Traccia 7 Ponch",
+    "lat": null,
+    "lng": null,
+    "url": "https://www.strava.com/routes/3401530418737577182",
+    "source": "Unable to extract - Strava requires authentication",
+    "note": "Coordinates could not be extracted from available sources"
+  }
+]

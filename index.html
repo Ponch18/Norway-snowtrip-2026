@@ -7,1432 +7,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <link rel="stylesheet" href="styles.css">
 
-        body {
-            font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            min-height: 100vh;
-            padding-top: 70px;
-            padding-left: 20px;
-            padding-right: 20px;
-            padding-bottom: 20px;
-            color: #333;
-        }
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 
-        /* Navbar */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(26, 26, 46, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 0 20px;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .navbar-container {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 60px;
-        }
-
-        .navbar-brand {
-            color: #00d4ff;
-            font-weight: bold;
-            font-size: 1.1em;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .navbar-brand:hover {
-            color: #fff;
-        }
-
-        .navbar-links {
-            display: flex;
-            gap: 5px;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-        }
-
-        .navbar-link {
-            color: #ccc;
-            text-decoration: none;
-            padding: 8px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
-
-        .navbar-link:hover {
-            background: rgba(0, 212, 255, 0.2);
-            color: #00d4ff;
-        }
-
-        .navbar-link.active {
-            background: #00d4ff;
-            color: #1a1a2e;
-        }
-
-        /* Mobile navbar */
-        .navbar-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: #00d4ff;
-            font-size: 1.5em;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        @media (max-width: 768px) {
-            .navbar-toggle {
-                display: block;
-            }
-
-            .navbar-links {
-                display: none;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                right: 0;
-                background: rgba(26, 26, 46, 0.98);
-                flex-direction: column;
-                padding: 15px;
-                gap: 5px;
-            }
-
-            .navbar-links.open {
-                display: flex;
-            }
-
-            .navbar-link {
-                padding: 12px 15px;
-                border-radius: 10px;
-            }
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 153, 204, 0.05) 100%);
-            padding: 30px;
-            border-bottom: 1px solid #e9ecef;
-        }
-
-        .hero-content {
-            max-width: 100%;
-        }
-
-        .hero-title {
-            font-size: 1.3em;
-            color: #0099cc;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .hero-text {
-            color: #555;
-            line-height: 1.7;
-            font-size: 0.95em;
-        }
-
-        .hero-text p {
-            margin-bottom: 12px;
-        }
-
-        .hero-text p:last-child {
-            margin-bottom: 0;
-        }
-
-        .hero-highlights {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .hero-highlight {
-            background: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            color: #0099cc;
-            border: 1px solid #e0f4ff;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        /* Section icon */
-        .section-icon {
-            font-size: 1.2em;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-        }
-
-        header {
-            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 50%, #006699 100%);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        header .dates {
-            font-size: 1.3em;
-            opacity: 0.95;
-            margin-bottom: 15px;
-        }
-
-        header .group-info {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 5px;
-        }
-
-        header .group-stat {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(5px);
-            padding: 12px 20px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.2s ease, background 0.2s ease;
-        }
-
-        header .group-stat:hover {
-            transform: translateY(-2px);
-            background: rgba(255, 255, 255, 0.25);
-        }
-
-        header .group-stat .stat-icon {
-            font-size: 1.5em;
-        }
-
-        header .group-stat .stat-content {
-            text-align: left;
-        }
-
-        header .group-stat .stat-number {
-            font-size: 1.4em;
-            font-weight: bold;
-            line-height: 1;
-        }
-
-        header .group-stat .stat-label {
-            font-size: 0.75em;
-            opacity: 0.9;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .content {
-            padding: 30px;
-        }
-
-        .section {
-            margin-bottom: 35px;
-        }
-
-        .section-title {
-            font-size: 1.5em;
-            color: #0099cc;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #00d4ff;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* Card Viaggi */
-        .travel-cards {
-            display: grid;
-            gap: 20px;
-        }
-
-        .travel-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 15px;
-            padding: 25px;
-            border-left: 5px solid #0099cc;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .travel-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 153, 204, 0.2);
-        }
-
-        .travel-card.outbound {
-            border-left-color: #4CAF50;
-        }
-
-        .travel-card.return {
-            border-left-color: #FF6B6B;
-        }
-
-        .travel-card.shuttle {
-            border-left-color: #FF9800;
-        }
-
-        .travel-card h3 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-
-        .flight-info {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .airport {
-            text-align: center;
-        }
-
-        .airport-code {
-            font-size: 1.8em;
-            font-weight: bold;
-            color: #0099cc;
-        }
-
-        .airport-name {
-            font-size: 0.9em;
-            color: #666;
-        }
-
-        .flight-arrow {
-            font-size: 2em;
-            color: #0099cc;
-        }
-
-        .flight-details {
-            background: white;
-            padding: 10px 15px;
-            border-radius: 10px;
-            font-size: 0.95em;
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: bold;
-            margin-right: 8px;
-        }
-
-        .tag-green {
-            background: #4CAF50;
-            color: white;
-        }
-
-        .tag-orange {
-            background: #FF9800;
-            color: white;
-        }
-
-        .tag-blue {
-            background: #2196F3;
-            color: white;
-        }
-
-        /* Gite */
-        .trips-grid {
-            display: grid;
-            gap: 15px;
-        }
-
-        .trip-card {
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-            border-radius: 12px;
-            padding: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .trip-card:hover {
-            transform: scale(1.02);
-        }
-
-        .trip-card h4 {
-            color: #1565c0;
-            margin-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .trip-card p {
-            color: #555;
-            font-size: 0.95em;
-        }
-
-        .trip-info {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 8px;
-        }
-
-        .trip-stat {
-            background: rgba(21, 101, 192, 0.1);
-            padding: 4px 10px;
-            border-radius: 15px;
-            font-size: 0.85em;
-            color: #1565c0;
-        }
-
-        .difficulty {
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.75em;
-            font-weight: bold;
-            color: white;
-        }
-
-        .difficulty-bs {
-            background: #4CAF50;
-        }
-
-        .difficulty-ms {
-            background: #FF9800;
-        }
-
-        .difficulty-os {
-            background: #f44336;
-        }
-
-        .difficulty-unknown {
-            background: #9e9e9e;
-        }
-
-        /* Link Gite */
-        .trip-links {
-            display: flex;
-            gap: 8px;
-            margin-top: 12px;
-            flex-wrap: wrap;
-        }
-
-        .trip-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 0.8em;
-            font-weight: 500;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .trip-link svg {
-            width: 16px;
-            height: 16px;
-            fill: currentColor;
-        }
-
-        .trip-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .trip-link.gulliver {
-            background: #2e7d32;
-            color: white;
-        }
-
-        .trip-link.wikiloc {
-            background: #1976d2;
-            color: white;
-        }
-
-        .trip-link.strava {
-            background: #fc4c02;
-            color: white;
-        }
-
-        .trip-link.garmin {
-            background: #007dbe;
-            color: white;
-        }
-
-        /* Filtri */
-        .filters {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .filters-title {
-            font-size: 1em;
-            color: #333;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .filter-groups {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .filter-group {
-            flex: 1;
-            min-width: 150px;
-        }
-
-        .filter-group label {
-            display: block;
-            font-size: 0.85em;
-            color: #666;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .filter-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .filter-btn {
-            padding: 6px 12px;
-            border: 2px solid #ddd;
-            background: white;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.85em;
-            transition: all 0.2s ease;
-        }
-
-        .filter-btn:hover {
-            border-color: #0099cc;
-            color: #0099cc;
-        }
-
-        .filter-btn.active {
-            background: #0099cc;
-            border-color: #0099cc;
-            color: white;
-        }
-
-        .filter-btn.active-bs {
-            background: #4CAF50;
-            border-color: #4CAF50;
-        }
-
-        .filter-btn.active-ms {
-            background: #FF9800;
-            border-color: #FF9800;
-        }
-
-        .filter-btn.active-os {
-            background: #f44336;
-            border-color: #f44336;
-        }
-
-        .trips-count {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 15px;
-            padding: 10px;
-            background: #e3f2fd;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .trip-card.hidden {
-            display: none;
-        }
-
-        /* Lista Materiale */
-        .checklist {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-
-        .checklist-category {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 20px;
-        }
-
-        .checklist-category h4 {
-            color: #0099cc;
-            margin-bottom: 12px;
-            font-size: 1.1em;
-        }
-
-        .checklist-category ul {
-            list-style: none;
-        }
-
-        .checklist-category li {
-            padding: 8px 0;
-            border-bottom: 1px solid #e9ecef;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .checklist-category li:last-child {
-            border-bottom: none;
-        }
-
-        .checklist-category li::before {
-            content: "☐";
-            font-size: 1.2em;
-        }
-
-        /* Packing List Interattiva */
-        .packing-section {
-            margin-bottom: 25px;
-        }
-
-        .packing-section h4 {
-            color: #0099cc;
-            margin-bottom: 15px;
-            font-size: 1.1em;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .packing-section h4 .emoji {
-            font-size: 1.3em;
-        }
-
-        .packing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .packing-category {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 20px;
-            border-left: 4px solid #0099cc;
-        }
-
-        .packing-category.documents { border-left-color: #4CAF50; }
-        .packing-category.backpack { border-left-color: #FF9800; }
-        .packing-category.technical { border-left-color: #2196F3; }
-        .packing-category.safety { border-left-color: #f44336; }
-        .packing-category.casual { border-left-color: #9C27B0; }
-        .packing-category.electronics { border-left-color: #00BCD4; }
-        .packing-category.hygiene { border-left-color: #E91E63; }
-        .packing-category.extras { border-left-color: #607D8B; }
-        .packing-category.apps { border-left-color: #673AB7; }
-
-        .packing-category h5 {
-            color: #333;
-            margin-bottom: 12px;
-            font-size: 1em;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .packing-item {
-            display: flex;
-            align-items: center;
-            padding: 8px 0;
-            border-bottom: 1px solid #e9ecef;
-            cursor: pointer;
-            transition: background 0.2s ease;
-        }
-
-        .packing-item:last-child {
-            border-bottom: none;
-        }
-
-        .packing-item:hover {
-            background: rgba(0, 153, 204, 0.05);
-            margin: 0 -10px;
-            padding-left: 10px;
-            padding-right: 10px;
-            border-radius: 6px;
-        }
-
-        .packing-item input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            margin-right: 12px;
-            cursor: pointer;
-            accent-color: #0099cc;
-        }
-
-        .packing-item label {
-            cursor: pointer;
-            flex: 1;
-            font-size: 0.95em;
-            color: #333;
-        }
-
-        .packing-item.checked label {
-            text-decoration: line-through;
-            color: #999;
-        }
-
-        .packing-item .note {
-            font-size: 0.8em;
-            color: #888;
-            font-style: italic;
-        }
-
-        .packing-progress {
-            background: #e9ecef;
-            border-radius: 20px;
-            height: 24px;
-            overflow: hidden;
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        .packing-progress-bar {
-            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
-            height: 100%;
-            border-radius: 20px;
-            transition: width 0.3s ease;
-        }
-
-        .packing-progress-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 0.85em;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .packing-actions {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .packing-btn {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.9em;
-            transition: all 0.2s ease;
-        }
-
-        .packing-btn.reset {
-            background: #f44336;
-            color: white;
-        }
-
-        .packing-btn.reset:hover {
-            background: #d32f2f;
-        }
-
-        .packing-btn.check-all {
-            background: #4CAF50;
-            color: white;
-        }
-
-        .packing-btn.check-all:hover {
-            background: #388E3C;
-        }
-
-        /* Info Box */
-        .info-box {
-            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-            border: 2px solid #FF9800;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .info-box.weather {
-            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
-            border-color: #03a9f4;
-        }
-
-        .info-box h4 {
-            color: #e65100;
-            margin-bottom: 10px;
-        }
-
-        .info-box.weather h4 {
-            color: #0277bd;
-        }
-
-        /* Weather Section Enhanced */
-        .weather-intro {
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 20px;
-            border-left: 5px solid #1976d2;
-        }
-
-        .weather-intro p {
-            color: #333;
-            line-height: 1.7;
-            margin-bottom: 10px;
-        }
-
-        .weather-intro p:last-child {
-            margin-bottom: 0;
-        }
-
-        .weather-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .weather-card {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 20px;
-            border-top: 4px solid #1976d2;
-        }
-
-        .weather-card.temperature { border-top-color: #e91e63; }
-        .weather-card.precipitation { border-top-color: #00bcd4; }
-        .weather-card.light { border-top-color: #ffc107; }
-        .weather-card.apps { border-top-color: #9c27b0; }
-
-        .weather-card h4 {
-            color: #333;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 1.1em;
-        }
-
-        .weather-card ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .weather-card li {
-            padding: 8px 0;
-            border-bottom: 1px solid #e9ecef;
-            color: #555;
-            line-height: 1.5;
-        }
-
-        .weather-card li:last-child {
-            border-bottom: none;
-        }
-
-        .weather-card p {
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-
-        .weather-card p:last-child {
-            margin-bottom: 0;
-        }
-
-        .weather-stats {
-            display: flex;
-            gap: 15px;
-            margin: 15px 0;
-            flex-wrap: wrap;
-        }
-
-        .weather-stat {
-            background: white;
-            padding: 12px 18px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-
-        .weather-stat .value {
-            font-size: 1.4em;
-            font-weight: bold;
-            color: #1976d2;
-        }
-
-        .weather-stat .label {
-            font-size: 0.8em;
-            color: #666;
-            text-transform: uppercase;
-        }
-
-        .weather-note {
-            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-            border: 2px solid #ff9800;
-            border-radius: 12px;
-            padding: 15px 20px;
-            margin-top: 20px;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-        }
-
-        .weather-note .note-icon {
-            font-size: 1.3em;
-        }
-
-        .weather-note p {
-            margin: 0;
-            color: #e65100;
-            font-size: 0.95em;
-            line-height: 1.5;
-        }
-
-        .app-list {
-            display: grid;
-            gap: 10px;
-        }
-
-        .app-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px;
-            background: white;
-            border-radius: 8px;
-            transition: transform 0.2s ease;
-        }
-
-        .app-item:hover {
-            transform: translateX(5px);
-        }
-
-        .app-item .app-name {
-            font-weight: 600;
-            color: #333;
-        }
-
-        .app-item .app-desc {
-            font-size: 0.85em;
-            color: #666;
-        }
-
-        /* Link Utili */
-        .links-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .link-card {
-            background: linear-gradient(135deg, #0099cc 0%, #006699 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            text-decoration: none;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .link-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 153, 204, 0.4);
-        }
-
-        .link-card .icon {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-
-        .link-card span {
-            font-weight: bold;
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-            text-align: center;
-            padding: 25px;
-        }
-
-        footer p {
-            opacity: 0.8;
-        }
-
-        /* Responsive - Tablet */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8em;
-            }
-
-            .flight-info {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .flight-arrow {
-                transform: rotate(90deg);
-            }
-
-            .content {
-                padding: 20px;
-            }
-
-            .hero {
-                padding: 20px;
-            }
-
-            .hero-highlights {
-                justify-content: center;
-            }
-
-            .weather-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .weather-stats {
-                justify-content: center;
-            }
-
-            .packing-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .links-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* Responsive - Mobile */
-        @media (max-width: 480px) {
-            body {
-                padding-top: 65px;
-                padding-left: 8px;
-                padding-right: 8px;
-                padding-bottom: 10px;
-            }
-
-            .container {
-                border-radius: 15px;
-            }
-
-            header {
-                padding: 20px 15px;
-            }
-
-            header h1 {
-                font-size: 1.4em;
-                line-height: 1.2;
-            }
-
-            header .dates {
-                font-size: 1em;
-            }
-
-            .navbar {
-                padding: 0 10px;
-            }
-
-            .navbar-container {
-                height: 55px;
-            }
-
-            .navbar-brand {
-                font-size: 0.95em;
-            }
-
-            .navbar-links {
-                top: 55px;
-                padding: 10px;
-                max-height: 70vh;
-                overflow-y: auto;
-            }
-
-            .navbar-link {
-                padding: 14px 15px;
-                font-size: 0.95em;
-                border-radius: 8px;
-                background: rgba(255,255,255,0.05);
-            }
-
-            .navbar-link:active {
-                background: rgba(0, 212, 255, 0.3);
-            }
-
-            .hero {
-                padding: 15px;
-            }
-
-            .hero-title {
-                font-size: 1.1em;
-            }
-
-            .hero-text {
-                font-size: 0.9em;
-            }
-
-            .hero-text p {
-                margin-bottom: 10px;
-            }
-
-            .hero-highlights {
-                gap: 8px;
-                margin-top: 15px;
-            }
-
-            .hero-highlight {
-                padding: 6px 12px;
-                font-size: 0.8em;
-            }
-
-            .content {
-                padding: 15px;
-            }
-
-            .section {
-                margin-bottom: 25px;
-            }
-
-            .section-title {
-                font-size: 1.15em;
-                padding-bottom: 8px;
-                gap: 8px;
-            }
-
-            .section-icon {
-                font-size: 1.1em;
-            }
-
-            .travel-card {
-                padding: 15px;
-                border-radius: 12px;
-            }
-
-            .travel-card h3 {
-                font-size: 1em;
-                margin-bottom: 12px;
-            }
-
-            .airport-code {
-                font-size: 1.4em;
-            }
-
-            .airport-name {
-                font-size: 0.8em;
-            }
-
-            .flight-arrow {
-                font-size: 1.5em;
-                margin: 10px 0;
-            }
-
-            .tag {
-                font-size: 0.75em;
-                padding: 4px 10px;
-            }
-
-            .trip-card {
-                padding: 15px;
-                border-radius: 10px;
-            }
-
-            .trip-card h4 {
-                font-size: 0.95em;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 6px;
-            }
-
-            .trip-info {
-                gap: 6px;
-            }
-
-            .trip-stat {
-                font-size: 0.8em;
-                padding: 3px 8px;
-            }
-
-            .difficulty {
-                font-size: 0.7em;
-            }
-
-            .trip-links {
-                margin-top: 10px;
-                gap: 6px;
-            }
-
-            .trip-link {
-                padding: 8px 10px;
-                font-size: 0.75em;
-            }
-
-            .trip-link svg {
-                width: 14px;
-                height: 14px;
-            }
-
-            .filters {
-                padding: 15px;
-                border-radius: 10px;
-            }
-
-            .filters-title {
-                font-size: 0.9em;
-                margin-bottom: 12px;
-            }
-
-            .filter-groups {
-                gap: 15px;
-            }
-
-            .filter-group label {
-                font-size: 0.8em;
-            }
-
-            .filter-btn {
-                padding: 8px 12px;
-                font-size: 0.8em;
-            }
-
-            .trips-count {
-                font-size: 0.85em;
-                padding: 8px;
-            }
-
-            .weather-intro {
-                padding: 15px;
-                border-radius: 12px;
-            }
-
-            .weather-intro p {
-                font-size: 0.9em;
-            }
-
-            .weather-stats {
-                gap: 10px;
-            }
-
-            .weather-stat {
-                padding: 10px 14px;
-                flex: 1;
-                min-width: 90px;
-            }
-
-            .weather-stat .value {
-                font-size: 1.1em;
-            }
-
-            .weather-stat .label {
-                font-size: 0.7em;
-            }
-
-            .weather-card {
-                padding: 15px;
-                border-radius: 10px;
-            }
-
-            .weather-card h4 {
-                font-size: 1em;
-                margin-bottom: 12px;
-            }
-
-            .weather-card li {
-                font-size: 0.9em;
-                padding: 6px 0;
-            }
-
-            .app-item {
-                padding: 8px;
-            }
-
-            .app-item .app-name {
-                font-size: 0.9em;
-            }
-
-            .app-item .app-desc {
-                font-size: 0.8em;
-            }
-
-            .weather-note {
-                padding: 12px 15px;
-                border-radius: 10px;
-                gap: 10px;
-            }
-
-            .weather-note p {
-                font-size: 0.85em;
-            }
-
-            .packing-progress {
-                height: 28px;
-                border-radius: 14px;
-            }
-
-            .packing-progress-text {
-                font-size: 0.8em;
-            }
-
-            .packing-actions {
-                gap: 8px;
-            }
-
-            .packing-btn {
-                padding: 10px 16px;
-                font-size: 0.85em;
-                flex: 1;
-                text-align: center;
-            }
-
-            .packing-category {
-                padding: 15px;
-                border-radius: 10px;
-            }
-
-            .packing-category h5 {
-                font-size: 0.95em;
-                margin-bottom: 10px;
-            }
-
-            .packing-item {
-                padding: 10px 0;
-            }
-
-            .packing-item input[type="checkbox"] {
-                width: 22px;
-                height: 22px;
-                margin-right: 10px;
-            }
-
-            .packing-item label {
-                font-size: 0.9em;
-            }
-
-            .packing-item .note {
-                font-size: 0.75em;
-            }
-
-            .info-box {
-                padding: 15px;
-                border-radius: 10px;
-            }
-
-            .info-box h4 {
-                font-size: 1em;
-            }
-
-            .info-box ul {
-                font-size: 0.9em;
-                margin-left: 15px;
-                line-height: 1.6;
-            }
-
-            .links-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-
-            .link-card {
-                padding: 15px 10px;
-                border-radius: 10px;
-            }
-
-            .link-card .icon {
-                font-size: 1.5em;
-                margin-bottom: 6px;
-            }
-
-            .link-card span {
-                font-size: 0.85em;
-            }
-
-            .link-card p {
-                font-size: 0.75em !important;
-                margin-top: 3px !important;
-            }
-
-            footer {
-                padding: 20px 15px;
-            }
-
-            footer p {
-                font-size: 0.9em;
-            }
-        }
-
-        /* Responsive - Extra small */
-        @media (max-width: 360px) {
-            header h1 {
-                font-size: 1.25em;
-            }
-
-            .section-title {
-                font-size: 1.05em;
-            }
-
-            .weather-stat {
-                min-width: 80px;
-                padding: 8px 10px;
-            }
-
-            .weather-stat .value {
-                font-size: 1em;
-            }
-
-            .links-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .packing-item label {
-                font-size: 0.85em;
-            }
-
-            .hero-highlight {
-                padding: 5px 10px;
-                font-size: 0.75em;
-            }
-        }
-    </style>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
 <body>
     <!-- Navbar -->
@@ -1443,6 +24,7 @@
             <div class="navbar-links" id="navbar-links">
                 <a href="#top" class="navbar-link">Home</a>
                 <a href="#voli" class="navbar-link">Voli</a>
+                <a href="#mappa" class="navbar-link">Mappa</a>
                 <a href="#gite" class="navbar-link">Gite</a>
                 <a href="#meteo" class="navbar-link">Meteo</a>
                 <a href="#checklist" class="navbar-link">Checklist</a>
@@ -1527,7 +109,22 @@
                             <span class="tag tag-green">EasyJet 3976</span>
                         </div>
                     </div>
+
+                    <div class="travel-card shuttle" style="border-left: 4px solid #9b59b6;">
+                        <h3>🚗 Noleggio Auto</h3>
+                        <p style="margin-bottom: 10px;">All'arrivo a <strong>Tromsø</strong> il 21 Marzo, ritireremo le auto a noleggio per gli spostamenti durante la settimana.</p>
+                        <p>Le auto dovranno essere <strong>riconsegnate</strong> il 28 Marzo prima del volo di ritorno (partenza ore 18:25).</p>
+                    </div>
                 </div>
+            </div>
+
+            <!-- Sezione Mappa -->
+            <div class="section" id="mappa">
+                <h2 class="section-title"><span class="section-icon">🗺️</span> Mappa delle Gite</h2>
+
+                <p class="map-intro">Tutti i punti di partenza delle gite nelle Lyngen Alps. I numeri sui marker blu corrispondono alla numerazione delle gite sotto. Il marker verde 🏠 indica la casa/alloggio. Clicca sui marker per maggiori informazioni!</p>
+
+                <div id="map"></div>
             </div>
 
             <!-- Sezione Gite -->
@@ -1573,7 +170,7 @@
 
                 <div class="trips-grid" id="trips-grid">
                     <div class="trip-card" data-difficulty="os" data-elevation="1330" data-exposure="ovest">
-                        <h4>Storgalten da Sandneset <span class="difficulty difficulty-os">BS/OS</span></h4>
+                        <h4><span class="trip-number">1</span>Storgalten da Sandneset <span class="difficulty difficulty-os">BS/OS</span></h4>
                         <div class="trip-info">
                             <span class="trip-stat">+1330 m</span>
                             <span class="trip-stat">11.5 km</span>
@@ -1587,7 +184,7 @@
                     </div>
 
                     <div class="trip-card" data-difficulty="bs" data-elevation="1200" data-exposure="ovest">
-                        <h4>Stetinden da Sor Lenangen <span class="difficulty difficulty-bs">BS</span></h4>
+                        <h4><span class="trip-number">2</span>Stetinden da Sor Lenangen <span class="difficulty difficulty-bs">BS</span></h4>
                         <div class="trip-info">
                             <span class="trip-stat">+1200 m</span>
                             <span class="trip-stat">12.5 km</span>
@@ -1601,7 +198,7 @@
                     </div>
 
                     <div class="trip-card" data-difficulty="bs" data-elevation="1115" data-exposure="nord">
-                        <h4>Steinfjellet da Botn <span class="difficulty difficulty-bs">BS</span></h4>
+                        <h4><span class="trip-number">3</span>Steinfjellet da Botn <span class="difficulty difficulty-bs">BS</span></h4>
                         <div class="trip-info">
                             <span class="trip-stat">+1115 m</span>
                             <span class="trip-stat">6.2 km</span>
@@ -1615,7 +212,7 @@
                     </div>
 
                     <div class="trip-card" data-difficulty="bs" data-elevation="1050" data-exposure="nord">
-                        <h4>Rornesfjellet da Lyngseidet <span class="difficulty difficulty-bs">BS</span></h4>
+                        <h4><span class="trip-number">4</span>Rornesfjellet da Lyngseidet <span class="difficulty difficulty-bs">BS</span></h4>
                         <div class="trip-info">
                             <span class="trip-stat">+1050 m</span>
                             <span class="trip-stat">11.6 km</span>
@@ -1629,7 +226,7 @@
                     </div>
 
                     <div class="trip-card" data-difficulty="bs" data-elevation="1250" data-exposure="sud">
-                        <h4>Fastdalstinden SE-S <span class="difficulty difficulty-bs">BS</span></h4>
+                        <h4><span class="trip-number">5</span>Fastdalstinden SE-S <span class="difficulty difficulty-bs">BS</span></h4>
                         <div class="trip-info">
                             <span class="trip-stat">+1250 m</span>
                             <span class="trip-stat">11.8 km</span>
@@ -1642,7 +239,7 @@
                     </div>
 
                     <div class="trip-card" data-difficulty="bs" data-elevation="1238" data-exposure="ovest">
-                        <h4>Sorbmegaisa (Oderdalen) <span class="difficulty difficulty-bs">BS</span></h4>
+                        <h4><span class="trip-number">6</span>Sorbmegaisa (Oderdalen) <span class="difficulty difficulty-bs">BS</span></h4>
                         <div class="trip-info">
                             <span class="trip-stat">+1238 m</span>
                             <span class="trip-stat">Esp. Ovest</span>
@@ -1653,7 +250,7 @@
                     </div>
 
                     <div class="trip-card" data-difficulty="bs" data-elevation="1160" data-exposure="sud">
-                        <h4>Fastdalstinden da Lyngen <span class="difficulty difficulty-bs">BS</span></h4>
+                        <h4><span class="trip-number">7</span>Fastdalstinden da Lyngen <span class="difficulty difficulty-bs">BS</span></h4>
                         <div class="trip-info">
                             <span class="trip-stat">+1160 m</span>
                             <span class="trip-stat">11.5 km</span>
@@ -1666,7 +263,7 @@
                     </div>
 
                     <div class="trip-card" data-difficulty="bs" data-elevation="1200" data-exposure="nord">
-                        <h4>Kavringtinden / Golsavarre <span class="difficulty difficulty-bs">BS</span></h4>
+                        <h4><span class="trip-number">8</span>Kavringtinden / Golsavarre <span class="difficulty difficulty-bs">BS</span></h4>
                         <div class="trip-info">
                             <span class="trip-stat">+1200 m</span>
                             <span class="trip-stat">12.7 km</span>
@@ -1681,7 +278,7 @@
                     </div>
 
                     <div class="trip-card" data-difficulty="bs" data-elevation="950" data-exposure="sud">
-                        <h4>Rornestinden <span class="difficulty difficulty-bs">BS</span></h4>
+                        <h4><span class="trip-number">9</span>Rornestinden <span class="difficulty difficulty-bs">BS</span></h4>
                         <div class="trip-info">
                             <span class="trip-stat">+950 m</span>
                             <span class="trip-stat">10.0 km</span>
@@ -1694,7 +291,7 @@
                     </div>
 
                     <div class="trip-card" data-difficulty="bs" data-elevation="1163" data-exposure="sud">
-                        <h4>Giilavarri da Olderdalen <span class="difficulty difficulty-bs">BS</span></h4>
+                        <h4><span class="trip-number">10</span>Giilavarri da Olderdalen <span class="difficulty difficulty-bs">BS</span></h4>
                         <div class="trip-info">
                             <span class="trip-stat">+1163 m</span>
                             <span class="trip-stat">9.8 km</span>
@@ -1708,7 +305,7 @@
                     </div>
 
                     <div class="trip-card" data-difficulty="unknown" data-elevation="1250" data-exposure="sud">
-                        <h4>Rissavarri <span class="difficulty difficulty-unknown">?</span></h4>
+                        <h4><span class="trip-number">11</span>Rissavarri <span class="difficulty difficulty-unknown">?</span></h4>
                         <div class="trip-info">
                             <span class="trip-stat">+1250 m</span>
                             <span class="trip-stat">10.0 km</span>
@@ -1721,7 +318,7 @@
                     </div>
 
                     <div class="trip-card" data-difficulty="unknown" data-elevation="1200" data-exposure="other">
-                        <h4>Storhaugen <span class="difficulty difficulty-unknown">?</span></h4>
+                        <h4><span class="trip-number">12</span>Storhaugen <span class="difficulty difficulty-unknown">?</span></h4>
                         <div class="trip-info">
                             <span class="trip-stat">+1200 m</span>
                             <span class="trip-stat">12.4 km</span>
@@ -1733,7 +330,7 @@
                     </div>
 
                     <div class="trip-card" data-difficulty="ms" data-elevation="1104" data-exposure="sud">
-                        <h4>Kjevagtinden da Havnnes <span class="difficulty difficulty-ms">MS</span></h4>
+                        <h4><span class="trip-number">13</span>Kjevagtinden da Havnnes <span class="difficulty difficulty-ms">MS</span></h4>
                         <div class="trip-info">
                             <span class="trip-stat">+1104 m</span>
                             <span class="trip-stat">10.3 km</span>
@@ -1747,7 +344,7 @@
                     </div>
 
                     <div class="trip-card" data-difficulty="ms" data-elevation="1105" data-exposure="nord">
-                        <h4>Stortuva da Oldervik <span class="difficulty difficulty-ms">MS</span></h4>
+                        <h4><span class="trip-number">14</span>Stortuva da Oldervik <span class="difficulty difficulty-ms">MS</span></h4>
                         <div class="trip-info">
                             <span class="trip-stat">+1105 m</span>
                             <span class="trip-stat">14.7 km</span>
@@ -1761,7 +358,7 @@
                     </div>
 
                     <div class="trip-card" data-difficulty="ms" data-elevation="980" data-exposure="sud">
-                        <h4>Ullstinden da Snarbyeidet <span class="difficulty difficulty-ms">MS</span></h4>
+                        <h4><span class="trip-number">15</span>Ullstinden da Snarbyeidet <span class="difficulty difficulty-ms">MS</span></h4>
                         <div class="trip-info">
                             <span class="trip-stat">+980 m</span>
                             <span class="trip-stat">10.5 km</span>
@@ -1775,7 +372,7 @@
                     </div>
 
                     <div class="trip-card" data-difficulty="bs" data-elevation="1150" data-exposure="ovest">
-                        <h4>Storfjellet (Breivikeidet) <span class="difficulty difficulty-bs">BS</span></h4>
+                        <h4><span class="trip-number">16</span>Storfjellet (Breivikeidet) <span class="difficulty difficulty-bs">BS</span></h4>
                         <div class="trip-info">
                             <span class="trip-stat">+1150 m</span>
                             <span class="trip-stat">12.2 km</span>
@@ -1788,7 +385,7 @@
                     </div>
 
                     <div class="trip-card" data-difficulty="unknown" data-elevation="1050" data-exposure="other">
-                        <h4>Stormheimfjellet <span class="difficulty difficulty-unknown">?</span></h4>
+                        <h4><span class="trip-number">17</span>Stormheimfjellet <span class="difficulty difficulty-unknown">?</span></h4>
                         <div class="trip-info">
                             <span class="trip-stat">+1050 m</span>
                             <span class="trip-stat">12.3 km</span>
@@ -1800,7 +397,7 @@
                     </div>
 
                     <div class="trip-card" data-difficulty="unknown" data-elevation="700" data-exposure="other">
-                        <h4>Traccia 7 Ponch <span class="difficulty difficulty-unknown">?</span></h4>
+                        <h4><span class="trip-number">18</span>Traccia 7 Ponch <span class="difficulty difficulty-unknown">?</span></h4>
                         <div class="trip-info">
                             <span class="trip-stat">+700 m</span>
                             <span class="trip-stat">9.4 km</span>
@@ -1821,7 +418,6 @@
                     </p>
                 </div>
 
-                <p style="margin-top: 15px; font-style: italic; color: #888;">Consulta la mappa per vedere tutti i punti di partenza delle gite!</p>
             </div>
 
             <!-- Sezione Meteo -->
@@ -1923,135 +519,125 @@
             <div class="section" id="checklist">
                 <h2 class="section-title"><span class="section-icon">🎒</span> Checklist di Viaggio & Packing List</h2>
 
-                <div class="packing-progress">
-                    <div class="packing-progress-bar" id="packing-progress-bar" style="width: 0%"></div>
-                    <span class="packing-progress-text" id="packing-progress-text">0 / 0 completati</span>
-                </div>
-
-                <div class="packing-actions">
-                    <button class="packing-btn check-all" onclick="checkAllItems()">Seleziona tutto</button>
-                    <button class="packing-btn reset" onclick="resetChecklist()">Reset checklist</button>
-                </div>
-
                 <div class="packing-grid">
                     <!-- Documenti & pratiche -->
                     <div class="packing-category documents">
                         <h5><span class="emoji">📄</span> Documenti & pratiche</h5>
-                        <div class="packing-item"><input type="checkbox" id="doc1"><label for="doc1">Carta d'identità valida per espatrio (o passaporto)</label></div>
-                        <div class="packing-item"><input type="checkbox" id="doc2"><label for="doc2">Tessera sanitaria europea (TEAM)</label></div>
-                        <div class="packing-item"><input type="checkbox" id="doc3"><label for="doc3">Assicurazione viaggio / sport invernali</label></div>
-                        <div class="packing-item"><input type="checkbox" id="doc4"><label for="doc4">Biglietti aerei (digitale + offline)</label></div>
-                        <div class="packing-item"><input type="checkbox" id="doc5"><label for="doc5">Prenotazioni alloggi / attività</label></div>
-                        <div class="packing-item"><input type="checkbox" id="doc6"><label for="doc6">Patente (se si guida)</label></div>
-                        <div class="packing-item"><input type="checkbox" id="doc7"><label for="doc7">Carta di credito <span class="note">(molto usata, contanti quasi inutili)</span></label></div>
-                        <div class="packing-item"><input type="checkbox" id="doc8"><label for="doc8">Copie digitali dei documenti (cloud / telefono)</label></div>
+                        <div class="packing-item">• Carta d'identità valida per espatrio (o passaporto)</div>
+                        <div class="packing-item">• Tessera sanitaria europea (TEAM)</div>
+                        <div class="packing-item">• Assicurazione viaggio / sport invernali</div>
+                        <div class="packing-item">• Biglietti aerei (digitale + offline)</div>
+                        <div class="packing-item">• Prenotazioni alloggi / attività</div>
+                        <div class="packing-item">• Patente (se si guida)</div>
+                        <div class="packing-item">• Carta di credito <span class="note">(molto usata, contanti quasi inutili)</span></div>
+                        <div class="packing-item">• Copie digitali dei documenti (cloud / telefono)</div>
                     </div>
 
                     <!-- Zaino / bagaglio a mano -->
                     <div class="packing-category backpack">
                         <h5><span class="emoji">🎒</span> Zaino / bagaglio a mano</h5>
-                        <div class="packing-item"><input type="checkbox" id="bag1"><label for="bag1">Zaino giornaliero (20–30 L)</label></div>
-                        <div class="packing-item"><input type="checkbox" id="bag2"><label for="bag2">Occhiali da sole</label></div>
-                        <div class="packing-item"><input type="checkbox" id="bag3"><label for="bag3">Mascherina da sci</label></div>
-                        <div class="packing-item"><input type="checkbox" id="bag4"><label for="bag4">Crema solare <span class="note">(riflesso neve!)</span></label></div>
-                        <div class="packing-item"><input type="checkbox" id="bag5"><label for="bag5">Burrocacao</label></div>
-                        <div class="packing-item"><input type="checkbox" id="bag6"><label for="bag6">Salviettine / gel igienizzante</label></div>
-                        <div class="packing-item"><input type="checkbox" id="bag7"><label for="bag7">Bottiglia/borraccia</label></div>
-                        <div class="packing-item"><input type="checkbox" id="bag8"><label for="bag8">Snack energetici / barrette</label></div>
-                        <div class="packing-item"><input type="checkbox" id="bag9"><label for="bag9">Power bank</label></div>
-                        <div class="packing-item"><input type="checkbox" id="bag10"><label for="bag10">Cuffie</label></div>
+                        <div class="packing-item">• Zaino giornaliero (20–30 L)</div>
+                        <div class="packing-item">• Occhiali da sole</div>
+                        <div class="packing-item">• Mascherina da sci</div>
+                        <div class="packing-item">• Crema solare <span class="note">(riflesso neve!)</span></div>
+                        <div class="packing-item">• Burrocacao</div>
+                        <div class="packing-item">• Salviettine / gel igienizzante</div>
+                        <div class="packing-item">• Bottiglia/borraccia</div>
+                        <div class="packing-item">• Snack energetici / barrette</div>
+                        <div class="packing-item">• Power bank</div>
+                        <div class="packing-item">• Cuffie</div>
                     </div>
 
                     <!-- Abbigliamento tecnico -->
                     <div class="packing-category technical">
                         <h5><span class="emoji">🧥</span> Abbigliamento tecnico (sci / snowboard)</h5>
-                        <div class="packing-item"><input type="checkbox" id="tech1"><label for="tech1">Giacca impermeabile e antivento</label></div>
-                        <div class="packing-item"><input type="checkbox" id="tech2"><label for="tech2">Pantaloni impermeabili</label></div>
-                        <div class="packing-item"><input type="checkbox" id="tech3"><label for="tech3">Intimo termico (2–3 cambi)</label></div>
-                        <div class="packing-item"><input type="checkbox" id="tech4"><label for="tech4">Mid layer caldo (pile / piumino leggero)</label></div>
-                        <div class="packing-item"><input type="checkbox" id="tech5"><label for="tech5">Calze tecniche (2–3 paia)</label></div>
-                        <div class="packing-item"><input type="checkbox" id="tech6"><label for="tech6">Guanti impermeabili</label></div>
-                        <div class="packing-item"><input type="checkbox" id="tech7"><label for="tech7">Sottoguanti <span class="note">(consigliati)</span></label></div>
-                        <div class="packing-item"><input type="checkbox" id="tech8"><label for="tech8">Berretto / passamontagna / buff</label></div>
-                        <div class="packing-item"><input type="checkbox" id="tech9"><label for="tech9">Casco</label></div>
-                        <div class="packing-item"><input type="checkbox" id="tech10"><label for="tech10">Scarponi (se propri)</label></div>
-                        <div class="packing-item"><input type="checkbox" id="tech11"><label for="tech11">Tavola / sci (se non noleggiati)</label></div>
+                        <div class="packing-item">• Giacca impermeabile e antivento</div>
+                        <div class="packing-item">• Pantaloni impermeabili</div>
+                        <div class="packing-item">• Intimo termico (2–3 cambi)</div>
+                        <div class="packing-item">• Mid layer caldo (pile / piumino leggero)</div>
+                        <div class="packing-item">• Calze tecniche (2–3 paia)</div>
+                        <div class="packing-item">• Guanti impermeabili</div>
+                        <div class="packing-item">• Sottoguanti <span class="note">(consigliati)</span></div>
+                        <div class="packing-item">• Berretto / passamontagna / buff</div>
+                        <div class="packing-item">• Casco</div>
+                        <div class="packing-item">• Scarponi (se propri)</div>
+                        <div class="packing-item">• Tavola / sci (se non noleggiati)</div>
                     </div>
 
                     <!-- Sicurezza & gite -->
                     <div class="packing-category safety">
                         <h5><span class="emoji">🏔️</span> Sicurezza & gite</h5>
                         <p style="font-size: 0.85em; color: #666; margin-bottom: 10px; font-style: italic;">Solo se partecipi a escursioni in ambiente innevato</p>
-                        <div class="packing-item"><input type="checkbox" id="safe1"><label for="safe1">ARTVA</label></div>
-                        <div class="packing-item"><input type="checkbox" id="safe2"><label for="safe2">Pala</label></div>
-                        <div class="packing-item"><input type="checkbox" id="safe3"><label for="safe3">Sonda</label></div>
-                        <div class="packing-item"><input type="checkbox" id="safe4"><label for="safe4">Zaino airbag <span class="note">(se disponibile)</span></label></div>
-                        <div class="packing-item"><input type="checkbox" id="safe5"><label for="safe5">Imbrago <span class="note">(se richiesto)</span></label></div>
-                        <div class="packing-item"><input type="checkbox" id="safe6"><label for="safe6">Ramponcini / coltelli <span class="note">(se previsti)</span></label></div>
-                        <div class="packing-item"><input type="checkbox" id="safe7"><label for="safe7">Guanti di ricambio</label></div>
-                        <div class="packing-item"><input type="checkbox" id="safe8"><label for="safe8">Thermos <span class="note">(super consigliato)</span></label></div>
+                        <div class="packing-item">• ARTVA</div>
+                        <div class="packing-item">• Pala</div>
+                        <div class="packing-item">• Sonda</div>
+                        <div class="packing-item">• Zaino airbag <span class="note">(se disponibile)</span></div>
+                        <div class="packing-item">• Imbrago <span class="note">(se richiesto)</span></div>
+                        <div class="packing-item">• Ramponcini / coltelli <span class="note">(se previsti)</span></div>
+                        <div class="packing-item">• Guanti di ricambio</div>
+                        <div class="packing-item">• Thermos <span class="note">(super consigliato)</span></div>
                     </div>
 
                     <!-- Abbigliamento civile -->
                     <div class="packing-category casual">
                         <h5><span class="emoji">👕</span> Abbigliamento "civile" (tempo libero / sera)</h5>
-                        <div class="packing-item"><input type="checkbox" id="cas1"><label for="cas1">Scarpe calde e impermeabili</label></div>
-                        <div class="packing-item"><input type="checkbox" id="cas2"><label for="cas2">Pantaloni comodi</label></div>
-                        <div class="packing-item"><input type="checkbox" id="cas3"><label for="cas3">Maglioni / felpe calde</label></div>
-                        <div class="packing-item"><input type="checkbox" id="cas4"><label for="cas4">T-shirt</label></div>
-                        <div class="packing-item"><input type="checkbox" id="cas5"><label for="cas5">Intimo</label></div>
-                        <div class="packing-item"><input type="checkbox" id="cas6"><label for="cas6">Pigiama</label></div>
-                        <div class="packing-item"><input type="checkbox" id="cas7"><label for="cas7">Costume <span class="note">(sauna / hot tub 🔥)</span></label></div>
-                        <div class="packing-item"><input type="checkbox" id="cas8"><label for="cas8">Ciabatte</label></div>
+                        <div class="packing-item">• Scarpe calde e impermeabili</div>
+                        <div class="packing-item">• Pantaloni comodi</div>
+                        <div class="packing-item">• Maglioni / felpe calde</div>
+                        <div class="packing-item">• T-shirt</div>
+                        <div class="packing-item">• Intimo</div>
+                        <div class="packing-item">• Pigiama</div>
+                        <div class="packing-item">• Costume <span class="note">(sauna / hot tub 🔥)</span></div>
+                        <div class="packing-item">• Ciabatte</div>
                     </div>
 
                     <!-- Elettronica -->
                     <div class="packing-category electronics">
                         <h5><span class="emoji">🔌</span> Elettronica</h5>
-                        <div class="packing-item"><input type="checkbox" id="elec1"><label for="elec1">Smartphone</label></div>
-                        <div class="packing-item"><input type="checkbox" id="elec2"><label for="elec2">Caricatore</label></div>
-                        <div class="packing-item"><input type="checkbox" id="elec3"><label for="elec3">Power bank</label></div>
-                        <div class="packing-item"><input type="checkbox" id="elec4"><label for="elec4">Fotocamera / GoPro</label></div>
-                        <div class="packing-item"><input type="checkbox" id="elec5"><label for="elec5">Cavi vari</label></div>
-                        <div class="packing-item"><input type="checkbox" id="elec6"><label for="elec6">Adattatore prese <span class="note">(EU standard, come Italia)</span></label></div>
-                        <div class="packing-item"><input type="checkbox" id="elec7"><label for="elec7">Schede di memoria</label></div>
+                        <div class="packing-item">• Smartphone</div>
+                        <div class="packing-item">• Caricatore</div>
+                        <div class="packing-item">• Power bank</div>
+                        <div class="packing-item">• Fotocamera / GoPro</div>
+                        <div class="packing-item">• Cavi vari</div>
+                        <div class="packing-item">• Adattatore prese <span class="note">(EU standard, come Italia)</span></div>
+                        <div class="packing-item">• Schede di memoria</div>
                     </div>
 
                     <!-- Igiene & salute -->
                     <div class="packing-category hygiene">
                         <h5><span class="emoji">🧴</span> Igiene & salute</h5>
-                        <div class="packing-item"><input type="checkbox" id="hyg1"><label for="hyg1">Spazzolino / dentifricio</label></div>
-                        <div class="packing-item"><input type="checkbox" id="hyg2"><label for="hyg2">Deodorante</label></div>
-                        <div class="packing-item"><input type="checkbox" id="hyg3"><label for="hyg3">Shampoo / docciaschiuma</label></div>
-                        <div class="packing-item"><input type="checkbox" id="hyg4"><label for="hyg4">Crema mani <span class="note">(freddo + vento)</span></label></div>
-                        <div class="packing-item"><input type="checkbox" id="hyg5"><label for="hyg5">Farmaci personali</label></div>
-                        <div class="packing-item"><input type="checkbox" id="hyg6"><label for="hyg6">Antidolorifici / cerotti</label></div>
-                        <div class="packing-item"><input type="checkbox" id="hyg7"><label for="hyg7">Cerotti per vesciche</label></div>
-                        <div class="packing-item"><input type="checkbox" id="hyg8"><label for="hyg8">Collirio <span class="note">(aria secca)</span></label></div>
+                        <div class="packing-item">• Spazzolino / dentifricio</div>
+                        <div class="packing-item">• Deodorante</div>
+                        <div class="packing-item">• Shampoo / docciaschiuma</div>
+                        <div class="packing-item">• Crema mani <span class="note">(freddo + vento)</span></div>
+                        <div class="packing-item">• Farmaci personali</div>
+                        <div class="packing-item">• Antidolorifici / cerotti</div>
+                        <div class="packing-item">• Cerotti per vesciche</div>
+                        <div class="packing-item">• Collirio <span class="note">(aria secca)</span></div>
                     </div>
 
                     <!-- Extra utili -->
                     <div class="packing-category extras">
                         <h5><span class="emoji">❄️</span> Extra super utili in Norvegia</h5>
-                        <div class="packing-item"><input type="checkbox" id="ext1"><label for="ext1">Thermos</label></div>
-                        <div class="packing-item"><input type="checkbox" id="ext2"><label for="ext2">Scaldamani</label></div>
-                        <div class="packing-item"><input type="checkbox" id="ext3"><label for="ext3">Lucina frontale</label></div>
-                        <div class="packing-item"><input type="checkbox" id="ext4"><label for="ext4">Zainetto pieghevole</label></div>
-                        <div class="packing-item"><input type="checkbox" id="ext5"><label for="ext5">Sacche impermeabili</label></div>
-                        <div class="packing-item"><input type="checkbox" id="ext6"><label for="ext6">Tappi per orecchie</label></div>
-                        <div class="packing-item"><input type="checkbox" id="ext7"><label for="ext7">Mascherina antivento</label></div>
-                        <div class="packing-item"><input type="checkbox" id="ext8"><label for="ext8">App meteo installate</label></div>
+                        <div class="packing-item">• Thermos</div>
+                        <div class="packing-item">• Scaldamani</div>
+                        <div class="packing-item">• Lucina frontale</div>
+                        <div class="packing-item">• Zainetto pieghevole</div>
+                        <div class="packing-item">• Sacche impermeabili</div>
+                        <div class="packing-item">• Tappi per orecchie</div>
+                        <div class="packing-item">• Mascherina antivento</div>
+                        <div class="packing-item">• App meteo installate</div>
                     </div>
 
                     <!-- App consigliate -->
                     <div class="packing-category apps">
                         <h5><span class="emoji">📱</span> App consigliate (prima di partire)</h5>
-                        <div class="packing-item"><input type="checkbox" id="app1"><label for="app1">Google Maps (mappe offline)</label></div>
-                        <div class="packing-item"><input type="checkbox" id="app2"><label for="app2">Meteo (YR.no / Windy)</label></div>
-                        <div class="packing-item"><input type="checkbox" id="app3"><label for="app3">App compagnia aerea</label></div>
-                        <div class="packing-item"><input type="checkbox" id="app4"><label for="app4">Traduttore offline</label></div>
-                        <div class="packing-item"><input type="checkbox" id="app5"><label for="app5">App aurora boreale</label></div>
-                        <div class="packing-item"><input type="checkbox" id="app6"><label for="app6">App trasporti locali</label></div>
+                        <div class="packing-item">• Google Maps (mappe offline)</div>
+                        <div class="packing-item">• Meteo (YR.no / Windy)</div>
+                        <div class="packing-item">• App compagnia aerea</div>
+                        <div class="packing-item">• Traduttore offline</div>
+                        <div class="packing-item">• App aurora boreale</div>
+                        <div class="packing-item">• App trasporti locali</div>
                     </div>
                 </div>
             </div>
@@ -2082,11 +668,6 @@
                         <p style="font-size: 0.85em; margin-top: 5px; opacity: 0.9;">Divisione spese</p>
                     </a>
 
-                    <a href="https://maps.app.goo.gl/RDVFmapBTrqNF3S1A" target="_blank" class="link-card">
-                        <div class="icon">🗺️</div>
-                        <span>Mappa Gite</span>
-                        <p style="font-size: 0.85em; margin-top: 5px; opacity: 0.9;">Punti di partenza</p>
-                    </a>
 
                     <a href="https://maps.app.goo.gl/NmLzUd1PWth94usZ7" target="_blank" class="link-card">
                         <div class="icon">🏠</div>
@@ -2183,110 +764,6 @@
         });
 
         // Packing List functionality
-        const STORAGE_KEY = 'norway-trip-packing-list';
-
-        function saveChecklistState() {
-            const checkboxes = document.querySelectorAll('.packing-item input[type="checkbox"]');
-            const state = {};
-            checkboxes.forEach(cb => {
-                state[cb.id] = cb.checked;
-            });
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-        }
-
-        function loadChecklistState() {
-            const saved = localStorage.getItem(STORAGE_KEY);
-            if (saved) {
-                const state = JSON.parse(saved);
-                Object.keys(state).forEach(id => {
-                    const checkbox = document.getElementById(id);
-                    if (checkbox) {
-                        checkbox.checked = state[id];
-                        updateItemStyle(checkbox);
-                    }
-                });
-            }
-            updateProgress();
-        }
-
-        function updateItemStyle(checkbox) {
-            const item = checkbox.closest('.packing-item');
-            if (checkbox.checked) {
-                item.classList.add('checked');
-            } else {
-                item.classList.remove('checked');
-            }
-        }
-
-        function updateProgress() {
-            const checkboxes = document.querySelectorAll('.packing-item input[type="checkbox"]');
-            const total = checkboxes.length;
-            const checked = Array.from(checkboxes).filter(cb => cb.checked).length;
-            const percentage = total > 0 ? (checked / total) * 100 : 0;
-
-            const progressBar = document.getElementById('packing-progress-bar');
-            const progressText = document.getElementById('packing-progress-text');
-
-            progressBar.style.width = percentage + '%';
-            progressText.textContent = `${checked} / ${total} completati`;
-
-            // Cambia colore in base al progresso
-            if (percentage === 100) {
-                progressBar.style.background = 'linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%)';
-            } else if (percentage > 50) {
-                progressBar.style.background = 'linear-gradient(135deg, #8BC34A 0%, #4CAF50 100%)';
-            } else {
-                progressBar.style.background = 'linear-gradient(135deg, #FFC107 0%, #FF9800 100%)';
-            }
-        }
-
-        function resetChecklist() {
-            if (confirm('Sei sicuro di voler resettare tutta la checklist?')) {
-                const checkboxes = document.querySelectorAll('.packing-item input[type="checkbox"]');
-                checkboxes.forEach(cb => {
-                    cb.checked = false;
-                    updateItemStyle(cb);
-                });
-                saveChecklistState();
-                updateProgress();
-            }
-        }
-
-        function checkAllItems() {
-            const checkboxes = document.querySelectorAll('.packing-item input[type="checkbox"]');
-            checkboxes.forEach(cb => {
-                cb.checked = true;
-                updateItemStyle(cb);
-            });
-            saveChecklistState();
-            updateProgress();
-        }
-
-        // Event listeners per i checkbox
-        document.querySelectorAll('.packing-item input[type="checkbox"]').forEach(checkbox => {
-            checkbox.addEventListener('change', function() {
-                updateItemStyle(this);
-                saveChecklistState();
-                updateProgress();
-            });
-        });
-
-        // Click su tutta la riga per toggle
-        document.querySelectorAll('.packing-item').forEach(item => {
-            item.addEventListener('click', function(e) {
-                if (e.target.tagName !== 'INPUT') {
-                    const checkbox = this.querySelector('input[type="checkbox"]');
-                    checkbox.checked = !checkbox.checked;
-                    updateItemStyle(checkbox);
-                    saveChecklistState();
-                    updateProgress();
-                }
-            });
-        });
-
-        // Carica lo stato salvato all'avvio
-        document.addEventListener('DOMContentLoaded', loadChecklistState);
-        loadChecklistState(); // Chiamata immediata per gestire il caso in cui DOMContentLoaded sia già avvenuto
 
         // Navbar toggle per mobile
         function toggleNavbar() {
@@ -2348,6 +825,81 @@
                         behavior: 'smooth'
                     });
                 }
+            });
+        });
+
+        // Initialize map when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the map centered on Lyngen Alps
+            const map = L.map('map').setView([69.7, 20.1], 9);
+
+            // Add OpenStreetMap tiles
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                maxZoom: 19
+            }).addTo(map);
+
+            // Tromsø Airport marker
+            const airportIcon = L.divIcon({
+                html: '✈️',
+                className: 'airport-marker',
+                iconSize: [35, 35]
+            });
+
+            L.marker([69.6833, 18.9189], { icon: airportIcon })
+                .bindPopup('<div class="popup-title">Aeroporto di Tromsø</div><div>Punto di arrivo e partenza</div>')
+                .addTo(map);
+
+            // House/Accommodation marker
+            const houseIcon = L.divIcon({
+                html: '🏠',
+                className: 'house-marker',
+                iconSize: [35, 35]
+            });
+
+            L.marker([69.63706, 20.34608], { icon: houseIcon })
+                .bindPopup('<div class="popup-title">Casa/Alloggio</div><div>Base per il viaggio</div>')
+                .addTo(map);
+
+            // Trip markers data
+            const trips = [
+                {"name": "Storgalten da Sandneset", "lat": 69.9217656, "lng": 20.19218909, "url": "https://www.strava.com/routes/3401512451051323692"},
+                {"name": "Stetinden da Sor Lenangen", "lat": 69.87013969, "lng": 20.20385742, "url": "https://www.strava.com/routes/3401516350288728364"},
+                {"name": "Steinfjellet da Botn", "lat": 69.76494441, "lng": 19.9848175, "url": "https://www.strava.com/routes/3401511893409062378"},
+                {"name": "Rornesfjellet da Lyngseidet", "lat": 69.56510603, "lng": 20.07339477, "url": "https://www.strava.com/routes/3401511416736967936"},
+                {"name": "Fastdalstinden SE-S", "lat": 69.57891642, "lng": 20.23475646, "url": "https://www.strava.com/routes/3401515357863106070"},
+                {"name": "Sorbmegaisa (Oderdalen)", "lat": 69.576101, "lng": 20.217846, "url": "https://www.strava.com/routes/3401515357863106070"},
+                {"name": "Fastdalstinden da Lyngen", "lat": 69.575478, "lng": 20.218836, "url": "https://www.strava.com/routes/3401518729626466604"},
+                {"name": "Kavringtinden / Golsavarre", "lat": 69.5762866, "lng": 20.2188699, "url": "https://www.strava.com/routes/3401521145478882794"},
+                {"name": "Rornestinden", "lat": 69.5762866, "lng": 20.2188699, "url": "https://www.strava.com/routes/3401520549316564268"},
+                {"name": "Giilavarri da Olderdalen", "lat": 69.608054, "lng": 20.526379, "url": "https://www.strava.com/routes/3401521797800218880"},
+                {"name": "Rissavarri", "lat": 69.675164, "lng": 20.497925, "url": "https://www.strava.com/routes/3401522709319328000"},
+                {"name": "Storhaugen", "lat": 69.745919, "lng": 20.510063, "url": "https://www.strava.com/routes/3401523431485689322"},
+                {"name": "Kjevagtinden da Havnnes", "lat": 69.78820577, "lng": 20.56726455, "url": "https://www.strava.com/routes/3401523782395352364"},
+                {"name": "Stortuva da Oldervik", "lat": 69.74498568, "lng": 19.67994689, "url": "https://www.strava.com/routes/3401526142095060172"},
+                {"name": "Ullstinden da Snarbyeidet", "lat": 69.77016858, "lng": 19.55497741, "url": "https://www.strava.com/routes/3401524888175392990"},
+                {"name": "Storfjellet (Breivikeidet)", "lat": 69.63296347, "lng": 19.41421508, "url": "https://www.strava.com/routes/3401525327546975488"},
+                {"name": "Stormheimfjellet", "lat": 69.625072, "lng": 19.595302, "url": "https://www.strava.com/routes/3401527998365532460"}
+            ];
+
+            // Add markers for each trip
+            trips.forEach((trip, index) => {
+                const tripNumber = index + 1; // Trip numbers start from 1
+
+                const tripIcon = L.divIcon({
+                    html: tripNumber,
+                    className: 'custom-marker',
+                    iconSize: [32, 32]
+                });
+
+                const popupContent = `
+                    <div class="popup-title">#${tripNumber} - ${trip.name}</div>
+                    <a href="${trip.url}" target="_blank" class="popup-link">Vedi dettagli →</a>
+                `;
+
+                L.marker([trip.lat, trip.lng], { icon: tripIcon })
+                    .bindPopup(popupContent)
+                    .addTo(map);
             });
         });
     </script>

@@ -1,0 +1,94 @@
+[
+  {
+    "name": "Storgalten da Sandneset",
+    "strava": "https://www.strava.com/routes/3401512451051323692",
+    "gulliver": "https://www.gulliver.it/itinerari/storgalten-da-sandneset-per-il-versante-ovest/"
+  },
+  {
+    "name": "Stetinden da Sor Lenangen",
+    "strava": "https://www.strava.com/routes/3401516350288728364",
+    "gulliver": "https://www.gulliver.it/itinerari/stetinden-da-sor-lenangen/",
+    "garmin": "https://connect.garmin.com/modern/activity/18684363007"
+  },
+  {
+    "name": "Steinfjellet da Botn",
+    "strava": "https://www.strava.com/routes/3401511893409062378",
+    "gulliver": "https://www.gulliver.it/itinerari/steinfjellet-da-botn-in-sor-lenangen/",
+    "garmin": "https://connect.garmin.com/modern/activity/18697677779"
+  },
+  {
+    "name": "Rornesfjellet da Lyngseidet",
+    "strava": "https://www.strava.com/routes/3401511416736967936",
+    "gulliver": "https://www.gulliver.it/itinerari/rornesfjellet-da-lyngseidet/#main",
+    "garmin": "https://connect.garmin.com/modern/activity/18689307515"
+  },
+  {
+    "name": "Fastdalstinden SE-S",
+    "strava": "https://www.strava.com/routes/3401515357863106070",
+    "gulliver": "https://www.gulliver.it/itinerari/fastdalstinden-per-versante-se-s/"
+  },
+  {
+    "name": "Sorbmegaisa (Oderdalen)",
+    "gulliver": "https://www.gulliver.it/itinerari/sorbmegaisa-oderdalen-dal-kyofjord/#main"
+  },
+  {
+    "name": "Fastdalstinden da Lyngen",
+    "strava": "https://www.strava.com/routes/3401518729626466604",
+    "gulliver": "https://www.gulliver.it/itinerari/fastdalstindenda-lyngen/"
+  },
+  {
+    "name": "Kavringtinden / Golsavarre",
+    "strava": "https://www.strava.com/routes/3401521145478882794",
+    "gulliver": "https://www.gulliver.it/itinerari/kavringtinden-da-lyngseidet/",
+    "garmin": "https://connect.garmin.com/modern/activity/18689307515"
+  },
+  {
+    "name": "Rornestinden",
+    "strava": "https://www.strava.com/routes/3401520549316564268",
+    "gulliver": "https://www.gulliver.it/itinerari/rornestinden-versante-se/"
+  },
+  {
+    "name": "Giilavarri da Olderdalen",
+    "strava": "https://www.strava.com/routes/3401521797800218880",
+    "gulliver": "https://www.gulliver.it/itinerari/giilavarri-da-olderdalen/"
+  },
+  {
+    "name": "Rissavarri",
+    "strava": "https://www.strava.com/routes/3401522709319328000"
+  },
+  {
+    "name": "Storhaugen",
+    "strava": "https://www.strava.com/routes/3401523431485689322"
+  },
+  {
+    "name": "Kjevagtinden da Havnnes",
+    "strava": "https://www.strava.com/routes/3401523782395352364",
+    "gulliver": "https://www.gulliver.it/itinerari/kjevagtinden-da-havnnes/"
+  },
+  {
+    "name": "Stortuva da Oldervik",
+    "strava": "https://www.strava.com/routes/3401526142095060172",
+    "gulliver": "https://www.gulliver.it/itinerari/stortuva-da-oldervik/"
+  },
+  {
+    "name": "Ullstinden da Snarbyeidet",
+    "strava": "https://www.strava.com/routes/3401524888175392990",
+    "gulliver": "https://www.gulliver.it/itinerari/ullstinden-da-snarbyeidet/",
+    "garmin": "https://connect.garmin.com/modern/activity/18650847435"
+  },
+  {
+    "name": "Storfjellet (Breivikeidet)",
+    "strava": "https://www.strava.com/routes/3401525327546975488",
+    "gulliver": "https://www.gulliver.it/itinerari/storfjellet-da-ponte-breivikeidet/"
+  },
+  {
+    "name": "Stormheimfjellet",
+    "strava": "https://www.strava.com/routes/3401527998365532460",
+    "garmin": "https://connect.garmin.com/modern/activity/18668336044"
+  },
+  {
+    "name": "Traccia 7 Ponch",
+    "strava": "https://www.strava.com/routes/3401530418737577182",
+    "garmin": "https://connect.garmin.com/modern/activity/18699892521"
+  }
+]
