@@ -575,6 +575,42 @@ header .group-stat .stat-label {
     display: none;
 }
 
+/* Piano B */
+.alternative-activities {
+    display: grid;
+    gap: 20px;
+}
+
+.activity-card {
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border-radius: 12px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    border-left: 4px solid #ff9800;
+}
+
+.activity-card:hover {
+    transform: scale(1.02);
+}
+
+.activity-card h3 {
+    color: #e65100;
+    margin-bottom: 12px;
+    font-size: 1.1em;
+}
+
+.activity-card p {
+    color: #555;
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.activity-card p strong {
+    color: #333;
+    font-weight: 600;
+}
+
 /* Lista Materiale */
 .checklist {
     display: grid;
