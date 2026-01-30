@@ -29,7 +29,9 @@
                 <a href="#meteo" class="navbar-link">Meteo</a>
                 <a href="#checklist" class="navbar-link">Checklist</a>
                 <a href="#pianob" class="navbar-link">Piano B</a>
+                <a href="#aurora" class="navbar-link">Aurora</a>
                 <a href="#info" class="navbar-link">Info</a>
+                <a href="#cibo" class="navbar-link">Cibo</a>
                 <a href="#link" class="navbar-link">Link</a>
             </div>
         </div>
@@ -89,6 +91,17 @@
                         <div class="flight-details" style="margin-top: 15px;">
                             <span class="tag tag-green">EasyJet 3975</span>
                         </div>
+                        <div class="flight-extras">
+                            <div class="flight-extra-item">
+                                <span class="tag tag-blue">Terminal T2</span>
+                            </div>
+                            <div class="flight-extra-item">
+                                <span>🧳 Baggage drop apre: <strong>10:15</strong> — chiude: <strong>12:35</strong></span>
+                            </div>
+                            <div class="flight-extra-item">
+                                <span>⏰ Check-in chiude <strong>40 min</strong> prima della partenza</span>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="travel-card return">
@@ -109,12 +122,80 @@
                         <div class="flight-details" style="margin-top: 15px;">
                             <span class="tag tag-green">EasyJet 3976</span>
                         </div>
+                        <div class="flight-extras">
+                            <div class="flight-extra-item">
+                                <span class="tag tag-blue">Terminal T2</span>
+                            </div>
+                            <div class="flight-extra-item">
+                                <span>🧳 Baggage drop apre: <strong>16:25</strong> — chiude: <strong>17:45</strong></span>
+                            </div>
+                            <div class="flight-extra-item">
+                                <span>⏰ Check-in chiude <strong>40 min</strong> prima della partenza</span>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="travel-card shuttle" style="border-left: 4px solid #9b59b6;">
                         <h3>🚗 Noleggio Auto</h3>
                         <p style="margin-bottom: 10px;">All'arrivo a <strong>Tromsø</strong> il 21 Marzo, ritireremo le auto a noleggio per gli spostamenti durante la settimana.</p>
-                        <p>Le auto dovranno essere <strong>riconsegnate</strong> il 28 Marzo prima del volo di ritorno (partenza ore 18:25).</p>
+                        <p style="margin-bottom: 15px;">Le auto dovranno essere <strong>riconsegnate</strong> il 28 Marzo prima del volo di ritorno (partenza ore 18:25).</p>
+                        <div class="rental-details">
+                            <div class="rental-detail-item">
+                                <span class="rental-label">Compagnia:</span>
+                                <span class="rental-value tbd">Da definire</span>
+                            </div>
+                            <div class="rental-detail-item">
+                                <span class="rental-label">Tipo veicolo:</span>
+                                <span class="rental-value tbd">Da definire</span>
+                            </div>
+                            <div class="rental-detail-item">
+                                <span class="rental-label">Costo stimato:</span>
+                                <span class="rental-value tbd">Da definire</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="travel-card luggage" style="border-left: 4px solid #2196F3;">
+                        <h3>🧳 Bagagli</h3>
+                        <div class="luggage-info">
+                            <div class="luggage-category">
+                                <h4>Bagaglio a mano (per persona)</h4>
+                                <p>1x borsa cabina piccola — max <strong>45 x 36 x 20 cm</strong> (sotto il sedile)</p>
+                            </div>
+                            <div class="luggage-category">
+                                <h4>Bagagli da stiva (totale gruppo)</h4>
+                                <p>5x bagagli da <strong>23 kg</strong> ciascuno</p>
+                            </div>
+                            <div class="luggage-category">
+                                <h4>Attrezzatura sportiva (totale gruppo)</h4>
+                                <p>1x Snowboard + 4x Sci e/o scarponi</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="travel-card ferry" style="border-left: 4px solid #00BCD4;">
+                        <h3>⛴️ Traghetti nella Zona</h3>
+                        <p style="margin-bottom: 15px;">Nella zona del Lyngenfjord ci sono traghetti utili per spostarsi tra le due sponde del fiordo e raggiungere alcune gite senza fare il giro lungo.</p>
+                        <div class="ferry-routes">
+                            <div class="ferry-route">
+                                <div class="ferry-route-name">
+                                    <strong>Svensby — Breivikeidet</strong>
+                                </div>
+                                <p>Attraversamento del Lyngenfjord, collega il lato est (Lyngen) al lato ovest (verso Tromsø). Utile per gite come Storfjellet.</p>
+                                <a href="https://www.boreal.no/rutetider" target="_blank" class="ferry-link">🔗 Orari su boreal.no</a>
+                            </div>
+                            <div class="ferry-route">
+                                <div class="ferry-route-name">
+                                    <strong>Olderdalen — Lyngseidet</strong>
+                                </div>
+                                <p>Collega il lato sud-est al centro di Lyngen. Utile per raggiungere gite nella parte settentrionale senza risalire tutto il fiordo.</p>
+                                <a href="https://www.boreal.no/rutetider" target="_blank" class="ferry-link">🔗 Orari su boreal.no</a>
+                            </div>
+                        </div>
+                        <div class="ferry-note">
+                            <span>💡</span>
+                            <p>Cercate gli orari su <a href="https://www.boreal.no" target="_blank">boreal.no</a> o <a href="https://tromskortet.no" target="_blank">tromskortet.no</a>. I traghetti accettano auto e si paga a bordo (carta accettata).</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -509,6 +590,51 @@
                     </div>
                 </div>
 
+                <!-- Meteo in tempo reale -->
+                <div class="weather-realtime">
+                    <h3>📡 Meteo in Tempo Reale</h3>
+                    <p style="margin-bottom: 15px; color: #555;">Previsioni aggiornate direttamente da <strong>yr.no</strong>, il servizio meteo ufficiale norvegese.</p>
+                    <div class="weather-embeds">
+                        <div class="weather-embed-card">
+                            <h4>Tromsø</h4>
+                            <p>Previsione completa per Tromsø e dintorni.</p>
+                            <a href="https://www.yr.no/en/forecast/daily-table/1-305409/Tromsø" target="_blank" class="weather-yr-link">🌦️ Apri previsione Tromsø su yr.no →</a>
+                        </div>
+                        <div class="weather-embed-card">
+                            <h4>Lyngen / Lyngseidet</h4>
+                            <p>Previsione per la zona delle Lyngen Alps.</p>
+                            <a href="https://www.yr.no/en/forecast/daily-table/1-283159/Lyngseidet" target="_blank" class="weather-yr-link">🌦️ Apri previsione Lyngseidet su yr.no →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bollettino Valanghe -->
+                <div class="avalanche-section">
+                    <h3>🏔️ Bollettino Valanghe</h3>
+                    <p style="margin-bottom: 15px; color: #555;"><strong>varsom.no</strong> è il servizio ufficiale norvegese per il pericolo valanghe. Consultate <strong>sempre</strong> il bollettino prima di ogni gita!</p>
+                    <div class="avalanche-card">
+                        <div class="avalanche-levels">
+                            <div class="avalanche-level level-1"><span>1</span> Debole</div>
+                            <div class="avalanche-level level-2"><span>2</span> Moderato</div>
+                            <div class="avalanche-level level-3"><span>3</span> Marcato</div>
+                            <div class="avalanche-level level-4"><span>4</span> Forte</div>
+                            <div class="avalanche-level level-5"><span>5</span> Molto Forte</div>
+                        </div>
+                        <div class="avalanche-links">
+                            <a href="https://varsom.no/en/snow/forecast/warning/Nord-Troms/" target="_blank" class="avalanche-link-btn">
+                                🔗 Bollettino Nord-Troms — varsom.no
+                            </a>
+                            <a href="https://varsom.no/en/snow/forecast/warning/Lyngen/" target="_blank" class="avalanche-link-btn">
+                                🔗 Bollettino Lyngen — varsom.no
+                            </a>
+                        </div>
+                    </div>
+                    <div class="avalanche-warning">
+                        <span class="note-icon">⚠️</span>
+                        <p><strong>Mai partire senza aver controllato il bollettino!</strong> Con grado 3+ serve esperienza e valutazione attenta del terreno. Con grado 4-5 evitate uscite in ambiente innevato.</p>
+                    </div>
+                </div>
+
                 <!-- Nota importante -->
                 <div class="weather-note">
                     <span class="note-icon">⚠️</span>
@@ -693,6 +819,83 @@
                 </div>
             </div>
 
+            <!-- Sezione Aurora Boreale -->
+            <div class="section" id="aurora">
+                <h2 class="section-title"><span class="section-icon">🌌</span> Aurora Boreale</h2>
+
+                <div class="aurora-intro">
+                    <p>Le <strong>Lyngen Alps</strong> si trovano a circa 70°N, una delle migliori posizioni al mondo per osservare l'aurora boreale. A marzo le notti sono ancora abbastanza buie e le probabilità di avvistamento sono alte.</p>
+                </div>
+
+                <div class="aurora-grid">
+                    <div class="aurora-card">
+                        <h4>🎯 Condizioni Ideali</h4>
+                        <ul>
+                            <li><strong>Cielo sereno</strong> — senza nuvole</li>
+                            <li><strong>Buio</strong> — lontano da luci artificiali</li>
+                            <li><strong>Indice KP ≥ 3</strong> — più è alto, più intensa l'aurora</li>
+                            <li><strong>Orario</strong> — tipicamente tra le 21:00 e le 01:00</li>
+                            <li><strong>Guardare verso Nord</strong> — la zona visibile si allarga con KP alto</li>
+                        </ul>
+                    </div>
+
+                    <div class="aurora-card">
+                        <h4>📊 Cos'è l'Indice KP?</h4>
+                        <p>L'indice KP misura l'attività geomagnetica su una scala da <strong>0 a 9</strong>:</p>
+                        <div class="kp-scale">
+                            <div class="kp-item kp-low">KP 0-2: Attività bassa — aurora poco visibile</div>
+                            <div class="kp-item kp-mid">KP 3-4: Attività moderata — buona probabilità</div>
+                            <div class="kp-item kp-high">KP 5-6: Tempesta geomagnetica — aurora intensa</div>
+                            <div class="kp-item kp-extreme">KP 7-9: Tempesta forte — aurora spettacolare</div>
+                        </div>
+                        <p style="margin-top: 10px; font-size: 0.9em; color: #666;">A Tromsø/Lyngen (70°N) basta KP 2-3 per vedere l'aurora, grazie alla posizione dentro l'ovale aurorale.</p>
+                    </div>
+
+                    <div class="aurora-card">
+                        <h4>📍 Migliori Spot vicino a Lyngen</h4>
+                        <ul>
+                            <li><strong>Sponde del Lyngenfjord</strong> — vista aperta verso Nord, buio totale</li>
+                            <li><strong>Verso Skjervøy</strong> — basso inquinamento luminoso</li>
+                            <li><strong>Bollmannsveien</strong> — strada panoramica con vista aperta</li>
+                            <li><strong>Svensby / Breivikeidet</strong> — costa ovest del fiordo</li>
+                            <li>Evitare: vicinanza a Tromsø città (troppa luce)</li>
+                        </ul>
+                    </div>
+
+                    <div class="aurora-card">
+                        <h4>📲 App & Siti Utili</h4>
+                        <div class="app-list">
+                            <div class="app-item">
+                                <div>
+                                    <div class="app-name">SpaceWeatherLive</div>
+                                    <div class="app-desc">Previsioni aurora e indice KP in tempo reale</div>
+                                    <a href="https://www.spaceweatherlive.com" target="_blank" class="aurora-app-link">spaceweatherlive.com →</a>
+                                </div>
+                            </div>
+                            <div class="app-item">
+                                <div>
+                                    <div class="app-name">Aurora Forecast</div>
+                                    <div class="app-desc">Previsione aurora specifica per Nord Europa</div>
+                                    <a href="https://aurora-service.eu/aurora-forecast/" target="_blank" class="aurora-app-link">aurora-service.eu →</a>
+                                </div>
+                            </div>
+                            <div class="app-item">
+                                <div>
+                                    <div class="app-name">My Aurora Forecast (App)</div>
+                                    <div class="app-desc">App mobile con notifiche e probabilità per la tua posizione</div>
+                                </div>
+                            </div>
+                            <div class="app-item">
+                                <div>
+                                    <div class="app-name">Norway Lights (App)</div>
+                                    <div class="app-desc">App con alert aurora e webcam nel Nord Norvegia</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Info Utili -->
             <div class="section" id="info">
                 <h2 class="section-title"><span class="section-icon">ℹ️</span> Info Utili</h2>
@@ -705,6 +908,86 @@
                         <li>Fuso orario: stesso dell'Italia</li>
                         <li>Prese elettriche: tipo C/F (come Italia)</li>
                     </ul>
+                </div>
+
+                <!-- Convertitore NOK/EUR -->
+                <div class="converter-widget">
+                    <h4>💱 Convertitore NOK → EUR</h4>
+                    <div class="converter-body">
+                        <div class="converter-input-group">
+                            <label for="nok-input">Importo in NOK</label>
+                            <div class="converter-input-wrapper">
+                                <input type="number" id="nok-input" placeholder="100" min="0" step="0.01">
+                                <span class="currency-label">NOK</span>
+                            </div>
+                        </div>
+                        <div class="converter-result">
+                            <span class="converter-arrow">→</span>
+                            <div class="converter-output">
+                                <span id="eur-output">—</span>
+                                <span class="currency-label">EUR</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="converter-rate">
+                        Tasso: 1 NOK = <span id="exchange-rate">~0.087</span> EUR
+                        <span class="converter-rate-note">(aggiornato automaticamente — o tasso approssimativo se offline)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sezione Cibo & Supermercati -->
+            <div class="section" id="cibo">
+                <h2 class="section-title"><span class="section-icon">🛒</span> Cibo & Supermercati</h2>
+
+                <div class="food-from-home">
+                    <h4>🇮🇹 Cosa portiamo dall'Italia</h4>
+                    <p>Per risparmiare e mangiare bene, porteremo una buona scorta di alimentari da casa:</p>
+                    <div class="food-tags">
+                        <span class="food-tag">🍝 Pasta</span>
+                        <span class="food-tag">🍚 Riso</span>
+                        <span class="food-tag">🫙 Sughi e condimenti</span>
+                        <span class="food-tag">🍺 Birra</span>
+                        <span class="food-tag">🥤 Bevande</span>
+                    </div>
+                </div>
+
+                <h4 style="color: #333; margin: 20px 0 15px;">🏪 Supermercati nella Zona</h4>
+                <p style="color: #666; margin-bottom: 15px;">Per acquisti freschi (pane, latte, carne, frutta, prodotti locali), ecco i supermercati più vicini alla nostra base nelle Lyngen Alps:</p>
+
+                <div class="supermarket-grid">
+                    <div class="supermarket-card">
+                        <div class="supermarket-brand coop">Coop</div>
+                        <div class="supermarket-name">Coop Prix Lyngseidet</div>
+                        <p>Lyngseidet — il più vicino alla nostra casa</p>
+                        <a href="https://www.google.com/maps/search/Coop+Prix+Lyngseidet" target="_blank" class="supermarket-link">📍 Vedi su Google Maps</a>
+                    </div>
+
+                    <div class="supermarket-card">
+                        <div class="supermarket-brand joker">Joker</div>
+                        <div class="supermarket-name">Joker Furuflaten</div>
+                        <p>Furuflaten — piccolo ma comodo per acquisti rapidi</p>
+                        <a href="https://www.google.com/maps/search/Joker+Furuflaten+Lyngen" target="_blank" class="supermarket-link">📍 Vedi su Google Maps</a>
+                    </div>
+
+                    <div class="supermarket-card">
+                        <div class="supermarket-brand rema">Rema 1000</div>
+                        <div class="supermarket-name">Rema 1000 Tromsø</div>
+                        <p>Tromsø — grande selezione, ideale per il primo grande acquisto all'arrivo</p>
+                        <a href="https://www.google.com/maps/search/Rema+1000+Tromsø" target="_blank" class="supermarket-link">📍 Vedi su Google Maps</a>
+                    </div>
+
+                    <div class="supermarket-card">
+                        <div class="supermarket-brand kiwi">Kiwi</div>
+                        <div class="supermarket-name">Kiwi Tromsø</div>
+                        <p>Tromsø — low-cost, buona selezione di prodotti base</p>
+                        <a href="https://www.google.com/maps/search/Kiwi+Tromsø" target="_blank" class="supermarket-link">📍 Vedi su Google Maps</a>
+                    </div>
+                </div>
+
+                <div class="food-note">
+                    <span>💡</span>
+                    <p><strong>Nota:</strong> L'alcol forte (vino e superalcolici) in Norvegia si trova solo nei negozi <strong>Vinmonopolet</strong> (monopolio statale). La birra sotto 4.7% si trova al supermercato. I prezzi norvegesi sono alti: conviene portare più scorte possibili dall'Italia!</p>
                 </div>
             </div>
 
@@ -953,6 +1236,43 @@
                     .addTo(map);
             });
         });
+
+        // Currency Converter NOK -> EUR
+        (function() {
+            const nokInput = document.getElementById('nok-input');
+            const eurOutput = document.getElementById('eur-output');
+            const rateDisplay = document.getElementById('exchange-rate');
+
+            let exchangeRate = 0.087;
+
+            async function fetchExchangeRate() {
+                try {
+                    const response = await fetch('https://open.er-api.com/v6/latest/NOK');
+                    if (response.ok) {
+                        const data = await response.json();
+                        if (data.rates && data.rates.EUR) {
+                            exchangeRate = data.rates.EUR;
+                            rateDisplay.textContent = exchangeRate.toFixed(4);
+                            convertCurrency();
+                        }
+                    }
+                } catch (e) {
+                    // Fallback al tasso approssimativo
+                }
+            }
+
+            function convertCurrency() {
+                const nok = parseFloat(nokInput.value);
+                if (!isNaN(nok) && nok >= 0) {
+                    eurOutput.textContent = (nok * exchangeRate).toFixed(2);
+                } else {
+                    eurOutput.textContent = '—';
+                }
+            }
+
+            nokInput.addEventListener('input', convertCurrency);
+            fetchExchangeRate();
+        })();
     </script>
 </body>
 </html>
