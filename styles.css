@@ -2110,6 +2110,104 @@ footer p {
     }
 }
 
+/* ========================================
+   NAVIGATION IMPROVEMENTS
+   ======================================== */
+
+/* Progress Bar */
+.progress-bar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #00d4ff, #0099cc);
+    z-index: 999;
+    width: 0%;
+    border-radius: 0 2px 2px 0;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #00d4ff, #0099cc);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.3em;
+    cursor: pointer;
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 153, 204, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 153, 204, 0.6);
+}
+
+/* Collapsible Sections */
+.section-title {
+    cursor: pointer;
+    user-select: none;
+}
+
+.section-title::after {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-right: 2.5px solid #0099cc;
+    border-bottom: 2.5px solid #0099cc;
+    transform: rotate(45deg);
+    margin-left: auto;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.section.collapsed .section-title {
+    margin-bottom: 0;
+}
+
+.section.collapsed .section-title::after {
+    transform: rotate(-45deg);
+}
+
+.section-body {
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 1;
+}
+
+.section.collapsed .section-body {
+    max-height: 0 !important;
+    opacity: 0;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
+        font-size: 1.1em;
+    }
+}
+
 /* Responsive - Extra small */
 @media (max-width: 360px) {
     header h1 {
