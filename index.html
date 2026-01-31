@@ -17,7 +17,7 @@
 </head>
 <body>
     <!-- Progress Bar -->
-    <div class="progress-bar" id="progress-bar"></div>
+    <div class="progress-bar"><div class="progress-bar-fill" id="progress-bar-fill"></div></div>
 
     <!-- Navbar -->
     <nav class="navbar">
@@ -1029,7 +1029,7 @@
     </div>
 
     <!-- Back to Top Button -->
-    <button class="back-to-top" id="back-to-top" title="Torna su">↑</button>
+    <button class="back-to-top" id="back-to-top" title="Torna su">&#9650;</button>
 
     <script>
         // Filtri
@@ -1164,10 +1164,8 @@
                     // Auto-expand section if collapsed
                     if (target.classList.contains('collapsed')) {
                         target.classList.remove('collapsed');
-                        const body = target.querySelector('.section-body');
-                        if (body) body.style.maxHeight = body.scrollHeight + 'px';
                         if (target.id === 'mappa' && typeof leafletMap !== 'undefined' && leafletMap) {
-                            setTimeout(() => leafletMap.invalidateSize(), 400);
+                            setTimeout(function() { leafletMap.invalidateSize(); }, 100);
                         }
                     }
                     const navbarHeight = 70;
@@ -1297,69 +1295,47 @@
         // ========================================
         // COLLAPSIBLE SECTIONS
         // ========================================
-        document.querySelectorAll('.section').forEach(section => {
-            const title = section.querySelector('.section-title');
-            if (!title) return;
-
-            // Wrap all content after h2 in a section-body div
-            const body = document.createElement('div');
-            body.className = 'section-body';
-            const children = Array.from(section.children).filter(el => el !== title);
-            children.forEach(child => body.appendChild(child));
-            section.appendChild(body);
-
-            // Set initial max-height for transition
-            body.style.maxHeight = body.scrollHeight + 'px';
-
-            title.addEventListener('click', () => {
-                const isCollapsed = section.classList.toggle('collapsed');
-                if (isCollapsed) {
-                    body.style.maxHeight = '0';
-                } else {
-                    body.style.maxHeight = body.scrollHeight + 'px';
-                    // Fix Leaflet map rendering when mappa section is expanded
-                    if (section.id === 'mappa' && leafletMap) {
-                        setTimeout(() => leafletMap.invalidateSize(), 400);
-                    }
+        document.querySelectorAll('.section-title').forEach(function(title) {
+            title.addEventListener('click', function() {
+                var section = this.closest('.section');
+                if (!section) return;
+                section.classList.toggle('collapsed');
+                // Fix Leaflet map tiles when mappa section is re-expanded
+                if (section.id === 'mappa' && !section.classList.contains('collapsed') && typeof leafletMap !== 'undefined' && leafletMap) {
+                    setTimeout(function() { leafletMap.invalidateSize(); }, 100);
                 }
-            });
-        });
-
-        // Re-calculate max-heights on window resize
-        window.addEventListener('resize', () => {
-            document.querySelectorAll('.section:not(.collapsed) .section-body').forEach(body => {
-                body.style.maxHeight = body.scrollHeight + 'px';
             });
         });
 
         // ========================================
         // BACK TO TOP BUTTON
         // ========================================
-        const backToTopBtn = document.getElementById('back-to-top');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
-        });
-
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        var backToTopBtn = document.getElementById('back-to-top');
+        if (backToTopBtn) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 400) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
 
         // ========================================
         // PROGRESS BAR
         // ========================================
-        const progressBar = document.getElementById('progress-bar');
-
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-            progressBar.style.width = scrollPercent + '%';
-        });
+        var progressBarFill = document.getElementById('progress-bar-fill');
+        if (progressBarFill) {
+            window.addEventListener('scroll', function() {
+                var scrollTop = window.scrollY;
+                var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                var scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                progressBarFill.style.width = scrollPercent + '%';
+            });
+        }
     </script>
 </body>
 </html>
