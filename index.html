@@ -946,7 +946,7 @@
                 <h2 class="section-title"><span class="section-icon">🛒</span> Cibo & Supermercati</h2>
 
                 <div class="food-from-home">
-                    <h4>🇮🇹 Cosa portiamo dall'Italia</h4>
+                    <h4>Cosa portiamo dall'Italia</h4>
                     <p>Per risparmiare e mangiare bene, porteremo una buona scorta di alimentari da casa:</p>
                     <div class="food-tags">
                         <span class="food-tag">🍝 Pasta</span>
@@ -1029,7 +1029,7 @@
     </div>
 
     <!-- Back to Top Button -->
-    <button class="back-to-top" id="back-to-top" title="Torna su">&#9650;</button>
+    <button class="back-to-top" id="back-to-top" title="Torna su">↑</button>
 
     <script>
         // Filtri
@@ -1163,10 +1163,7 @@
                 if (target) {
                     // Auto-expand section if collapsed
                     if (target.classList.contains('collapsed')) {
-                        target.classList.remove('collapsed');
-                        if (target.id === 'mappa' && typeof leafletMap !== 'undefined' && leafletMap) {
-                            setTimeout(function() { leafletMap.invalidateSize(); }, 100);
-                        }
+                        toggleSection(target);
                     }
                     const navbarHeight = 70;
                     const targetPosition = target.offsetTop - navbarHeight;
@@ -1295,15 +1292,53 @@
         // ========================================
         // COLLAPSIBLE SECTIONS
         // ========================================
+
+        // Wrap section content in .section-content divs for animation
+        document.querySelectorAll('.section').forEach(function(section) {
+            var title = section.querySelector('.section-title');
+            if (!title) return;
+            var wrapper = document.createElement('div');
+            wrapper.className = 'section-content';
+            var children = Array.from(section.children).filter(function(child) {
+                return child !== title;
+            });
+            children.forEach(function(child) {
+                wrapper.appendChild(child);
+            });
+            section.appendChild(wrapper);
+        });
+
+        function toggleSection(section) {
+            var content = section.querySelector('.section-content');
+            if (!content) return;
+
+            if (section.classList.contains('collapsed')) {
+                // Expand
+                section.classList.remove('collapsed');
+                content.style.height = content.scrollHeight + 'px';
+                content.addEventListener('transitionend', function handler() {
+                    content.style.height = '';
+                    content.removeEventListener('transitionend', handler);
+                });
+                // Fix Leaflet map tiles when mappa section is re-expanded
+                if (section.id === 'mappa' && typeof leafletMap !== 'undefined' && leafletMap) {
+                    setTimeout(function() { leafletMap.invalidateSize(); }, 400);
+                }
+            } else {
+                // Collapse
+                content.style.height = content.scrollHeight + 'px';
+                // Force reflow
+                content.offsetHeight;
+                content.style.height = '0';
+                section.classList.add('collapsed');
+            }
+        }
+
         document.querySelectorAll('.section-title').forEach(function(title) {
             title.addEventListener('click', function() {
                 var section = this.closest('.section');
                 if (!section) return;
-                section.classList.toggle('collapsed');
-                // Fix Leaflet map tiles when mappa section is re-expanded
-                if (section.id === 'mappa' && !section.classList.contains('collapsed') && typeof leafletMap !== 'undefined' && leafletMap) {
-                    setTimeout(function() { leafletMap.invalidateSize(); }, 100);
-                }
+                toggleSection(section);
             });
         });
 

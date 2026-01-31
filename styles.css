@@ -1450,7 +1450,7 @@ footer p {
 
 .converter-body {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     gap: 20px;
     flex-wrap: wrap;
 }
@@ -1458,6 +1458,7 @@ footer p {
 .converter-input-group {
     flex: 1;
     min-width: 180px;
+    max-width: 320px;
 }
 
 .converter-input-group label {
@@ -2092,6 +2093,10 @@ footer p {
         align-items: stretch;
     }
 
+    .converter-input-group {
+        max-width: none;
+    }
+
     .converter-result {
         justify-content: center;
     }
@@ -2186,17 +2191,17 @@ footer p {
     flex-shrink: 0;
 }
 
+.section-content {
+    overflow: hidden;
+    transition: height 0.35s ease;
+}
+
 .section.collapsed .section-title {
     margin-bottom: 0;
-    border-bottom-style: dashed;
 }
 
 .section.collapsed .section-title::after {
     transform: rotate(-45deg);
-}
-
-.section.collapsed > *:not(.section-title) {
-    display: none;
 }
 
 @media (max-width: 768px) {
