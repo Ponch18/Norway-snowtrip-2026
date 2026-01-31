@@ -1,3 +1,8 @@
+/* ============================================ */
+/* NORWAY SNOW TRIP 2026 - Dark Theme           */
+/* Inspired by Lovable design                   */
+/* ============================================ */
+
 * {
     margin: 0;
     padding: 0;
@@ -5,27 +10,27 @@
 }
 
 body {
-    font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #0c1220;
     min-height: 100vh;
-    padding-top: 70px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    color: #333;
+    padding-top: 0;
+    color: #e2e8f0;
 }
 
-/* Navbar */
+/* ============================================ */
+/* Navbar                                       */
+/* ============================================ */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(26, 26, 46, 0.95);
-    backdrop-filter: blur(10px);
+    background: rgba(12, 18, 32, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     z-index: 1000;
     padding: 0 20px;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .navbar-container {
@@ -34,48 +39,51 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 60px;
+    height: 64px;
 }
 
 .navbar-brand {
     color: #00d4ff;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 1.1em;
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 8px;
+    letter-spacing: -0.3px;
 }
 
 .navbar-brand:hover {
-    color: #fff;
+    color: #22d3ee;
 }
 
 .navbar-links {
     display: flex;
-    gap: 5px;
+    gap: 4px;
     flex-wrap: wrap;
     justify-content: flex-end;
 }
 
 .navbar-link {
-    color: #ccc;
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 20px;
-    font-size: 0.85em;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.88em;
+    font-weight: 500;
     transition: all 0.2s ease;
     white-space: nowrap;
 }
 
 .navbar-link:hover {
-    background: rgba(0, 212, 255, 0.2);
+    background: rgba(0, 212, 255, 0.1);
     color: #00d4ff;
 }
 
 .navbar-link.active {
-    background: #00d4ff;
-    color: #1a1a2e;
+    color: #00d4ff;
+    border-bottom: 2px solid #00d4ff;
+    border-radius: 0;
 }
 
 /* Mobile navbar */
@@ -97,13 +105,15 @@ body {
     .navbar-links {
         display: none;
         position: absolute;
-        top: 60px;
+        top: 64px;
         left: 0;
         right: 0;
-        background: rgba(26, 26, 46, 0.98);
+        background: rgba(12, 18, 32, 0.98);
+        backdrop-filter: blur(20px);
         flex-direction: column;
         padding: 15px;
-        gap: 5px;
+        gap: 4px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .navbar-links.open {
@@ -114,194 +124,336 @@ body {
         padding: 12px 15px;
         border-radius: 10px;
     }
+
+    .navbar-link.active {
+        border-bottom: none;
+        border-radius: 10px;
+        background: rgba(0, 212, 255, 0.1);
+    }
 }
 
-/* Hero Section */
-.hero {
-    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 153, 204, 0.05) 100%);
-    padding: 30px;
-    border-bottom: 1px solid #e9ecef;
-}
-
-.hero-content {
-    max-width: 100%;
-}
-
-.hero-title {
-    font-size: 1.3em;
-    color: #0099cc;
-    margin-bottom: 15px;
+/* ============================================ */
+/* Hero Section - Full Screen                   */
+/* ============================================ */
+.hero-fullscreen {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 10px;
-}
-
-.hero-text {
-    color: #555;
-    line-height: 1.7;
-    font-size: 0.95em;
-}
-
-.hero-text p {
-    margin-bottom: 12px;
-}
-
-.hero-text p:last-child {
-    margin-bottom: 0;
-}
-
-.hero-highlights {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.hero-highlight {
-    background: white;
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 0.85em;
-    color: #0099cc;
-    border: 1px solid #e0f4ff;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-/* Section icon */
-.section-icon {
-    font-size: 1.2em;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-}
-
-header {
-    background: linear-gradient(135deg, #00d4ff 0%, #0099cc 50%, #006699 100%);
-    color: white;
-    padding: 40px 30px;
-    text-align: center;
-}
-
-header h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-header .dates {
-    font-size: 1.3em;
-    opacity: 0.95;
-    margin-bottom: 15px;
-}
-
-header .group-info {
-    display: flex;
     justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-top: 5px;
+    text-align: center;
+    overflow: hidden;
+    padding: 100px 20px 60px;
 }
 
-header .group-stat {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(5px);
-    padding: 12px 20px;
-    border-radius: 12px;
-    display: flex;
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(to bottom, rgba(12, 18, 32, 0.3) 0%, rgba(12, 18, 32, 0.1) 40%, rgba(12, 18, 32, 0.6) 80%, rgba(12, 18, 32, 1) 100%),
+        url('./assets/hero-norway-rUy8op5H.jpg');
+    background-size: cover;
+    background-position: center 40%;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.hero-fullscreen > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-date-badge {
+    display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: transform 0.2s ease, background 0.2s ease;
-}
-
-header .group-stat:hover {
-    transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.25);
-}
-
-header .group-stat .stat-icon {
-    font-size: 1.5em;
-}
-
-header .group-stat .stat-content {
-    text-align: left;
-}
-
-header .group-stat .stat-number {
-    font-size: 1.4em;
-    font-weight: bold;
-    line-height: 1;
-}
-
-header .group-stat .stat-label {
-    font-size: 0.75em;
-    opacity: 0.9;
-    text-transform: uppercase;
+    padding: 10px 24px;
+    border-radius: 30px;
+    color: white;
+    font-size: 0.95em;
+    font-weight: 500;
+    margin-bottom: 40px;
     letter-spacing: 0.5px;
 }
 
-.content {
-    padding: 30px;
+.hero-title {
+    font-size: 5em;
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 24px;
+    letter-spacing: -2px;
 }
 
+.hero-title .highlight {
+    background: linear-gradient(135deg, #00d4ff 0%, #00e5a0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-title .white {
+    color: white;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.15em;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 700px;
+    margin: 0 auto 24px;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.hero-subtitle .accent {
+    color: #00d4ff;
+    font-weight: 600;
+}
+
+.hero-route-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95em;
+    flex-wrap: wrap;
+}
+
+.hero-route-info span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Countdown Timer */
+.countdown {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.countdown-item {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 16px;
+    padding: 20px 32px;
+    min-width: 110px;
+    text-align: center;
+}
+
+.countdown-number {
+    font-size: 2.8em;
+    font-weight: 700;
+    color: #00d4ff;
+    line-height: 1;
+    margin-bottom: 4px;
+    font-variant-numeric: tabular-nums;
+}
+
+.countdown-label {
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+}
+
+/* Hero Tags */
+.hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.hero-tag {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 8px 18px;
+    border-radius: 24px;
+    font-size: 0.88em;
+    color: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.hero-tag:hover {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: rgba(0, 212, 255, 0.3);
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.scroll-indicator:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.scroll-arrow {
+    font-size: 1.5em;
+    animation: bounceDown 2s infinite;
+}
+
+@keyframes bounceDown {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(8px); }
+    60% { transform: translateY(4px); }
+}
+
+/* ============================================ */
+/* Main Container & Content                     */
+/* ============================================ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+}
+
+/* Old header - hidden, replaced by hero-fullscreen */
+header {
+    display: none;
+}
+
+/* Old hero section - hidden */
+.hero {
+    display: none;
+}
+
+.content {
+    padding: 30px 20px;
+}
+
+/* ============================================ */
+/* Sections                                     */
+/* ============================================ */
 .section {
-    margin-bottom: 35px;
+    margin-bottom: 50px;
 }
 
 .section-title {
     font-size: 1.5em;
-    color: #0099cc;
+    color: #00d4ff;
     margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 3px solid #00d4ff;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
     display: flex;
     align-items: center;
     gap: 10px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
 }
 
-/* Card Viaggi */
+.section-icon {
+    font-size: 1.2em;
+}
+
+/* Section subtitle */
+.section-subtitle {
+    text-align: center;
+    color: #94a3b8;
+    margin-bottom: 30px;
+    font-size: 1em;
+}
+
+/* ============================================ */
+/* Dark Glass Cards - Base                      */
+/* ============================================ */
+.dark-card {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 24px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.dark-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 212, 255, 0.15);
+}
+
+/* ============================================ */
+/* Travel Cards (Voli/Viaggio)                  */
+/* ============================================ */
 .travel-cards {
     display: grid;
     gap: 20px;
 }
 
 .travel-card {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-radius: 15px;
-    padding: 25px;
-    border-left: 5px solid #0099cc;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 24px;
+    border-left: none;
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .travel-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(0, 153, 204, 0.2);
+    transform: translateY(-2px);
+    border-color: rgba(0, 212, 255, 0.15);
 }
 
 .travel-card.outbound {
-    border-left-color: #4CAF50;
+    border-left: none;
+    border-top: 1px solid rgba(0, 212, 255, 0.3);
 }
 
 .travel-card.return {
-    border-left-color: #FF6B6B;
+    border-left: none;
+    border-top: 1px solid rgba(0, 212, 255, 0.3);
 }
 
 .travel-card.shuttle {
-    border-left-color: #FF9800;
+    border-left: none;
 }
 
 .travel-card h3 {
-    color: #333;
+    color: #f1f5f9;
     margin-bottom: 15px;
-    font-size: 1.2em;
+    font-size: 1.15em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.travel-card p {
+    color: #94a3b8;
 }
 
 .flight-info {
@@ -310,6 +462,7 @@ header .group-stat .stat-label {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 15px;
+    padding: 16px 0;
 }
 
 .airport {
@@ -317,81 +470,237 @@ header .group-stat .stat-label {
 }
 
 .airport-code {
-    font-size: 1.8em;
-    font-weight: bold;
-    color: #0099cc;
+    font-size: 2em;
+    font-weight: 700;
+    color: #00d4ff;
+    letter-spacing: -1px;
 }
 
 .airport-name {
-    font-size: 0.9em;
-    color: #666;
+    font-size: 0.85em;
+    color: #94a3b8;
+    margin-top: 2px;
 }
 
 .flight-arrow {
-    font-size: 2em;
-    color: #0099cc;
+    font-size: 1.5em;
+    color: #00d4ff;
+    position: relative;
 }
 
 .flight-details {
-    background: white;
+    background: rgba(255, 255, 255, 0.03);
     padding: 10px 15px;
     border-radius: 10px;
     font-size: 0.95em;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .tag {
     display: inline-block;
     padding: 5px 12px;
-    border-radius: 20px;
+    border-radius: 8px;
     font-size: 0.85em;
-    font-weight: bold;
+    font-weight: 600;
     margin-right: 8px;
 }
 
 .tag-green {
-    background: #4CAF50;
-    color: white;
+    background: rgba(0, 212, 255, 0.1);
+    color: #00d4ff;
+    border: 1px solid rgba(0, 212, 255, 0.2);
 }
 
 .tag-orange {
-    background: #FF9800;
-    color: white;
+    background: rgba(0, 212, 255, 0.1);
+    color: #00d4ff;
+    border: 1px solid rgba(0, 212, 255, 0.2);
 }
 
 .tag-blue {
-    background: #2196F3;
-    color: white;
+    background: rgba(255, 255, 255, 0.05);
+    color: #94a3b8;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Gite */
+/* Flight extras */
+.flight-extras {
+    margin-top: 12px;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.9em;
+    color: #94a3b8;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.flight-extra-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.flight-extra-item strong {
+    color: #f1f5f9;
+}
+
+/* Rental Details */
+.rental-details {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    padding: 12px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.rental-detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.rental-detail-item:last-child {
+    border-bottom: none;
+}
+
+.rental-label {
+    font-weight: 600;
+    color: #e2e8f0;
+    font-size: 0.9em;
+}
+
+.rental-value {
+    font-size: 0.9em;
+    color: #94a3b8;
+}
+
+.rental-value.tbd {
+    color: #00d4ff;
+    font-style: italic;
+    font-weight: 500;
+}
+
+/* Luggage Card */
+.luggage-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.luggage-category h4 {
+    font-size: 0.95em;
+    color: #00d4ff;
+    margin-bottom: 5px;
+}
+
+.luggage-category p {
+    color: #94a3b8;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+.luggage-category p strong {
+    color: #f1f5f9;
+}
+
+/* Ferry Card */
+.ferry-routes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.ferry-route {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ferry-route-name {
+    color: #00d4ff;
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+
+.ferry-route p {
+    color: #94a3b8;
+    font-size: 0.9em;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.ferry-link {
+    color: #00d4ff;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.ferry-link:hover {
+    text-decoration: underline;
+}
+
+.ferry-note {
+    background: rgba(0, 212, 255, 0.05);
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    border-radius: 10px;
+    padding: 12px 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9em;
+    color: #94a3b8;
+}
+
+.ferry-note a {
+    color: #00d4ff;
+    font-weight: 500;
+}
+
+/* ============================================ */
+/* Trips/Gite Section                           */
+/* ============================================ */
 .trips-grid {
     display: grid;
     gap: 15px;
 }
 
 .trip-card {
-    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
     padding: 20px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .trip-card:hover {
-    transform: scale(1.02);
+    transform: translateY(-2px);
+    border-color: rgba(0, 212, 255, 0.15);
 }
 
 .trip-card h4 {
-    color: #1565c0;
+    color: #f1f5f9;
     margin-bottom: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 8px;
+    font-weight: 600;
 }
 
 .trip-card p {
-    color: #555;
+    color: #94a3b8;
     font-size: 0.95em;
 }
 
@@ -403,38 +712,50 @@ header .group-stat .stat-label {
 }
 
 .trip-stat {
-    background: rgba(21, 101, 192, 0.1);
+    background: rgba(0, 212, 255, 0.08);
     padding: 4px 10px;
-    border-radius: 15px;
+    border-radius: 8px;
     font-size: 0.85em;
-    color: #1565c0;
+    color: #00d4ff;
+    border: 1px solid rgba(0, 212, 255, 0.12);
 }
 
 .difficulty {
     padding: 3px 10px;
-    border-radius: 12px;
+    border-radius: 8px;
     font-size: 0.75em;
     font-weight: bold;
     color: white;
 }
 
-.difficulty-bs {
-    background: #4CAF50;
+.difficulty-bs { background: #4CAF50; }
+.difficulty-ms { background: #FF9800; }
+.difficulty-os { background: #f44336; }
+.difficulty-unknown { background: #64748b; }
+
+/* Trip Number */
+.trip-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: rgba(0, 212, 255, 0.15);
+    color: #00d4ff;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-right: 10px;
+    flex-shrink: 0;
+    border: 1px solid rgba(0, 212, 255, 0.2);
 }
 
-.difficulty-ms {
-    background: #FF9800;
+.trip-card h4 {
+    display: flex;
+    align-items: center;
 }
 
-.difficulty-os {
-    background: #f44336;
-}
-
-.difficulty-unknown {
-    background: #9e9e9e;
-}
-
-/* Link Gite */
+/* Trip Links */
 .trip-links {
     display: flex;
     gap: 8px;
@@ -462,40 +783,26 @@ header .group-stat .stat-label {
 
 .trip-link:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.trip-link.gulliver {
-    background: #2e7d32;
-    color: white;
-}
+.trip-link.gulliver { background: #2e7d32; color: white; }
+.trip-link.wikiloc { background: #1976d2; color: white; }
+.trip-link.strava { background: #fc4c02; color: white; }
+.trip-link.garmin { background: #007dbe; color: white; }
 
-.trip-link.wikiloc {
-    background: #1976d2;
-    color: white;
-}
-
-.trip-link.strava {
-    background: #fc4c02;
-    color: white;
-}
-
-.trip-link.garmin {
-    background: #007dbe;
-    color: white;
-}
-
-/* Filtri */
+/* Filters */
 .filters {
-    background: #f8f9fa;
-    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
     padding: 20px;
     margin-bottom: 20px;
 }
 
 .filters-title {
     font-size: 1em;
-    color: #333;
+    color: #e2e8f0;
     margin-bottom: 15px;
     font-weight: 600;
 }
@@ -514,7 +821,7 @@ header .group-stat .stat-label {
 .filter-group label {
     display: block;
     font-size: 0.85em;
-    color: #666;
+    color: #94a3b8;
     margin-bottom: 8px;
     font-weight: 500;
 }
@@ -527,46 +834,38 @@ header .group-stat .stat-label {
 
 .filter-btn {
     padding: 6px 12px;
-    border: 2px solid #ddd;
-    background: white;
-    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    color: #94a3b8;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 0.85em;
     transition: all 0.2s ease;
+    font-family: "Inter", sans-serif;
 }
 
 .filter-btn:hover {
-    border-color: #0099cc;
-    color: #0099cc;
+    border-color: rgba(0, 212, 255, 0.3);
+    color: #00d4ff;
 }
 
 .filter-btn.active {
-    background: #0099cc;
-    border-color: #0099cc;
-    color: white;
+    background: rgba(0, 212, 255, 0.15);
+    border-color: rgba(0, 212, 255, 0.3);
+    color: #00d4ff;
 }
 
-.filter-btn.active-bs {
-    background: #4CAF50;
-    border-color: #4CAF50;
-}
-
-.filter-btn.active-ms {
-    background: #FF9800;
-    border-color: #FF9800;
-}
-
-.filter-btn.active-os {
-    background: #f44336;
-    border-color: #f44336;
-}
+.filter-btn.active-bs { background: rgba(76, 175, 80, 0.2); border-color: #4CAF50; color: #4CAF50; }
+.filter-btn.active-ms { background: rgba(255, 152, 0, 0.2); border-color: #FF9800; color: #FF9800; }
+.filter-btn.active-os { background: rgba(244, 67, 54, 0.2); border-color: #f44336; color: #f44336; }
 
 .trips-count {
     font-size: 0.9em;
-    color: #666;
+    color: #94a3b8;
     margin-bottom: 15px;
     padding: 10px;
-    background: #e3f2fd;
+    background: rgba(0, 212, 255, 0.05);
+    border: 1px solid rgba(0, 212, 255, 0.1);
     border-radius: 8px;
     text-align: center;
 }
@@ -575,189 +874,28 @@ header .group-stat .stat-label {
     display: none;
 }
 
-/* Piano B */
-.alternative-activities {
-    display: grid;
-    gap: 20px;
-}
-
-.activity-card {
-    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-    border-radius: 12px;
-    padding: 20px;
-    transition: transform 0.3s ease;
-    border-left: 4px solid #ff9800;
-}
-
-.activity-card:hover {
-    transform: scale(1.02);
-}
-
-.activity-card h3 {
-    color: #e65100;
-    margin-bottom: 12px;
-    font-size: 1.1em;
-}
-
-.activity-card p {
-    color: #555;
-    font-size: 0.95em;
-    line-height: 1.6;
-    margin-bottom: 8px;
-}
-
-.activity-card p strong {
-    color: #333;
-    font-weight: 600;
-}
-
-/* Lista Materiale */
-.checklist {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-}
-
-.checklist-category {
-    background: #f8f9fa;
-    border-radius: 12px;
-    padding: 20px;
-}
-
-.checklist-category h4 {
-    color: #0099cc;
-    margin-bottom: 12px;
-    font-size: 1.1em;
-}
-
-.checklist-category ul {
-    list-style: none;
-}
-
-.checklist-category li {
-    padding: 8px 0;
-    border-bottom: 1px solid #e9ecef;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.checklist-category li:last-child {
-    border-bottom: none;
-}
-
-.checklist-category li::before {
-    content: "☐";
-    font-size: 1.2em;
-}
-
-/* Packing List */
-.packing-section {
-    margin-bottom: 25px;
-}
-
-.packing-section h4 {
-    color: #0099cc;
-    margin-bottom: 15px;
-    font-size: 1.1em;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.packing-section h4 .emoji {
-    font-size: 1.3em;
-}
-
-.packing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-.packing-category {
-    background: #f8f9fa;
-    border-radius: 12px;
-    padding: 20px;
-    border-left: 4px solid #0099cc;
-}
-
-.packing-category.documents { border-left-color: #4CAF50; }
-.packing-category.backpack { border-left-color: #FF9800; }
-.packing-category.technical { border-left-color: #2196F3; }
-.packing-category.safety { border-left-color: #f44336; }
-.packing-category.casual { border-left-color: #9C27B0; }
-.packing-category.electronics { border-left-color: #00BCD4; }
-.packing-category.hygiene { border-left-color: #E91E63; }
-.packing-category.extras { border-left-color: #607D8B; }
-.packing-category.apps { border-left-color: #673AB7; }
-
-.packing-category h5 {
-    color: #333;
-    margin-bottom: 12px;
-    font-size: 1em;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.packing-item {
-    padding: 8px 0;
-    border-bottom: 1px solid #e9ecef;
-    color: #333;
-    font-size: 0.95em;
-}
-
-.packing-item:last-child {
-    border-bottom: none;
-}
-
-.packing-item .note {
-    font-size: 0.8em;
-    color: #888;
-    font-style: italic;
-}
-
-/* Info Box */
-.info-box {
-    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-    border: 2px solid #FF9800;
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-.info-box.weather {
-    background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
-    border-color: #03a9f4;
-}
-
-.info-box h4 {
-    color: #e65100;
-    margin-bottom: 10px;
-}
-
-.info-box.weather h4 {
-    color: #0277bd;
-}
-
-/* Weather Section Enhanced */
+/* ============================================ */
+/* Weather Section                              */
+/* ============================================ */
 .weather-intro {
-    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-    border-radius: 15px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
     padding: 25px;
     margin-bottom: 20px;
-    border-left: 5px solid #1976d2;
+    border-left: 4px solid #00d4ff;
 }
 
 .weather-intro p {
-    color: #333;
+    color: #94a3b8;
     line-height: 1.7;
     margin-bottom: 10px;
 }
 
-.weather-intro p:last-child {
-    margin-bottom: 0;
+.weather-intro p:last-child { margin-bottom: 0; }
+
+.weather-intro strong {
+    color: #f1f5f9;
 }
 
 .weather-grid {
@@ -768,24 +906,26 @@ header .group-stat .stat-label {
 }
 
 .weather-card {
-    background: #f8f9fa;
-    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
     padding: 20px;
-    border-top: 4px solid #1976d2;
+    border-top: 3px solid #00d4ff;
 }
 
-.weather-card.temperature { border-top-color: #e91e63; }
-.weather-card.precipitation { border-top-color: #00bcd4; }
-.weather-card.light { border-top-color: #ffc107; }
-.weather-card.apps { border-top-color: #9c27b0; }
+.weather-card.temperature { border-top-color: #f43f5e; }
+.weather-card.precipitation { border-top-color: #06b6d4; }
+.weather-card.light { border-top-color: #eab308; }
+.weather-card.apps { border-top-color: #a855f7; }
 
 .weather-card h4 {
-    color: #333;
+    color: #f1f5f9;
     margin-bottom: 15px;
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 1.1em;
+    font-size: 1.05em;
+    font-weight: 600;
 }
 
 .weather-card ul {
@@ -796,24 +936,24 @@ header .group-stat .stat-label {
 
 .weather-card li {
     padding: 8px 0;
-    border-bottom: 1px solid #e9ecef;
-    color: #555;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: #94a3b8;
     line-height: 1.5;
 }
 
-.weather-card li:last-child {
-    border-bottom: none;
+.weather-card li:last-child { border-bottom: none; }
+
+.weather-card li strong {
+    color: #f1f5f9;
 }
 
 .weather-card p {
-    color: #555;
+    color: #94a3b8;
     line-height: 1.6;
     margin-bottom: 10px;
 }
 
-.weather-card p:last-child {
-    margin-bottom: 0;
-}
+.weather-card p:last-child { margin-bottom: 0; }
 
 .weather-stats {
     display: flex;
@@ -823,28 +963,29 @@ header .group-stat .stat-label {
 }
 
 .weather-stat {
-    background: white;
-    padding: 12px 18px;
-    border-radius: 10px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 14px 20px;
+    border-radius: 12px;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .weather-stat .value {
     font-size: 1.4em;
     font-weight: bold;
-    color: #1976d2;
+    color: #00d4ff;
 }
 
 .weather-stat .label {
     font-size: 0.8em;
-    color: #666;
+    color: #94a3b8;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .weather-note {
-    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-    border: 2px solid #ff9800;
+    background: rgba(234, 179, 8, 0.05);
+    border: 1px solid rgba(234, 179, 8, 0.2);
     border-radius: 12px;
     padding: 15px 20px;
     margin-top: 20px;
@@ -853,348 +994,27 @@ header .group-stat .stat-label {
     gap: 12px;
 }
 
-.weather-note .note-icon {
-    font-size: 1.3em;
-}
+.weather-note .note-icon { font-size: 1.3em; }
 
 .weather-note p {
     margin: 0;
-    color: #e65100;
+    color: #eab308;
     font-size: 0.95em;
     line-height: 1.5;
 }
 
-.app-list {
-    display: grid;
-    gap: 10px;
+.weather-note p strong {
+    color: #fbbf24;
 }
 
-.app-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px;
-    background: white;
-    border-radius: 8px;
-    transition: transform 0.2s ease;
-}
-
-.app-item:hover {
-    transform: translateX(5px);
-}
-
-.app-item .app-name {
-    font-weight: 600;
-    color: #333;
-}
-
-.app-item .app-desc {
-    font-size: 0.85em;
-    color: #666;
-}
-
-/* Link Utili */
-.links-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-}
-
-.link-card {
-    background: linear-gradient(135deg, #0099cc 0%, #006699 100%);
-    color: white;
-    padding: 20px;
-    border-radius: 12px;
-    text-decoration: none;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.link-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 153, 204, 0.4);
-}
-
-.link-card .icon {
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-.link-card span {
-    font-weight: bold;
-}
-
-/* Map */
-#map {
-    height: 600px;
-    width: 100%;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    margin-top: 20px;
-    z-index: 1;
-}
-
-.map-intro {
-    margin-bottom: 15px;
-    color: #666;
-    text-align: center;
-}
-
-/* Trip number badge */
-.trip-number {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    background: #0099cc;
-    color: white;
-    border-radius: 50%;
-    font-weight: bold;
-    font-size: 0.9em;
-    margin-right: 10px;
-    flex-shrink: 0;
-    box-shadow: 0 2px 6px rgba(0, 153, 204, 0.3);
-}
-
-.trip-card h4 {
-    display: flex;
-    align-items: center;
-}
-
-/* Custom marker icon */
-.custom-marker {
-    background: #0099cc;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 3px solid white;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 14px;
-    font-weight: bold;
-    color: white;
-    line-height: 1;
-    text-align: center;
-}
-
-.house-marker {
-    background: #27ae60;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    border: 3px solid white;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-}
-
-.airport-marker {
-    background: #e74c3c;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    border: 3px solid white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-}
-
-.leaflet-popup-content-wrapper {
-    border-radius: 10px;
-}
-
-.leaflet-popup-content {
-    margin: 12px;
-    font-family: "Poppins", sans-serif;
-}
-
-.popup-title {
-    font-weight: 600;
-    font-size: 1.1em;
-    margin-bottom: 5px;
-    color: #0099cc;
-}
-
-.popup-link {
-    display: inline-block;
-    margin-top: 8px;
-    color: #0099cc;
-    text-decoration: none;
-    font-size: 0.9em;
-}
-
-.popup-link:hover {
-    text-decoration: underline;
-}
-
-/* Footer */
-footer {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    color: white;
-    text-align: center;
-    padding: 25px;
-}
-
-footer p {
-    opacity: 0.8;
-}
-
-/* ============================================ */
-/* Flight Extras                                 */
-/* ============================================ */
-.flight-extras {
-    margin-top: 12px;
-    padding: 12px 15px;
-    background: white;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    font-size: 0.9em;
-    color: #555;
-}
-
-.flight-extra-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-/* ============================================ */
-/* Rental Details                                */
-/* ============================================ */
-.rental-details {
-    background: white;
-    border-radius: 10px;
-    padding: 12px 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.rental-detail-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 0;
-    border-bottom: 1px solid #e9ecef;
-}
-
-.rental-detail-item:last-child {
-    border-bottom: none;
-}
-
-.rental-label {
-    font-weight: 600;
-    color: #333;
-    font-size: 0.9em;
-}
-
-.rental-value {
-    font-size: 0.9em;
-    color: #555;
-}
-
-.rental-value.tbd {
-    color: #ff9800;
-    font-style: italic;
-    font-weight: 500;
-}
-
-/* ============================================ */
-/* Luggage Card                                  */
-/* ============================================ */
-.luggage-info {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.luggage-category h4 {
-    font-size: 0.95em;
-    color: #1565c0;
-    margin-bottom: 5px;
-}
-
-.luggage-category p {
-    color: #555;
-    font-size: 0.95em;
-    line-height: 1.6;
-}
-
-/* ============================================ */
-/* Ferry Card                                    */
-/* ============================================ */
-.ferry-routes {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-
-.ferry-route {
-    background: white;
-    border-radius: 10px;
-    padding: 15px;
-}
-
-.ferry-route-name {
-    color: #00838f;
-    margin-bottom: 8px;
-    font-size: 1em;
-}
-
-.ferry-route p {
-    color: #555;
-    font-size: 0.9em;
-    line-height: 1.5;
-    margin-bottom: 8px;
-}
-
-.ferry-link {
-    color: #00838f;
-    text-decoration: none;
-    font-size: 0.9em;
-    font-weight: 500;
-}
-
-.ferry-link:hover {
-    text-decoration: underline;
-}
-
-.ferry-note {
-    background: #e0f7fa;
-    border-radius: 10px;
-    padding: 12px 15px;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 0.9em;
-    color: #555;
-}
-
-.ferry-note a {
-    color: #00838f;
-    font-weight: 500;
-}
-
-/* ============================================ */
-/* Weather Real-time                             */
-/* ============================================ */
+/* Weather Realtime */
 .weather-realtime {
     margin-top: 25px;
     margin-bottom: 20px;
 }
 
 .weather-realtime h3 {
-    color: #1976d2;
+    color: #00d4ff;
     margin-bottom: 10px;
     font-size: 1.2em;
 }
@@ -1206,20 +1026,21 @@ footer p {
 }
 
 .weather-embed-card {
-    background: #f8f9fa;
-    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
     padding: 20px;
-    border-top: 4px solid #1976d2;
+    border-top: 3px solid #00d4ff;
 }
 
 .weather-embed-card h4 {
-    color: #333;
+    color: #f1f5f9;
     margin-bottom: 12px;
     font-size: 1.05em;
 }
 
 .weather-embed-card p {
-    color: #666;
+    color: #94a3b8;
     font-size: 0.9em;
     margin-bottom: 8px;
 }
@@ -1227,18 +1048,48 @@ footer p {
 .weather-yr-link {
     display: inline-block;
     margin-top: 8px;
-    color: #1976d2;
+    color: #00d4ff;
     text-decoration: none;
     font-size: 0.9em;
     font-weight: 500;
 }
 
-.weather-yr-link:hover {
-    text-decoration: underline;
+.weather-yr-link:hover { text-decoration: underline; }
+
+/* App list */
+.app-list {
+    display: grid;
+    gap: 10px;
+}
+
+.app-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.app-item:hover {
+    transform: translateX(5px);
+    border-color: rgba(0, 212, 255, 0.1);
+}
+
+.app-item .app-name {
+    font-weight: 600;
+    color: #f1f5f9;
+}
+
+.app-item .app-desc {
+    font-size: 0.85em;
+    color: #94a3b8;
 }
 
 /* ============================================ */
-/* Avalanche Bulletin                            */
+/* Avalanche Section                            */
 /* ============================================ */
 .avalanche-section {
     margin-top: 25px;
@@ -1246,16 +1097,17 @@ footer p {
 }
 
 .avalanche-section h3 {
-    color: #d32f2f;
+    color: #f43f5e;
     margin-bottom: 10px;
     font-size: 1.2em;
 }
 
 .avalanche-card {
-    background: #f8f9fa;
-    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
     padding: 20px;
-    border-top: 4px solid #d32f2f;
+    border-top: 3px solid #f43f5e;
 }
 
 .avalanche-levels {
@@ -1287,12 +1139,12 @@ footer p {
     font-size: 0.85em;
 }
 
-.avalanche-level.level-1 { background: #8bc34a; }
-.avalanche-level.level-2 { background: #ffeb3b; color: #333; }
+.avalanche-level.level-1 { background: #4ade80; color: #052e16; }
+.avalanche-level.level-2 { background: #facc15; color: #422006; }
 .avalanche-level.level-2 span { background: rgba(0,0,0,0.15); }
-.avalanche-level.level-3 { background: #ff9800; }
-.avalanche-level.level-4 { background: #f44336; }
-.avalanche-level.level-5 { background: #b71c1c; }
+.avalanche-level.level-3 { background: #fb923c; color: #431407; }
+.avalanche-level.level-4 { background: #f87171; }
+.avalanche-level.level-5 { background: #dc2626; }
 
 .avalanche-links {
     display: flex;
@@ -1303,7 +1155,7 @@ footer p {
 .avalanche-link-btn {
     display: inline-block;
     padding: 10px 18px;
-    background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+    background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
     color: white;
     text-decoration: none;
     border-radius: 10px;
@@ -1314,13 +1166,13 @@ footer p {
 
 .avalanche-link-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(211, 47, 47, 0.3);
+    box-shadow: 0 5px 15px rgba(244, 63, 94, 0.3);
 }
 
 .avalanche-warning {
     margin-top: 15px;
-    background: #fff3e0;
-    border: 2px solid #ff9800;
+    background: rgba(234, 179, 8, 0.05);
+    border: 1px solid rgba(234, 179, 8, 0.2);
     border-radius: 10px;
     padding: 12px 15px;
     display: flex;
@@ -1330,24 +1182,122 @@ footer p {
 
 .avalanche-warning p {
     margin: 0;
-    color: #e65100;
+    color: #eab308;
     font-size: 0.9em;
     line-height: 1.5;
 }
 
+.avalanche-warning p strong {
+    color: #fbbf24;
+}
+
 /* ============================================ */
-/* Aurora Boreale Section                        */
+/* Checklist / Packing List                     */
+/* ============================================ */
+.packing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.packing-category {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 20px;
+    border-left: 3px solid #00d4ff;
+}
+
+.packing-category.documents { border-left-color: #4ade80; }
+.packing-category.backpack { border-left-color: #fb923c; }
+.packing-category.technical { border-left-color: #3b82f6; }
+.packing-category.safety { border-left-color: #f43f5e; }
+.packing-category.casual { border-left-color: #a855f7; }
+.packing-category.electronics { border-left-color: #06b6d4; }
+.packing-category.hygiene { border-left-color: #ec4899; }
+.packing-category.extras { border-left-color: #64748b; }
+.packing-category.apps { border-left-color: #8b5cf6; }
+
+.packing-category h5 {
+    color: #f1f5f9;
+    margin-bottom: 12px;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.packing-item {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: #94a3b8;
+    font-size: 0.95em;
+}
+
+.packing-item:last-child { border-bottom: none; }
+
+.packing-item .note {
+    font-size: 0.8em;
+    color: #64748b;
+    font-style: italic;
+}
+
+/* ============================================ */
+/* Plan B / Alternative Activities              */
+/* ============================================ */
+.alternative-activities {
+    display: grid;
+    gap: 20px;
+}
+
+.activity-card {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 20px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    border-left: 3px solid #fb923c;
+}
+
+.activity-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(251, 146, 60, 0.2);
+}
+
+.activity-card h3 {
+    color: #f1f5f9;
+    margin-bottom: 12px;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.activity-card p {
+    color: #94a3b8;
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.activity-card p strong {
+    color: #f1f5f9;
+    font-weight: 600;
+}
+
+/* ============================================ */
+/* Aurora Boreale Section                       */
 /* ============================================ */
 .aurora-intro {
-    background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
-    border-radius: 15px;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.6) 100%);
+    border: 1px solid rgba(118, 255, 3, 0.15);
+    border-radius: 16px;
     padding: 25px;
     margin-bottom: 20px;
-    border-left: 5px solid #76ff03;
+    border-left: 4px solid #76ff03;
 }
 
 .aurora-intro p {
-    color: #e0e0e0;
+    color: #94a3b8;
     line-height: 1.7;
     font-size: 0.95em;
 }
@@ -1363,16 +1313,18 @@ footer p {
 }
 
 .aurora-card {
-    background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 100%);
-    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(139, 92, 246, 0.15);
+    border-radius: 14px;
     padding: 20px;
-    border-top: 4px solid #673ab7;
+    border-top: 3px solid #8b5cf6;
 }
 
 .aurora-card h4 {
-    color: #4a148c;
+    color: #c4b5fd;
     margin-bottom: 15px;
     font-size: 1.1em;
+    font-weight: 600;
 }
 
 .aurora-card ul {
@@ -1383,21 +1335,27 @@ footer p {
 
 .aurora-card li {
     padding: 6px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-    color: #555;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    color: #94a3b8;
     line-height: 1.5;
     font-size: 0.9em;
 }
 
-.aurora-card li:last-child {
-    border-bottom: none;
+.aurora-card li:last-child { border-bottom: none; }
+
+.aurora-card li strong {
+    color: #f1f5f9;
 }
 
 .aurora-card p {
-    color: #555;
+    color: #94a3b8;
     line-height: 1.6;
     font-size: 0.95em;
     margin-bottom: 10px;
+}
+
+.aurora-card p strong {
+    color: #f1f5f9;
 }
 
 .kp-scale {
@@ -1414,38 +1372,66 @@ footer p {
     font-weight: 500;
 }
 
-.kp-item.kp-low { background: #c8e6c9; color: #2e7d32; }
-.kp-item.kp-mid { background: #fff9c4; color: #f57f17; }
-.kp-item.kp-high { background: #ffccbc; color: #d84315; }
-.kp-item.kp-extreme { background: #f8bbd0; color: #c62828; }
+.kp-item.kp-low { background: rgba(74, 222, 128, 0.1); color: #4ade80; border: 1px solid rgba(74, 222, 128, 0.2); }
+.kp-item.kp-mid { background: rgba(250, 204, 21, 0.1); color: #facc15; border: 1px solid rgba(250, 204, 21, 0.2); }
+.kp-item.kp-high { background: rgba(251, 146, 60, 0.1); color: #fb923c; border: 1px solid rgba(251, 146, 60, 0.2); }
+.kp-item.kp-extreme { background: rgba(244, 63, 94, 0.1); color: #f43f5e; border: 1px solid rgba(244, 63, 94, 0.2); }
 
 .aurora-app-link {
     display: inline-block;
-    color: #673ab7;
+    color: #8b5cf6;
     text-decoration: none;
     font-size: 0.85em;
     margin-top: 3px;
 }
 
-.aurora-app-link:hover {
-    text-decoration: underline;
-}
+.aurora-app-link:hover { text-decoration: underline; }
 
 /* ============================================ */
-/* Currency Converter                            */
+/* Info Section                                 */
 /* ============================================ */
+.info-box {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(234, 179, 8, 0.15);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 3px solid #eab308;
+}
+
+.info-box h4 {
+    color: #eab308;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.info-box ul {
+    color: #94a3b8;
+}
+
+.info-box li {
+    margin-bottom: 4px;
+}
+
+.info-box li strong,
+.info-box strong {
+    color: #f1f5f9;
+}
+
+/* Currency Converter */
 .converter-widget {
-    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-    border: 2px solid #4CAF50;
-    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(74, 222, 128, 0.15);
+    border-radius: 14px;
     padding: 20px;
     margin-top: 20px;
 }
 
 .converter-widget h4 {
-    color: #2e7d32;
+    color: #4ade80;
     margin-bottom: 15px;
     font-size: 1.1em;
+    font-weight: 600;
 }
 
 .converter-body {
@@ -1464,7 +1450,7 @@ footer p {
 .converter-input-group label {
     display: block;
     font-size: 0.85em;
-    color: #666;
+    color: #94a3b8;
     margin-bottom: 6px;
     font-weight: 500;
 }
@@ -1472,35 +1458,35 @@ footer p {
 .converter-input-wrapper {
     display: flex;
     align-items: center;
-    background: white;
+    background: rgba(255, 255, 255, 0.03);
     border-radius: 10px;
     padding: 10px 15px;
-    border: 2px solid #ddd;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     transition: border-color 0.2s ease;
 }
 
 .converter-input-wrapper:focus-within {
-    border-color: #4CAF50;
+    border-color: #4ade80;
 }
 
 .converter-input-wrapper input {
     border: none;
     outline: none;
-    font-family: "Poppins", sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 1.2em;
     font-weight: 600;
     width: 100%;
-    color: #333;
+    color: #f1f5f9;
     background: transparent;
 }
 
 .converter-input-wrapper input::placeholder {
-    color: #bbb;
+    color: #64748b;
 }
 
 .currency-label {
     font-weight: 600;
-    color: #999;
+    color: #64748b;
     font-size: 0.9em;
     margin-left: 8px;
     white-space: nowrap;
@@ -1514,14 +1500,15 @@ footer p {
 
 .converter-arrow {
     font-size: 1.5em;
-    color: #4CAF50;
+    color: #4ade80;
     font-weight: bold;
 }
 
 .converter-output {
     display: flex;
     align-items: center;
-    background: white;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     padding: 10px 15px;
     min-width: 120px;
@@ -1530,40 +1517,42 @@ footer p {
 #eur-output {
     font-size: 1.2em;
     font-weight: 700;
-    color: #2e7d32;
+    color: #4ade80;
 }
 
 .converter-rate {
     margin-top: 12px;
     font-size: 0.85em;
-    color: #555;
+    color: #94a3b8;
 }
 
 .converter-rate-note {
     font-size: 0.85em;
-    color: #888;
+    color: #64748b;
     font-style: italic;
 }
 
 /* ============================================ */
-/* Food & Supermarkets Section                   */
+/* Food & Supermarkets Section                  */
 /* ============================================ */
 .food-from-home {
-    background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
-    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(251, 146, 60, 0.15);
+    border-radius: 14px;
     padding: 20px;
-    border-left: 4px solid #ff8f00;
+    border-left: 3px solid #fb923c;
     margin-bottom: 20px;
 }
 
 .food-from-home h4 {
-    color: #e65100;
+    color: #fb923c;
     margin-bottom: 10px;
     font-size: 1.05em;
+    font-weight: 600;
 }
 
 .food-from-home p {
-    color: #555;
+    color: #94a3b8;
     font-size: 0.95em;
     margin-bottom: 12px;
 }
@@ -1575,12 +1564,12 @@ footer p {
 }
 
 .food-tag {
-    background: white;
+    background: rgba(251, 146, 60, 0.08);
+    border: 1px solid rgba(251, 146, 60, 0.15);
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.85em;
-    color: #e65100;
-    border: 1px solid #ffe0b2;
+    color: #fb923c;
 }
 
 .supermarket-grid {
@@ -1591,15 +1580,16 @@ footer p {
 }
 
 .supermarket-card {
-    background: #f8f9fa;
-    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
     padding: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .supermarket-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    border-color: rgba(0, 212, 255, 0.15);
 }
 
 .supermarket-brand {
@@ -1621,32 +1611,30 @@ footer p {
 
 .supermarket-name {
     font-weight: 600;
-    color: #333;
+    color: #f1f5f9;
     font-size: 1em;
     margin-bottom: 5px;
 }
 
 .supermarket-card p {
-    color: #666;
+    color: #94a3b8;
     font-size: 0.9em;
     margin-bottom: 10px;
     line-height: 1.4;
 }
 
 .supermarket-link {
-    color: #0099cc;
+    color: #00d4ff;
     text-decoration: none;
     font-size: 0.9em;
     font-weight: 500;
 }
 
-.supermarket-link:hover {
-    text-decoration: underline;
-}
+.supermarket-link:hover { text-decoration: underline; }
 
 .food-note {
-    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-    border: 2px solid #ff9800;
+    background: rgba(234, 179, 8, 0.05);
+    border: 1px solid rgba(234, 179, 8, 0.2);
     border-radius: 12px;
     padding: 15px 20px;
     display: flex;
@@ -1656,12 +1644,194 @@ footer p {
 
 .food-note p {
     margin: 0;
-    color: #e65100;
+    color: #eab308;
     font-size: 0.95em;
     line-height: 1.5;
 }
 
-/* Responsive - Web view (not mobile) */
+.food-note p strong {
+    color: #fbbf24;
+}
+
+.food-note p a {
+    color: #00d4ff;
+}
+
+/* ============================================ */
+/* Links Section                                */
+/* ============================================ */
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.link-card {
+    background: rgba(0, 212, 255, 0.05);
+    border: 1px solid rgba(0, 212, 255, 0.15);
+    color: #f1f5f9;
+    padding: 20px;
+    border-radius: 14px;
+    text-decoration: none;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.link-card:hover {
+    transform: translateY(-3px);
+    background: rgba(0, 212, 255, 0.1);
+    border-color: rgba(0, 212, 255, 0.3);
+}
+
+.link-card .icon {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.link-card span {
+    font-weight: 600;
+    color: #00d4ff;
+}
+
+.link-card p {
+    color: #94a3b8 !important;
+}
+
+/* ============================================ */
+/* Map                                          */
+/* ============================================ */
+#map {
+    height: 600px;
+    width: 100%;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    margin-top: 20px;
+    z-index: 1;
+}
+
+.map-intro {
+    margin-bottom: 15px;
+    color: #94a3b8;
+    text-align: center;
+}
+
+/* Custom marker icon */
+.custom-marker {
+    background: #00d4ff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 14px;
+    font-weight: bold;
+    color: #0c1220;
+    line-height: 1;
+    text-align: center;
+}
+
+.house-marker {
+    background: #4ade80;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.airport-marker {
+    background: #f43f5e;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.leaflet-popup-content-wrapper {
+    border-radius: 10px;
+}
+
+.leaflet-popup-content {
+    margin: 12px;
+    font-family: "Inter", sans-serif;
+}
+
+.popup-title {
+    font-weight: 600;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    color: #00d4ff;
+}
+
+.popup-link {
+    display: inline-block;
+    margin-top: 8px;
+    color: #00d4ff;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.popup-link:hover { text-decoration: underline; }
+
+/* ============================================ */
+/* Footer                                       */
+/* ============================================ */
+footer {
+    background: rgba(12, 18, 32, 0.8);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #94a3b8;
+    text-align: center;
+    padding: 30px;
+    margin-top: 40px;
+}
+
+footer p {
+    opacity: 0.8;
+    font-size: 0.9em;
+}
+
+/* ============================================ */
+/* Legend (trips difficulty)                     */
+/* ============================================ */
+.legend-box {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 15px 20px;
+    margin-top: 20px;
+}
+
+.legend-box p {
+    color: #f1f5f9;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.legend-box .legend-items {
+    color: #94a3b8;
+    line-height: 1.8;
+    font-size: 0.9em;
+}
+
+.legend-box strong {
+    color: #f1f5f9;
+}
+
+/* ============================================ */
+/* Responsive - Desktop                         */
+/* ============================================ */
 @media (min-width: 769px) {
     .travel-cards {
         grid-template-columns: 1fr 1fr;
@@ -1674,81 +1844,99 @@ footer p {
     }
 }
 
-/* Responsive - Tablet */
+/* ============================================ */
+/* Responsive - Tablet                          */
+/* ============================================ */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 1.8em;
+    .hero-title {
+        font-size: 3em;
+    }
+
+    .hero-subtitle {
+        font-size: 1em;
+    }
+
+    .countdown {
+        gap: 10px;
+    }
+
+    .countdown-item {
+        padding: 14px 20px;
+        min-width: 85px;
+    }
+
+    .countdown-number {
+        font-size: 2em;
     }
 
     .content {
-        padding: 20px;
-    }
-
-    .hero {
-        padding: 20px;
-    }
-
-    .hero-highlights {
-        justify-content: center;
-    }
-
-    .weather-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .weather-stats {
-        justify-content: center;
-    }
-
-    .packing-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .links-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    #map {
-        height: 400px;
-    }
-
-    .weather-embeds {
-        grid-template-columns: 1fr;
-    }
-
-    .aurora-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .supermarket-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Responsive - Mobile */
-@media (max-width: 480px) {
-    body {
-        padding-top: 65px;
-        padding-left: 8px;
-        padding-right: 8px;
-        padding-bottom: 10px;
-    }
-
-    .container {
-        border-radius: 15px;
-    }
-
-    header {
         padding: 20px 15px;
     }
 
-    header h1 {
-        font-size: 1.4em;
-        line-height: 1.2;
+    .weather-grid { grid-template-columns: 1fr; }
+    .weather-stats { justify-content: center; }
+    .packing-grid { grid-template-columns: 1fr; }
+    .links-grid { grid-template-columns: repeat(2, 1fr); }
+    #map { height: 400px; }
+    .weather-embeds { grid-template-columns: 1fr; }
+    .aurora-grid { grid-template-columns: 1fr; }
+    .supermarket-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================ */
+/* Responsive - Mobile                          */
+/* ============================================ */
+@media (max-width: 480px) {
+    .hero-fullscreen {
+        padding: 80px 15px 40px;
     }
 
-    header .dates {
-        font-size: 1em;
+    .hero-title {
+        font-size: 2.2em;
+        letter-spacing: -1px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9em;
+    }
+
+    .hero-date-badge {
+        font-size: 0.85em;
+        padding: 8px 18px;
+        margin-bottom: 25px;
+    }
+
+    .countdown {
+        gap: 8px;
+    }
+
+    .countdown-item {
+        padding: 12px 14px;
+        min-width: 70px;
+        border-radius: 12px;
+    }
+
+    .countdown-number {
+        font-size: 1.6em;
+    }
+
+    .countdown-label {
+        font-size: 0.65em;
+        letter-spacing: 1px;
+    }
+
+    .hero-tags {
+        gap: 6px;
+    }
+
+    .hero-tag {
+        padding: 6px 12px;
+        font-size: 0.8em;
+    }
+
+    .hero-route-info {
+        gap: 15px;
+        font-size: 0.85em;
     }
 
     .navbar {
@@ -1756,7 +1944,7 @@ footer p {
     }
 
     .navbar-container {
-        height: 55px;
+        height: 56px;
     }
 
     .navbar-brand {
@@ -1764,7 +1952,7 @@ footer p {
     }
 
     .navbar-links {
-        top: 55px;
+        top: 56px;
         padding: 10px;
         max-height: 70vh;
         overflow-y: auto;
@@ -1774,45 +1962,19 @@ footer p {
         padding: 14px 15px;
         font-size: 0.95em;
         border-radius: 8px;
-        background: rgba(255,255,255,0.05);
+        background: rgba(255,255,255,0.03);
     }
 
     .navbar-link:active {
-        background: rgba(0, 212, 255, 0.3);
-    }
-
-    .hero {
-        padding: 15px;
-    }
-
-    .hero-title {
-        font-size: 1.1em;
-    }
-
-    .hero-text {
-        font-size: 0.9em;
-    }
-
-    .hero-text p {
-        margin-bottom: 10px;
-    }
-
-    .hero-highlights {
-        gap: 8px;
-        margin-top: 15px;
-    }
-
-    .hero-highlight {
-        padding: 6px 12px;
-        font-size: 0.8em;
+        background: rgba(0, 212, 255, 0.15);
     }
 
     .content {
-        padding: 15px;
+        padding: 15px 10px;
     }
 
     .section {
-        margin-bottom: 25px;
+        margin-bottom: 30px;
     }
 
     .section-title {
@@ -1826,7 +1988,7 @@ footer p {
     }
 
     .travel-card {
-        padding: 15px;
+        padding: 16px;
         border-radius: 12px;
     }
 
@@ -1835,27 +1997,14 @@ footer p {
         margin-bottom: 12px;
     }
 
-    .airport-code {
-        font-size: 1.4em;
-    }
-
-    .airport-name {
-        font-size: 0.8em;
-    }
-
-    .flight-arrow {
-        font-size: 1.5em;
-        margin: 10px 0;
-    }
-
-    .tag {
-        font-size: 0.75em;
-        padding: 4px 10px;
-    }
+    .airport-code { font-size: 1.4em; }
+    .airport-name { font-size: 0.8em; }
+    .flight-arrow { font-size: 1.2em; margin: 10px 0; }
+    .tag { font-size: 0.75em; padding: 4px 10px; }
 
     .trip-card {
         padding: 15px;
-        border-radius: 10px;
+        border-radius: 12px;
     }
 
     .trip-card h4 {
@@ -1872,260 +2021,84 @@ footer p {
         margin-bottom: 8px;
     }
 
-    .trip-info {
-        gap: 6px;
-    }
+    .trip-info { gap: 6px; }
+    .trip-stat { font-size: 0.8em; padding: 3px 8px; }
+    .difficulty { font-size: 0.7em; }
+    .trip-links { margin-top: 10px; gap: 6px; }
+    .trip-link { padding: 8px 10px; font-size: 0.75em; }
+    .trip-link svg { width: 14px; height: 14px; }
 
-    .trip-stat {
-        font-size: 0.8em;
-        padding: 3px 8px;
-    }
+    .filters { padding: 12px; border-radius: 10px; margin-bottom: 15px; }
+    .filters-title { font-size: 0.9em; margin-bottom: 10px; }
+    .filter-groups { flex-direction: column; gap: 12px; }
+    .filter-group { min-width: 100%; }
+    .filter-group label { font-size: 0.8em; margin-bottom: 6px; }
+    .filter-buttons { gap: 5px; }
+    .filter-btn { padding: 6px 10px; font-size: 0.75em; border-radius: 8px; }
+    .trips-count { font-size: 0.85em; padding: 8px; }
 
-    .difficulty {
-        font-size: 0.7em;
-    }
+    .weather-intro { padding: 15px; border-radius: 12px; }
+    .weather-intro p { font-size: 0.9em; }
 
-    .trip-links {
-        margin-top: 10px;
-        gap: 6px;
-    }
+    .weather-stats { gap: 10px; }
+    .weather-stat { padding: 10px 14px; flex: 1; min-width: 90px; }
+    .weather-stat .value { font-size: 1.1em; }
+    .weather-stat .label { font-size: 0.7em; }
 
-    .trip-link {
-        padding: 8px 10px;
-        font-size: 0.75em;
-    }
+    .weather-card { padding: 15px; border-radius: 12px; }
+    .weather-card h4 { font-size: 1em; margin-bottom: 12px; }
+    .weather-card li { font-size: 0.9em; padding: 6px 0; }
 
-    .trip-link svg {
-        width: 14px;
-        height: 14px;
-    }
+    .app-item { padding: 8px; }
+    .app-item .app-name { font-size: 0.9em; }
+    .app-item .app-desc { font-size: 0.8em; }
 
-    .filters {
-        padding: 12px;
-        border-radius: 10px;
-        margin-bottom: 15px;
-    }
+    .weather-note { padding: 12px 15px; border-radius: 10px; gap: 10px; }
+    .weather-note p { font-size: 0.85em; }
 
-    .filters-title {
-        font-size: 0.9em;
-        margin-bottom: 10px;
-    }
+    .packing-category { padding: 15px; border-radius: 12px; }
+    .packing-category h5 { font-size: 0.95em; margin-bottom: 10px; }
+    .packing-item { padding: 10px 0; font-size: 0.9em; }
+    .packing-item .note { font-size: 0.75em; }
 
-    .filter-groups {
-        flex-direction: column;
-        gap: 12px;
-    }
+    .info-box { padding: 15px; border-radius: 12px; }
+    .info-box h4 { font-size: 1em; }
+    .info-box ul { font-size: 0.9em; margin-left: 15px; line-height: 1.6; }
 
-    .filter-group {
-        min-width: 100%;
-    }
+    .links-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .link-card { padding: 15px 10px; border-radius: 12px; }
+    .link-card .icon { font-size: 1.5em; margin-bottom: 6px; }
+    .link-card span { font-size: 0.85em; }
+    .link-card p { font-size: 0.75em !important; margin-top: 3px !important; }
 
-    .filter-group label {
-        font-size: 0.8em;
-        margin-bottom: 6px;
-    }
+    footer { padding: 20px 15px; }
+    footer p { font-size: 0.9em; }
+    #map { height: 350px; }
 
-    .filter-buttons {
-        gap: 5px;
-    }
+    .avalanche-levels { gap: 5px; }
+    .avalanche-level { padding: 6px 10px; font-size: 0.75em; }
+    .avalanche-link-btn { width: 100%; text-align: center; }
 
-    .filter-btn {
-        padding: 6px 10px;
-        font-size: 0.75em;
-        border-radius: 16px;
-    }
+    .converter-body { flex-direction: column; align-items: stretch; }
+    .converter-input-group { max-width: none; }
+    .converter-result { justify-content: center; }
+    .converter-arrow { transform: rotate(90deg); }
 
-    .trips-count {
-        font-size: 0.85em;
-        padding: 8px;
-    }
-
-    .weather-intro {
-        padding: 15px;
-        border-radius: 12px;
-    }
-
-    .weather-intro p {
-        font-size: 0.9em;
-    }
-
-    .weather-stats {
-        gap: 10px;
-    }
-
-    .weather-stat {
-        padding: 10px 14px;
-        flex: 1;
-        min-width: 90px;
-    }
-
-    .weather-stat .value {
-        font-size: 1.1em;
-    }
-
-    .weather-stat .label {
-        font-size: 0.7em;
-    }
-
-    .weather-card {
-        padding: 15px;
-        border-radius: 10px;
-    }
-
-    .weather-card h4 {
-        font-size: 1em;
-        margin-bottom: 12px;
-    }
-
-    .weather-card li {
-        font-size: 0.9em;
-        padding: 6px 0;
-    }
-
-    .app-item {
-        padding: 8px;
-    }
-
-    .app-item .app-name {
-        font-size: 0.9em;
-    }
-
-    .app-item .app-desc {
-        font-size: 0.8em;
-    }
-
-    .weather-note {
-        padding: 12px 15px;
-        border-radius: 10px;
-        gap: 10px;
-    }
-
-    .weather-note p {
-        font-size: 0.85em;
-    }
-
-    .packing-category {
-        padding: 15px;
-        border-radius: 10px;
-    }
-
-    .packing-category h5 {
-        font-size: 0.95em;
-        margin-bottom: 10px;
-    }
-
-    .packing-item {
-        padding: 10px 0;
-        font-size: 0.9em;
-    }
-
-    .packing-item .note {
-        font-size: 0.75em;
-    }
-
-    .info-box {
-        padding: 15px;
-        border-radius: 10px;
-    }
-
-    .info-box h4 {
-        font-size: 1em;
-    }
-
-    .info-box ul {
-        font-size: 0.9em;
-        margin-left: 15px;
-        line-height: 1.6;
-    }
-
-    .links-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-    }
-
-    .link-card {
-        padding: 15px 10px;
-        border-radius: 10px;
-    }
-
-    .link-card .icon {
-        font-size: 1.5em;
-        margin-bottom: 6px;
-    }
-
-    .link-card span {
-        font-size: 0.85em;
-    }
-
-    .link-card p {
-        font-size: 0.75em !important;
-        margin-top: 3px !important;
-    }
-
-    footer {
-        padding: 20px 15px;
-    }
-
-    footer p {
-        font-size: 0.9em;
-    }
-
-    #map {
-        height: 350px;
-    }
-
-    .avalanche-levels {
-        gap: 5px;
-    }
-
-    .avalanche-level {
-        padding: 6px 10px;
-        font-size: 0.75em;
-    }
-
-    .avalanche-link-btn {
-        width: 100%;
-        text-align: center;
-    }
-
-    .converter-body {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .converter-input-group {
-        max-width: none;
-    }
-
-    .converter-result {
-        justify-content: center;
-    }
-
-    .converter-arrow {
-        transform: rotate(90deg);
-    }
-
-    .food-tags {
-        gap: 6px;
-    }
-
-    .food-tag {
-        font-size: 0.8em;
-        padding: 5px 10px;
-    }
+    .food-tags { gap: 6px; }
+    .food-tag { font-size: 0.8em; padding: 5px 10px; }
 }
 
-/* ========================================
-   NAVIGATION IMPROVEMENTS
-   ======================================== */
+/* ============================================ */
+/* Navigation Improvements                      */
+/* ============================================ */
 
 /* Progress Bar */
 .progress-bar {
     position: fixed;
-    top: 60px;
+    top: 64px;
     left: 0;
     right: 0;
-    height: 4px;
+    height: 3px;
     background: transparent;
     z-index: 1001;
     pointer-events: none;
@@ -2134,7 +2107,7 @@ footer p {
 .progress-bar-fill {
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, #00d4ff, #0099cc);
+    background: linear-gradient(90deg, #00d4ff, #00e5a0);
     border-radius: 0 2px 2px 0;
     transition: width 0.15s ease-out;
 }
@@ -2146,10 +2119,11 @@ footer p {
     right: 30px;
     width: 48px;
     height: 48px;
-    background: linear-gradient(135deg, #00d4ff, #0099cc);
-    color: white;
-    border: none;
-    border-radius: 50%;
+    background: rgba(0, 212, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    color: #00d4ff;
+    border-radius: 14px;
     font-size: 1.5em;
     line-height: 1;
     cursor: pointer;
@@ -2158,7 +2132,6 @@ footer p {
     visibility: hidden;
     transform: translateY(20px);
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 153, 204, 0.4);
 }
 
 .back-to-top.visible {
@@ -2168,8 +2141,8 @@ footer p {
 }
 
 .back-to-top:hover {
+    background: rgba(0, 212, 255, 0.25);
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 153, 204, 0.6);
 }
 
 /* Collapsible Sections */
@@ -2183,12 +2156,13 @@ footer p {
     display: inline-block;
     width: 10px;
     height: 10px;
-    border-right: 2.5px solid #0099cc;
-    border-bottom: 2.5px solid #0099cc;
+    border-right: 2px solid #00d4ff;
+    border-bottom: 2px solid #00d4ff;
     transform: rotate(45deg);
     margin-left: auto;
     transition: transform 0.3s ease;
     flex-shrink: 0;
+    opacity: 0.5;
 }
 
 .section-content {
@@ -2206,7 +2180,7 @@ footer p {
 
 @media (max-width: 768px) {
     .progress-bar {
-        top: 55px;
+        top: 56px;
     }
 
     .back-to-top {
@@ -2215,13 +2189,16 @@ footer p {
         width: 44px;
         height: 44px;
         font-size: 1.3em;
+        border-radius: 12px;
     }
 }
 
-/* Responsive - Extra small */
+/* ============================================ */
+/* Extra small screens                          */
+/* ============================================ */
 @media (max-width: 360px) {
-    header h1 {
-        font-size: 1.25em;
+    .hero-title {
+        font-size: 1.8em;
     }
 
     .section-title {
@@ -2245,8 +2222,39 @@ footer p {
         font-size: 0.85em;
     }
 
-    .hero-highlight {
+    .hero-tag {
         padding: 5px 10px;
         font-size: 0.75em;
     }
+
+    .countdown-item {
+        min-width: 60px;
+        padding: 10px 10px;
+    }
+
+    .countdown-number {
+        font-size: 1.4em;
+    }
+}
+
+/* ============================================ */
+/* Inline style overrides for dark theme        */
+/* ============================================ */
+.section p[style*="color: #666"],
+.section p[style*="color: #555"],
+.section p[style*="color: #333"] {
+    color: #94a3b8 !important;
+}
+
+div[style*="background: #f5f5f5"] {
+    background: rgba(15, 23, 42, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+div[style*="color: #333"] {
+    color: #f1f5f9 !important;
+}
+
+div[style*="color: #666"] {
+    color: #94a3b8 !important;
 }

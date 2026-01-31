@@ -6,7 +6,7 @@
     <title>Norway Snow Trip 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 
     <!-- Leaflet CSS -->
@@ -26,7 +26,7 @@
             <button class="navbar-toggle" onclick="toggleNavbar()">☰</button>
             <div class="navbar-links" id="navbar-links">
                 <a href="#top" class="navbar-link">Home</a>
-                <a href="#voli" class="navbar-link">Voli</a>
+                <a href="#voli" class="navbar-link">Viaggio</a>
                 <a href="#mappa" class="navbar-link">Mappa</a>
                 <a href="#gite" class="navbar-link">Gite</a>
                 <a href="#meteo" class="navbar-link">Meteo</a>
@@ -40,30 +40,51 @@
         </div>
     </nav>
 
-    <div class="container" id="top">
+    <!-- Hero Fullscreen -->
+    <div class="hero-fullscreen" id="top">
+        <div class="hero-bg"></div>
+        <div class="hero-date-badge">📅 21 - 28 Marzo 2026</div>
+        <h1 class="hero-title">
+            <span class="highlight">Norway</span><br>
+            <span class="white">Snow Trip</span>
+        </h1>
+        <p class="hero-subtitle">Un viaggio invernale nel nord della Norvegia, tra le maestose <span class="accent">Lyngen Alps</span> e l'aurora boreale</p>
+        <div class="hero-route-info">
+            <span>✈️ Milano → Tromsø</span>
+            <span>📍 Lyngen Alps, Norvegia</span>
+        </div>
+        <div class="countdown" id="countdown">
+            <div class="countdown-item">
+                <div class="countdown-number" id="countdown-days">--</div>
+                <div class="countdown-label">GIORNI</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="countdown-hours">--</div>
+                <div class="countdown-label">ORE</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="countdown-minutes">--</div>
+                <div class="countdown-label">MINUTI</div>
+            </div>
+        </div>
+        <div class="hero-tags">
+            <span class="hero-tag">🎿 Scialpinismo</span>
+            <span class="hero-tag">🏂 Splitboard</span>
+            <span class="hero-tag">🌌 Aurora Boreale</span>
+            <span class="hero-tag">🏔️ Lyngen Alps</span>
+            <span class="hero-tag">❄️ Neve Artica</span>
+        </div>
+        <div class="scroll-indicator" onclick="document.getElementById('voli').scrollIntoView({behavior:'smooth'})">
+            SCORRI
+            <span class="scroll-arrow">⌄</span>
+        </div>
+    </div>
+
+    <div class="container">
         <header>
             <h1>Norway Snow Trip 2026</h1>
             <div class="dates">21 - 28 Marzo 2026</div>
         </header>
-
-        <!-- Hero Section -->
-        <div class="hero">
-            <div class="hero-content">
-                <h2 class="hero-title">🧭 Il nostro viaggio</h2>
-                <div class="hero-text">
-                    <p><strong>Norway Snow Trip 2026</strong> è un viaggio invernale nel nord della Norvegia, pensato per chi ama la montagna, la neve e le esperienze outdoor in ambienti spettacolari.</p>
-                    <p>Base principale sarà l'area delle <strong>Lyngen Alps</strong>, una delle zone più iconiche dell'Artico per sci, snowboard, paesaggi incontaminati e possibilità di osservare l'<strong>aurora boreale</strong>. Voleremo su <strong>Tromsø</strong>.</p>
-                    <p>Questo sito raccoglie tutte le informazioni utili per organizzare il viaggio: voli, spostamenti, idee di gite, attività alternative, consigli pratici e checklist. L'obiettivo è avere un punto unico e chiaro dove il gruppo possa orientarsi, pianificare e condividere tutto senza perdere informazioni.</p>
-                </div>
-                <div class="hero-highlights">
-                    <span class="hero-highlight">🎿 Scialpinismo</span>
-                    <span class="hero-highlight">🏂 Splitboard</span>
-                    <span class="hero-highlight">🌌 Aurora Boreale</span>
-                    <span class="hero-highlight">🏔️ Lyngen Alps</span>
-                    <span class="hero-highlight">❄️ Neve Artica</span>
-                </div>
-            </div>
-        </div>
 
         <div class="content">
             <!-- Sezione Viaggi -->
@@ -138,7 +159,7 @@
                         </div>
                     </div>
 
-                    <div class="travel-card shuttle" style="border-left: 4px solid #9b59b6;">
+                    <div class="travel-card shuttle" style="border-left: 3px solid #a855f7;">
                         <h3>🚗 Noleggio Auto</h3>
                         <p style="margin-bottom: 10px;">All'arrivo a <strong>Tromsø</strong> il 21 Marzo, ritireremo le auto a noleggio per gli spostamenti durante la settimana.</p>
                         <p style="margin-bottom: 15px;">Le auto dovranno essere <strong>riconsegnate</strong> il 28 Marzo prima del volo di ritorno (partenza ore 18:25).</p>
@@ -158,7 +179,7 @@
                         </div>
                     </div>
 
-                    <div class="travel-card luggage" style="border-left: 4px solid #2196F3;">
+                    <div class="travel-card luggage" style="border-left: 3px solid #3b82f6;">
                         <h3>🧳 Bagagli</h3>
                         <div class="luggage-info">
                             <div class="luggage-category">
@@ -176,7 +197,7 @@
                         </div>
                     </div>
 
-                    <div class="travel-card ferry" style="border-left: 4px solid #00BCD4;">
+                    <div class="travel-card ferry" style="border-left: 3px solid #06b6d4;">
                         <h3>⛴️ Traghetti nella Zona</h3>
                         <p style="margin-bottom: 15px;">Nella zona del Lyngenfjord ci sono traghetti utili per spostarsi tra le due sponde del fiordo e raggiungere alcune gite senza fare il giro lungo.</p>
                         <div class="ferry-routes">
@@ -215,7 +236,7 @@
             <!-- Sezione Gite -->
             <div class="section" id="gite">
                 <h2 class="section-title"><span class="section-icon">🏔️</span> Possibili Gite - Lyngen Alps</h2>
-                <p style="margin-bottom: 20px; color: #666;">Ecco le gite che possiamo fare durante la settimana. Decideremo giorno per giorno in base al meteo e alle condizioni!</p>
+                <p style="margin-bottom: 20px; color: #94a3b8;">Ecco le gite che possiamo fare durante la settimana. Decideremo giorno per giorno in base al meteo e alle condizioni!</p>
 
                 <!-- Filtri -->
                 <div class="filters">
@@ -494,9 +515,9 @@
                     </div>
                 </div>
 
-                <div style="margin-top: 20px; padding: 15px; background: #f5f5f5; border-radius: 10px;">
-                    <p style="margin-bottom: 10px; font-weight: bold; color: #333;">Legenda difficolta (Scala CAI):</p>
-                    <div style="font-size: 0.9em; color: #666; line-height: 1.6;">
+                <div style="margin-top: 20px; padding: 15px; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px;">
+                    <p style="margin-bottom: 10px; font-weight: bold; color: #f1f5f9;">Legenda difficolta (Scala CAI):</p>
+                    <div style="font-size: 0.9em; color: #94a3b8; line-height: 1.6;">
                         <div><span class="difficulty difficulty-ms" style="margin-right: 5px;">MS</span> <strong>Medio Sciatore</strong>: Pendenze dolci (fino a 25°), spazi aperti e senza ostacoli particolari.</div>
                         <div><span class="difficulty difficulty-bs" style="margin-right: 5px;">BS</span> <strong>Buon Sciatore</strong>: Pendenze fino a 30°, richiede una buona tecnica di discesa e padronanza dello sci anche su nevi non battute.</div>
                         <div><span class="difficulty difficulty-os" style="margin-right: 5px;">OS</span> <strong>Ottimo Sciatore</strong>: Pendenze superiori a 30°, passaggi stretti, tratti esposti o ripidi che richiedono un'ottima tecnica e controllo assoluto.</div>
@@ -596,7 +617,7 @@
                 <!-- Meteo in tempo reale -->
                 <div class="weather-realtime">
                     <h3>📡 Meteo in Tempo Reale</h3>
-                    <p style="margin-bottom: 15px; color: #555;">Previsioni aggiornate direttamente da <strong>yr.no</strong>, il servizio meteo ufficiale norvegese.</p>
+                    <p style="margin-bottom: 15px; color: #94a3b8;">Previsioni aggiornate direttamente da <strong>yr.no</strong>, il servizio meteo ufficiale norvegese.</p>
                     <div class="weather-embeds">
                         <div class="weather-embed-card">
                             <h4>Tromsø</h4>
@@ -614,7 +635,7 @@
                 <!-- Bollettino Valanghe -->
                 <div class="avalanche-section">
                     <h3>🏔️ Bollettino Valanghe</h3>
-                    <p style="margin-bottom: 15px; color: #555;"><strong>varsom.no</strong> è il servizio ufficiale norvegese per il pericolo valanghe. Consultate <strong>sempre</strong> il bollettino prima di ogni gita!</p>
+                    <p style="margin-bottom: 15px; color: #94a3b8;"><strong>varsom.no</strong> è il servizio ufficiale norvegese per il pericolo valanghe. Consultate <strong>sempre</strong> il bollettino prima di ogni gita!</p>
                     <div class="avalanche-card">
                         <div class="avalanche-levels">
                             <div class="avalanche-level level-1"><span>1</span> Debole</div>
@@ -699,7 +720,7 @@
                     <!-- Sicurezza & gite -->
                     <div class="packing-category safety">
                         <h5><span class="emoji">🏔️</span> Sicurezza & gite</h5>
-                        <p style="font-size: 0.85em; color: #666; margin-bottom: 10px; font-style: italic;">Solo se partecipi a escursioni in ambiente innevato</p>
+                        <p style="font-size: 0.85em; color: #64748b; margin-bottom: 10px; font-style: italic;">Solo se partecipi a escursioni in ambiente innevato</p>
                         <div class="packing-item">• ARTVA</div>
                         <div class="packing-item">• Pala</div>
                         <div class="packing-item">• Sonda</div>
@@ -777,7 +798,7 @@
             <!-- Sezione Piano B -->
             <div class="section" id="pianob">
                 <h2 class="section-title"><span class="section-icon">🌨️</span> Piano B – Brutto tempo / Whiteout</h2>
-                <p style="margin-bottom: 20px; color: #666;">Attività alternative in caso di maltempo: solo outdoor o semi-outdoor low-risk, niente indoor casa. Perfette per whiteout o condizioni avverse.</p>
+                <p style="margin-bottom: 20px; color: #94a3b8;">Attività alternative in caso di maltempo: solo outdoor o semi-outdoor low-risk, niente indoor casa. Perfette per whiteout o condizioni avverse.</p>
 
                 <div class="alternative-activities">
                     <div class="activity-card">
@@ -853,7 +874,7 @@
                             <div class="kp-item kp-high">KP 5-6: Tempesta geomagnetica — aurora intensa</div>
                             <div class="kp-item kp-extreme">KP 7-9: Tempesta forte — aurora spettacolare</div>
                         </div>
-                        <p style="margin-top: 10px; font-size: 0.9em; color: #666;">A Tromsø/Lyngen (70°N) basta KP 2-3 per vedere l'aurora, grazie alla posizione dentro l'ovale aurorale.</p>
+                        <p style="margin-top: 10px; font-size: 0.9em; color: #94a3b8;">A Tromsø/Lyngen (70°N) basta KP 2-3 per vedere l'aurora, grazie alla posizione dentro l'ovale aurorale.</p>
                     </div>
 
                     <div class="aurora-card">
@@ -957,8 +978,8 @@
                     </div>
                 </div>
 
-                <h4 style="color: #333; margin: 20px 0 15px;">🏪 Supermercati nella Zona</h4>
-                <p style="color: #666; margin-bottom: 15px;">Per acquisti freschi (pane, latte, carne, frutta, prodotti locali), ecco i supermercati più vicini alla nostra base nelle Lyngen Alps:</p>
+                <h4 style="color: #f1f5f9; margin: 20px 0 15px;">🏪 Supermercati nella Zona</h4>
+                <p style="color: #94a3b8; margin-bottom: 15px;">Per acquisti freschi (pane, latte, carne, frutta, prodotti locali), ecco i supermercati più vicini alla nostra base nelle Lyngen Alps:</p>
 
                 <div class="supermarket-grid">
                     <div class="supermarket-card">
@@ -1358,6 +1379,33 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         }
+
+        // ========================================
+        // COUNTDOWN TIMER
+        // ========================================
+        function updateCountdown() {
+            var tripDate = new Date('2026-03-21T13:15:00+01:00');
+            var now = new Date();
+            var diff = tripDate - now;
+
+            if (diff <= 0) {
+                document.getElementById('countdown-days').textContent = '0';
+                document.getElementById('countdown-hours').textContent = '0';
+                document.getElementById('countdown-minutes').textContent = '0';
+                return;
+            }
+
+            var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById('countdown-days').textContent = days;
+            document.getElementById('countdown-hours').textContent = hours;
+            document.getElementById('countdown-minutes').textContent = minutes;
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 60000);
 
         // ========================================
         // PROGRESS BAR
