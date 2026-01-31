@@ -1450,7 +1450,7 @@ footer p {
 
 .converter-body {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     gap: 20px;
     flex-wrap: wrap;
 }
@@ -1458,6 +1458,7 @@ footer p {
 .converter-input-group {
     flex: 1;
     min-width: 180px;
+    max-width: 320px;
 }
 
 .converter-input-group label {
@@ -2092,6 +2093,10 @@ footer p {
         align-items: stretch;
     }
 
+    .converter-input-group {
+        max-width: none;
+    }
+
     .converter-result {
         justify-content: center;
     }
@@ -2119,11 +2124,19 @@ footer p {
     position: fixed;
     top: 60px;
     left: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #00d4ff, #0099cc);
-    z-index: 999;
+    right: 0;
+    height: 4px;
+    background: transparent;
+    z-index: 1001;
+    pointer-events: none;
+}
+
+.progress-bar-fill {
+    height: 100%;
     width: 0%;
+    background: linear-gradient(90deg, #00d4ff, #0099cc);
     border-radius: 0 2px 2px 0;
+    transition: width 0.15s ease-out;
 }
 
 /* Back to Top Button */
@@ -2137,21 +2150,21 @@ footer p {
     color: white;
     border: none;
     border-radius: 50%;
-    font-size: 1.3em;
+    font-size: 1.5em;
+    line-height: 1;
     cursor: pointer;
-    z-index: 998;
+    z-index: 1001;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 153, 204, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .back-to-top.visible {
     opacity: 1;
     visibility: visible;
+    transform: translateY(0);
 }
 
 .back-to-top:hover {
@@ -2168,14 +2181,19 @@ footer p {
 .section-title::after {
     content: '';
     display: inline-block;
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-right: 2.5px solid #0099cc;
     border-bottom: 2.5px solid #0099cc;
     transform: rotate(45deg);
     margin-left: auto;
     transition: transform 0.3s ease;
     flex-shrink: 0;
+}
+
+.section-content {
+    overflow: hidden;
+    transition: height 0.35s ease;
 }
 
 .section.collapsed .section-title {
@@ -2186,25 +2204,17 @@ footer p {
     transform: rotate(-45deg);
 }
 
-.section-body {
-    overflow: hidden;
-    transition: max-height 0.4s ease, opacity 0.3s ease;
-    opacity: 1;
-}
-
-.section.collapsed .section-body {
-    max-height: 0 !important;
-    opacity: 0;
-    overflow: hidden;
-}
-
 @media (max-width: 768px) {
+    .progress-bar {
+        top: 55px;
+    }
+
     .back-to-top {
         bottom: 20px;
         right: 20px;
         width: 44px;
         height: 44px;
-        font-size: 1.1em;
+        font-size: 1.3em;
     }
 }
 
