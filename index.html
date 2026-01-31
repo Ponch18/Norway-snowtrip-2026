@@ -16,9 +16,6 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
 <body>
-    <!-- Progress Bar -->
-    <div class="progress-bar" id="progress-bar"></div>
-
     <!-- Navbar -->
     <nav class="navbar">
         <div class="navbar-container">
@@ -1027,10 +1024,6 @@
             <p>Norway Snow Trip 2026 | Tromsø</p>
         </footer>
     </div>
-
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="back-to-top" title="Torna su">↑</button>
-
     <script>
         // Filtri
         const filters = {
@@ -1161,15 +1154,6 @@
                 const targetId = this.getAttribute('href');
                 const target = document.querySelector(targetId);
                 if (target) {
-                    // Auto-expand section if collapsed
-                    if (target.classList.contains('collapsed')) {
-                        target.classList.remove('collapsed');
-                        const body = target.querySelector('.section-body');
-                        if (body) body.style.maxHeight = body.scrollHeight + 'px';
-                        if (target.id === 'mappa' && typeof leafletMap !== 'undefined' && leafletMap) {
-                            setTimeout(() => leafletMap.invalidateSize(), 400);
-                        }
-                    }
                     const navbarHeight = 70;
                     const targetPosition = target.offsetTop - navbarHeight;
                     window.scrollTo({
@@ -1181,11 +1165,9 @@
         });
 
         // Initialize map when page loads
-        let leafletMap;
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize the map centered on Lyngen Alps
             const map = L.map('map').setView([69.7, 20.1], 9);
-            leafletMap = map;
 
             // Add OpenStreetMap tiles
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -1293,73 +1275,6 @@
             nokInput.addEventListener('input', convertCurrency);
             fetchExchangeRate();
         })();
-
-        // ========================================
-        // COLLAPSIBLE SECTIONS
-        // ========================================
-        document.querySelectorAll('.section').forEach(section => {
-            const title = section.querySelector('.section-title');
-            if (!title) return;
-
-            // Wrap all content after h2 in a section-body div
-            const body = document.createElement('div');
-            body.className = 'section-body';
-            const children = Array.from(section.children).filter(el => el !== title);
-            children.forEach(child => body.appendChild(child));
-            section.appendChild(body);
-
-            // Set initial max-height for transition
-            body.style.maxHeight = body.scrollHeight + 'px';
-
-            title.addEventListener('click', () => {
-                const isCollapsed = section.classList.toggle('collapsed');
-                if (isCollapsed) {
-                    body.style.maxHeight = '0';
-                } else {
-                    body.style.maxHeight = body.scrollHeight + 'px';
-                    // Fix Leaflet map rendering when mappa section is expanded
-                    if (section.id === 'mappa' && leafletMap) {
-                        setTimeout(() => leafletMap.invalidateSize(), 400);
-                    }
-                }
-            });
-        });
-
-        // Re-calculate max-heights on window resize
-        window.addEventListener('resize', () => {
-            document.querySelectorAll('.section:not(.collapsed) .section-body').forEach(body => {
-                body.style.maxHeight = body.scrollHeight + 'px';
-            });
-        });
-
-        // ========================================
-        // BACK TO TOP BUTTON
-        // ========================================
-        const backToTopBtn = document.getElementById('back-to-top');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
-        });
-
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // ========================================
-        // PROGRESS BAR
-        // ========================================
-        const progressBar = document.getElementById('progress-bar');
-
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-            progressBar.style.width = scrollPercent + '%';
-        });
     </script>
 </body>
 </html>
