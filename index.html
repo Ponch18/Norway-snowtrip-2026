@@ -24,18 +24,23 @@
         <div class="navbar-container">
             <a href="#top" class="navbar-brand">🏔️ Norway 2026</a>
             <button class="navbar-toggle" onclick="toggleNavbar()">☰</button>
+            <div class="navbar-overlay" id="navbar-overlay" onclick="toggleNavbar()"></div>
             <div class="navbar-links" id="navbar-links">
-                <a href="#top" class="navbar-link">Home</a>
-                <a href="#voli" class="navbar-link">Viaggio</a>
-                <a href="#mappa" class="navbar-link">Mappa</a>
-                <a href="#gite" class="navbar-link">Gite</a>
-                <a href="#meteo" class="navbar-link">Meteo</a>
-                <a href="#checklist" class="navbar-link">Checklist</a>
-                <a href="#pianob" class="navbar-link">Piano B</a>
-                <a href="#aurora" class="navbar-link">Aurora</a>
-                <a href="#info" class="navbar-link">Info</a>
-                <a href="#cibo" class="navbar-link">Cibo</a>
-                <a href="#link" class="navbar-link">Link</a>
+                <div class="navbar-drawer-header">
+                    <a href="#top" class="navbar-brand">🏔️ Norway 2026</a>
+                    <button class="navbar-close" onclick="toggleNavbar()">✕</button>
+                </div>
+                <a href="#top" class="navbar-link"><span class="navbar-link-icon">🏠</span> Home</a>
+                <a href="#voli" class="navbar-link"><span class="navbar-link-icon">✈️</span> Viaggio</a>
+                <a href="#mappa" class="navbar-link"><span class="navbar-link-icon">🗺️</span> Mappa</a>
+                <a href="#gite" class="navbar-link"><span class="navbar-link-icon">⛷️</span> Gite</a>
+                <a href="#meteo" class="navbar-link"><span class="navbar-link-icon">☁️</span> Meteo</a>
+                <a href="#checklist" class="navbar-link"><span class="navbar-link-icon">☑️</span> Checklist</a>
+                <a href="#pianob" class="navbar-link"><span class="navbar-link-icon">🔀</span> Piano B</a>
+                <a href="#aurora" class="navbar-link"><span class="navbar-link-icon">✨</span> Aurora</a>
+                <a href="#info" class="navbar-link"><span class="navbar-link-icon">ℹ️</span> Info</a>
+                <a href="#cibo" class="navbar-link"><span class="navbar-link-icon">🍕</span> Cibo</a>
+                <a href="#link" class="navbar-link"><span class="navbar-link-icon">🔗</span> Link</a>
             </div>
         </div>
     </nav>
@@ -276,243 +281,267 @@
 
                 <div class="trips-grid" id="trips-grid">
                     <div class="trip-card" data-difficulty="os" data-elevation="1330" data-exposure="ovest">
-                        <h4><span class="trip-number">1</span>Storgalten da Sandneset <span class="difficulty difficulty-os">BS/OS</span></h4>
+                        <h4><span class="trip-number">1</span>Storgalten da Sandneset</h4>
                         <div class="trip-info">
+                            <span class="difficulty difficulty-os">BS/OS</span>
                             <span class="trip-stat">+1330 m</span>
                             <span class="trip-stat">11.5 km</span>
-                            <span class="trip-stat">Esp. Ovest</span>
+                            <span class="trip-stat">Ovest</span>
                         </div>
                         <div class="trip-links">
-                            <a href="https://www.gulliver.it/itinerari/storgalten-da-sandneset-per-il-versante-ovest/" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
-                            <a href="https://it.wikiloc.com/percorsi-sci-di-montagna/tromso-and-lyngen-alps-storgalten-lassofjellet-17036136" target="_blank" class="trip-link wikiloc"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>Wikiloc</a>
-                            <a href="https://www.strava.com/routes/3401512451051323692" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                            <a href="https://www.gulliver.it/itinerari/storgalten-da-sandneset-per-il-versante-ovest/" target="_blank" class="trip-link gulliver">Gulliver <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://it.wikiloc.com/percorsi-sci-di-montagna/tromso-and-lyngen-alps-storgalten-lassofjellet-17036136" target="_blank" class="trip-link wikiloc">Wikiloc <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://www.strava.com/routes/3401512451051323692" target="_blank" class="trip-link strava">Strava <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
                         </div>
                     </div>
 
                     <div class="trip-card" data-difficulty="bs" data-elevation="1200" data-exposure="ovest">
-                        <h4><span class="trip-number">2</span>Stetinden da Sor Lenangen <span class="difficulty difficulty-bs">BS</span></h4>
+                        <h4><span class="trip-number">2</span>Stetinden da Sor Lenangen</h4>
                         <div class="trip-info">
+                            <span class="difficulty difficulty-bs">BS</span>
                             <span class="trip-stat">+1200 m</span>
                             <span class="trip-stat">12.5 km</span>
-                            <span class="trip-stat">Esp. Ovest</span>
+                            <span class="trip-stat">Ovest</span>
                         </div>
                         <div class="trip-links">
-                            <a href="https://www.gulliver.it/itinerari/stetinden-da-sor-lenangen/" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
-                            <a href="https://www.strava.com/routes/3401516350288728364" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
-                            <a href="https://connect.garmin.com/modern/activity/18684363007" target="_blank" class="trip-link garmin"><svg viewBox="0 0 24 24"><path d="M12 2L2 19h20L12 2zm0 4l6.5 11h-13L12 6z"/></svg>Garmin</a>
+                            <a href="https://www.gulliver.it/itinerari/stetinden-da-sor-lenangen/" target="_blank" class="trip-link gulliver">Gulliver <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://www.strava.com/routes/3401516350288728364" target="_blank" class="trip-link strava">Strava <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://connect.garmin.com/modern/activity/18684363007" target="_blank" class="trip-link garmin">Garmin <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
                         </div>
                     </div>
 
                     <div class="trip-card" data-difficulty="bs" data-elevation="1115" data-exposure="nord">
-                        <h4><span class="trip-number">3</span>Steinfjellet da Botn <span class="difficulty difficulty-bs">BS</span></h4>
+                        <h4><span class="trip-number">3</span>Steinfjellet da Botn</h4>
                         <div class="trip-info">
+                            <span class="difficulty difficulty-bs">BS</span>
                             <span class="trip-stat">+1115 m</span>
                             <span class="trip-stat">6.2 km</span>
-                            <span class="trip-stat">Esp. Nord-Est</span>
+                            <span class="trip-stat">Nord-Est</span>
                         </div>
                         <div class="trip-links">
-                            <a href="https://www.gulliver.it/itinerari/steinfjellet-da-botn-in-sor-lenangen/" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
-                            <a href="https://www.strava.com/routes/3401511893409062378" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
-                            <a href="https://connect.garmin.com/modern/activity/18697677779" target="_blank" class="trip-link garmin"><svg viewBox="0 0 24 24"><path d="M12 2L2 19h20L12 2zm0 4l6.5 11h-13L12 6z"/></svg>Garmin</a>
+                            <a href="https://www.gulliver.it/itinerari/steinfjellet-da-botn-in-sor-lenangen/" target="_blank" class="trip-link gulliver">Gulliver <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://www.strava.com/routes/3401511893409062378" target="_blank" class="trip-link strava">Strava <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://connect.garmin.com/modern/activity/18697677779" target="_blank" class="trip-link garmin">Garmin <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
                         </div>
                     </div>
 
                     <div class="trip-card" data-difficulty="bs" data-elevation="1050" data-exposure="nord">
-                        <h4><span class="trip-number">4</span>Rornesfjellet da Lyngseidet <span class="difficulty difficulty-bs">BS</span></h4>
+                        <h4><span class="trip-number">4</span>Rornesfjellet da Lyngseidet</h4>
                         <div class="trip-info">
+                            <span class="difficulty difficulty-bs">BS</span>
                             <span class="trip-stat">+1050 m</span>
                             <span class="trip-stat">11.6 km</span>
-                            <span class="trip-stat">Esp. Nord-Est</span>
+                            <span class="trip-stat">Nord-Est</span>
                         </div>
                         <div class="trip-links">
-                            <a href="https://www.gulliver.it/itinerari/rornesfjellet-da-lyngseidet/#main" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
-                            <a href="https://www.strava.com/routes/3401511416736967936" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
-                            <a href="https://connect.garmin.com/modern/activity/18689307515" target="_blank" class="trip-link garmin"><svg viewBox="0 0 24 24"><path d="M12 2L2 19h20L12 2zm0 4l6.5 11h-13L12 6z"/></svg>Garmin</a>
+                            <a href="https://www.gulliver.it/itinerari/rornesfjellet-da-lyngseidet/#main" target="_blank" class="trip-link gulliver">Gulliver <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://www.strava.com/routes/3401511416736967936" target="_blank" class="trip-link strava">Strava <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://connect.garmin.com/modern/activity/18689307515" target="_blank" class="trip-link garmin">Garmin <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
                         </div>
                     </div>
 
                     <div class="trip-card" data-difficulty="bs" data-elevation="1250" data-exposure="sud">
-                        <h4><span class="trip-number">5</span>Fastdalstinden SE-S <span class="difficulty difficulty-bs">BS</span></h4>
+                        <h4><span class="trip-number">5</span>Fastdalstinden SE-S</h4>
                         <div class="trip-info">
+                            <span class="difficulty difficulty-bs">BS</span>
                             <span class="trip-stat">+1250 m</span>
                             <span class="trip-stat">11.8 km</span>
-                            <span class="trip-stat">Esp. Sud-Est</span>
+                            <span class="trip-stat">Sud-Est</span>
                         </div>
                         <div class="trip-links">
-                            <a href="https://www.gulliver.it/itinerari/fastdalstinden-per-versante-se-s/" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
-                            <a href="https://www.strava.com/routes/3401515357863106070" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                            <a href="https://www.gulliver.it/itinerari/fastdalstinden-per-versante-se-s/" target="_blank" class="trip-link gulliver">Gulliver <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://www.strava.com/routes/3401515357863106070" target="_blank" class="trip-link strava">Strava <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
                         </div>
                     </div>
 
                     <div class="trip-card" data-difficulty="bs" data-elevation="1238" data-exposure="ovest">
-                        <h4><span class="trip-number">6</span>Sorbmegaisa (Oderdalen) <span class="difficulty difficulty-bs">BS</span></h4>
+                        <h4><span class="trip-number">6</span>Sorbmegaisa (Oderdalen)</h4>
                         <div class="trip-info">
+                            <span class="difficulty difficulty-bs">BS</span>
                             <span class="trip-stat">+1238 m</span>
-                            <span class="trip-stat">Esp. Ovest</span>
+                            <span class="trip-stat">Ovest</span>
                         </div>
                         <div class="trip-links">
-                            <a href="https://www.gulliver.it/itinerari/sorbmegaisa-oderdalen-dal-kyofjord/#main" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
+                            <a href="https://www.gulliver.it/itinerari/sorbmegaisa-oderdalen-dal-kyofjord/#main" target="_blank" class="trip-link gulliver">Gulliver <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
                         </div>
                     </div>
 
                     <div class="trip-card" data-difficulty="bs" data-elevation="1160" data-exposure="sud">
-                        <h4><span class="trip-number">7</span>Fastdalstinden da Lyngen <span class="difficulty difficulty-bs">BS</span></h4>
+                        <h4><span class="trip-number">7</span>Fastdalstinden da Lyngen</h4>
                         <div class="trip-info">
+                            <span class="difficulty difficulty-bs">BS</span>
                             <span class="trip-stat">+1160 m</span>
                             <span class="trip-stat">11.5 km</span>
-                            <span class="trip-stat">Esp. Sud-Ovest</span>
+                            <span class="trip-stat">Sud-Ovest</span>
                         </div>
                         <div class="trip-links">
-                            <a href="https://www.gulliver.it/itinerari/fastdalstindenda-lyngen/" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
-                            <a href="https://www.strava.com/routes/3401518729626466604" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                            <a href="https://www.gulliver.it/itinerari/fastdalstindenda-lyngen/" target="_blank" class="trip-link gulliver">Gulliver <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://www.strava.com/routes/3401518729626466604" target="_blank" class="trip-link strava">Strava <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
                         </div>
                     </div>
 
                     <div class="trip-card" data-difficulty="bs" data-elevation="1200" data-exposure="nord">
-                        <h4><span class="trip-number">8</span>Kavringtinden / Golsavarre <span class="difficulty difficulty-bs">BS</span></h4>
+                        <h4><span class="trip-number">8</span>Kavringtinden / Golsavarre</h4>
                         <div class="trip-info">
+                            <span class="difficulty difficulty-bs">BS</span>
                             <span class="trip-stat">+1200 m</span>
                             <span class="trip-stat">12.7 km</span>
-                            <span class="trip-stat">Esp. Nord-Est</span>
+                            <span class="trip-stat">Nord-Est</span>
                         </div>
                         <div class="trip-links">
-                            <a href="https://www.gulliver.it/itinerari/kavringtinden-da-lyngseidet/" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
-                            <a href="https://it.wikiloc.com/percorsi-sci-di-montagna/lyngen-alps-kavringtinden-peak-165941775" target="_blank" class="trip-link wikiloc"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>Wikiloc</a>
-                            <a href="https://www.strava.com/routes/3401521145478882794" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
-                            <a href="https://connect.garmin.com/modern/activity/18689307515" target="_blank" class="trip-link garmin"><svg viewBox="0 0 24 24"><path d="M12 2L2 19h20L12 2zm0 4l6.5 11h-13L12 6z"/></svg>Garmin</a>
+                            <a href="https://www.gulliver.it/itinerari/kavringtinden-da-lyngseidet/" target="_blank" class="trip-link gulliver">Gulliver <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://it.wikiloc.com/percorsi-sci-di-montagna/lyngen-alps-kavringtinden-peak-165941775" target="_blank" class="trip-link wikiloc">Wikiloc <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://www.strava.com/routes/3401521145478882794" target="_blank" class="trip-link strava">Strava <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://connect.garmin.com/modern/activity/18689307515" target="_blank" class="trip-link garmin">Garmin <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
                         </div>
                     </div>
 
                     <div class="trip-card" data-difficulty="bs" data-elevation="950" data-exposure="sud">
-                        <h4><span class="trip-number">9</span>Rornestinden <span class="difficulty difficulty-bs">BS</span></h4>
+                        <h4><span class="trip-number">9</span>Rornestinden</h4>
                         <div class="trip-info">
+                            <span class="difficulty difficulty-bs">BS</span>
                             <span class="trip-stat">+950 m</span>
                             <span class="trip-stat">10.0 km</span>
-                            <span class="trip-stat">Esp. Sud-Est</span>
+                            <span class="trip-stat">Sud-Est</span>
                         </div>
                         <div class="trip-links">
-                            <a href="https://www.gulliver.it/itinerari/rornestinden-versante-se/" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
-                            <a href="https://www.strava.com/routes/3401520549316564268" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                            <a href="https://www.gulliver.it/itinerari/rornestinden-versante-se/" target="_blank" class="trip-link gulliver">Gulliver <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://www.strava.com/routes/3401520549316564268" target="_blank" class="trip-link strava">Strava <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
                         </div>
                     </div>
 
                     <div class="trip-card" data-difficulty="bs" data-elevation="1163" data-exposure="sud">
-                        <h4><span class="trip-number">10</span>Giilavarri da Olderdalen <span class="difficulty difficulty-bs">BS</span></h4>
+                        <h4><span class="trip-number">10</span>Giilavarri da Olderdalen</h4>
                         <div class="trip-info">
+                            <span class="difficulty difficulty-bs">BS</span>
                             <span class="trip-stat">+1163 m</span>
                             <span class="trip-stat">9.8 km</span>
-                            <span class="trip-stat">Esp. Sud-Est</span>
+                            <span class="trip-stat">Sud-Est</span>
                         </div>
                         <div class="trip-links">
-                            <a href="https://www.gulliver.it/itinerari/giilavarri-da-olderdalen/" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
-                            <a href="https://it.wikiloc.com/percorsi-sci-di-montagna/giilavarri-da-olderdalen-207936336" target="_blank" class="trip-link wikiloc"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>Wikiloc</a>
-                            <a href="https://www.strava.com/routes/3401521797800218880" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                            <a href="https://www.gulliver.it/itinerari/giilavarri-da-olderdalen/" target="_blank" class="trip-link gulliver">Gulliver <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://it.wikiloc.com/percorsi-sci-di-montagna/giilavarri-da-olderdalen-207936336" target="_blank" class="trip-link wikiloc">Wikiloc <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://www.strava.com/routes/3401521797800218880" target="_blank" class="trip-link strava">Strava <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
                         </div>
                     </div>
 
                     <div class="trip-card" data-difficulty="unknown" data-elevation="1250" data-exposure="sud">
-                        <h4><span class="trip-number">11</span>Rissavarri <span class="difficulty difficulty-unknown">?</span></h4>
+                        <h4><span class="trip-number">11</span>Rissavarri</h4>
                         <div class="trip-info">
+                            <span class="difficulty difficulty-unknown">?</span>
                             <span class="trip-stat">+1250 m</span>
                             <span class="trip-stat">10.0 km</span>
-                            <span class="trip-stat">Esp. Sud-Ovest</span>
+                            <span class="trip-stat">Sud-Ovest</span>
                         </div>
                         <div class="trip-links">
-                            <a href="https://it.wikiloc.com/percorsi-sci-di-montagna/rissavarri-lyngen-noruega-202532587" target="_blank" class="trip-link wikiloc"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>Wikiloc</a>
-                            <a href="https://www.strava.com/routes/3401522709319328000" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                            <a href="https://it.wikiloc.com/percorsi-sci-di-montagna/rissavarri-lyngen-noruega-202532587" target="_blank" class="trip-link wikiloc">Wikiloc <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://www.strava.com/routes/3401522709319328000" target="_blank" class="trip-link strava">Strava <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
                         </div>
                     </div>
 
                     <div class="trip-card" data-difficulty="unknown" data-elevation="1200" data-exposure="other">
-                        <h4><span class="trip-number">12</span>Storhaugen <span class="difficulty difficulty-unknown">?</span></h4>
+                        <h4><span class="trip-number">12</span>Storhaugen</h4>
                         <div class="trip-info">
+                            <span class="difficulty difficulty-unknown">?</span>
                             <span class="trip-stat">+1200 m</span>
                             <span class="trip-stat">12.4 km</span>
                         </div>
                         <div class="trip-links">
-                            <a href="https://it.wikiloc.com/percorsi-sci-di-montagna/storhaugen-35943619" target="_blank" class="trip-link wikiloc"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>Wikiloc</a>
-                            <a href="https://www.strava.com/routes/3401523431485689322" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                            <a href="https://it.wikiloc.com/percorsi-sci-di-montagna/storhaugen-35943619" target="_blank" class="trip-link wikiloc">Wikiloc <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://www.strava.com/routes/3401523431485689322" target="_blank" class="trip-link strava">Strava <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
                         </div>
                     </div>
 
                     <div class="trip-card" data-difficulty="ms" data-elevation="1104" data-exposure="sud">
-                        <h4><span class="trip-number">13</span>Kjevagtinden da Havnnes <span class="difficulty difficulty-ms">MS</span></h4>
+                        <h4><span class="trip-number">13</span>Kjevagtinden da Havnnes</h4>
                         <div class="trip-info">
+                            <span class="difficulty difficulty-ms">MS</span>
                             <span class="trip-stat">+1104 m</span>
                             <span class="trip-stat">10.3 km</span>
-                            <span class="trip-stat">Esp. Sud-Ovest</span>
+                            <span class="trip-stat">Sud-Ovest</span>
                         </div>
                         <div class="trip-links">
-                            <a href="https://www.gulliver.it/itinerari/kjevagtinden-da-havnnes/" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
-                            <a href="https://it.wikiloc.com/percorsi-sci-di-montagna/kjelvagtinden-35870747" target="_blank" class="trip-link wikiloc"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>Wikiloc</a>
-                            <a href="https://www.strava.com/routes/3401523782395352364" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                            <a href="https://www.gulliver.it/itinerari/kjevagtinden-da-havnnes/" target="_blank" class="trip-link gulliver">Gulliver <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://it.wikiloc.com/percorsi-sci-di-montagna/kjelvagtinden-35870747" target="_blank" class="trip-link wikiloc">Wikiloc <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://www.strava.com/routes/3401523782395352364" target="_blank" class="trip-link strava">Strava <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
                         </div>
                     </div>
 
                     <div class="trip-card" data-difficulty="ms" data-elevation="1105" data-exposure="nord">
-                        <h4><span class="trip-number">14</span>Stortuva da Oldervik <span class="difficulty difficulty-ms">MS</span></h4>
+                        <h4><span class="trip-number">14</span>Stortuva da Oldervik</h4>
                         <div class="trip-info">
+                            <span class="difficulty difficulty-ms">MS</span>
                             <span class="trip-stat">+1105 m</span>
                             <span class="trip-stat">14.7 km</span>
-                            <span class="trip-stat">Esp. Nord</span>
+                            <span class="trip-stat">Nord</span>
                         </div>
                         <div class="trip-links">
-                            <a href="https://www.gulliver.it/itinerari/stortuva-da-oldervik/" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
-                            <a href="https://it.wikiloc.com/percorsi-sci-di-montagna/oldervik-164419463" target="_blank" class="trip-link wikiloc"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>Wikiloc</a>
-                            <a href="https://www.strava.com/routes/3401526142095060172" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                            <a href="https://www.gulliver.it/itinerari/stortuva-da-oldervik/" target="_blank" class="trip-link gulliver">Gulliver <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://it.wikiloc.com/percorsi-sci-di-montagna/oldervik-164419463" target="_blank" class="trip-link wikiloc">Wikiloc <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://www.strava.com/routes/3401526142095060172" target="_blank" class="trip-link strava">Strava <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
                         </div>
                     </div>
 
                     <div class="trip-card" data-difficulty="ms" data-elevation="980" data-exposure="sud">
-                        <h4><span class="trip-number">15</span>Ullstinden da Snarbyeidet <span class="difficulty difficulty-ms">MS</span></h4>
+                        <h4><span class="trip-number">15</span>Ullstinden da Snarbyeidet</h4>
                         <div class="trip-info">
+                            <span class="difficulty difficulty-ms">MS</span>
                             <span class="trip-stat">+980 m</span>
                             <span class="trip-stat">10.5 km</span>
-                            <span class="trip-stat">Esp. Sud-Ovest</span>
+                            <span class="trip-stat">Sud-Ovest</span>
                         </div>
                         <div class="trip-links">
-                            <a href="https://www.gulliver.it/itinerari/ullstinden-da-snarbyeidet/" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
-                            <a href="https://www.strava.com/routes/3401524888175392990" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
-                            <a href="https://connect.garmin.com/modern/activity/18650847435" target="_blank" class="trip-link garmin"><svg viewBox="0 0 24 24"><path d="M12 2L2 19h20L12 2zm0 4l6.5 11h-13L12 6z"/></svg>Garmin</a>
+                            <a href="https://www.gulliver.it/itinerari/ullstinden-da-snarbyeidet/" target="_blank" class="trip-link gulliver">Gulliver <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://www.strava.com/routes/3401524888175392990" target="_blank" class="trip-link strava">Strava <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://connect.garmin.com/modern/activity/18650847435" target="_blank" class="trip-link garmin">Garmin <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
                         </div>
                     </div>
 
                     <div class="trip-card" data-difficulty="bs" data-elevation="1150" data-exposure="ovest">
-                        <h4><span class="trip-number">16</span>Storfjellet (Breivikeidet) <span class="difficulty difficulty-bs">BS</span></h4>
+                        <h4><span class="trip-number">16</span>Storfjellet (Breivikeidet)</h4>
                         <div class="trip-info">
+                            <span class="difficulty difficulty-bs">BS</span>
                             <span class="trip-stat">+1150 m</span>
                             <span class="trip-stat">12.2 km</span>
-                            <span class="trip-stat">Esp. Ovest</span>
+                            <span class="trip-stat">Ovest</span>
                         </div>
                         <div class="trip-links">
-                            <a href="https://www.gulliver.it/itinerari/storfjellet-da-ponte-breivikeidet/" target="_blank" class="trip-link gulliver"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Gulliver</a>
-                            <a href="https://www.strava.com/routes/3401525327546975488" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
+                            <a href="https://www.gulliver.it/itinerari/storfjellet-da-ponte-breivikeidet/" target="_blank" class="trip-link gulliver">Gulliver <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://www.strava.com/routes/3401525327546975488" target="_blank" class="trip-link strava">Strava <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
                         </div>
                     </div>
 
                     <div class="trip-card" data-difficulty="unknown" data-elevation="1050" data-exposure="other">
-                        <h4><span class="trip-number">17</span>Stormheimfjellet <span class="difficulty difficulty-unknown">?</span></h4>
+                        <h4><span class="trip-number">17</span>Stormheimfjellet</h4>
                         <div class="trip-info">
+                            <span class="difficulty difficulty-unknown">?</span>
                             <span class="trip-stat">+1050 m</span>
                             <span class="trip-stat">12.3 km</span>
                         </div>
                         <div class="trip-links">
-                            <a href="https://www.strava.com/routes/3401527998365532460" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
-                            <a href="https://connect.garmin.com/modern/activity/18668336044" target="_blank" class="trip-link garmin"><svg viewBox="0 0 24 24"><path d="M12 2L2 19h20L12 2zm0 4l6.5 11h-13L12 6z"/></svg>Garmin</a>
+                            <a href="https://www.strava.com/routes/3401527998365532460" target="_blank" class="trip-link strava">Strava <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://connect.garmin.com/modern/activity/18668336044" target="_blank" class="trip-link garmin">Garmin <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
                         </div>
                     </div>
 
                     <div class="trip-card" data-difficulty="unknown" data-elevation="700" data-exposure="other">
-                        <h4><span class="trip-number">18</span>Traccia 7 Ponch <span class="difficulty difficulty-unknown">?</span></h4>
+                        <h4><span class="trip-number">18</span>Traccia 7 Ponch</h4>
                         <div class="trip-info">
+                            <span class="difficulty difficulty-unknown">?</span>
                             <span class="trip-stat">+700 m</span>
                             <span class="trip-stat">9.4 km</span>
                         </div>
                         <div class="trip-links">
-                            <a href="https://www.strava.com/routes/3401530418737577182" target="_blank" class="trip-link strava"><svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>Strava</a>
-                            <a href="https://connect.garmin.com/modern/activity/18699892521" target="_blank" class="trip-link garmin"><svg viewBox="0 0 24 24"><path d="M12 2L2 19h20L12 2zm0 4l6.5 11h-13L12 6z"/></svg>Garmin</a>
+                            <a href="https://www.strava.com/routes/3401530418737577182" target="_blank" class="trip-link strava">Strava <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
+                            <a href="https://connect.garmin.com/modern/activity/18699892521" target="_blank" class="trip-link garmin">Garmin <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7H5z"/></svg></a>
                         </div>
                     </div>
+                </div>
+
+                <div class="trips-toggle">
+                    <button class="trips-toggle-btn" id="trips-toggle-btn" onclick="toggleTrips()">
+                        Mostra tutte (18) <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+                    </button>
                 </div>
 
                 <div style="margin-top: 20px; padding: 15px; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px;">
@@ -797,50 +826,71 @@
 
             <!-- Sezione Piano B -->
             <div class="section" id="pianob">
-                <h2 class="section-title"><span class="section-icon">🌨️</span> Piano B – Brutto tempo / Whiteout</h2>
-                <p style="margin-bottom: 20px; color: #94a3b8;">Attività alternative in caso di maltempo: solo outdoor o semi-outdoor low-risk, niente indoor casa. Perfette per whiteout o condizioni avverse.</p>
+                <h2 class="section-title"><span class="section-icon">🌨️</span> Piano B</h2>
+                <p class="section-subtitle">Attività alternative in caso di maltempo o whiteout. Outdoor o semi-outdoor low-risk, perfette per condizioni avverse.</p>
 
-                <div class="alternative-activities">
-                    <div class="activity-card">
-                        <h3>🏭 Visita guidata ad Aurora Spirit</h3>
-                        <p><strong>Descrizione:</strong> Tour guidato nella distilleria Bivrost/Aurora Spirit a Årøybukt (Lyngen Resort, vicinissimo a Lyngseidet). Vedete produzione whisky/vodka/gin/aquavit con ingredienti artici, vecchi bunker NATO sotterranei per maturazione, storie vichinghe e tasting (piccoli assaggi inclusi).</p>
-                        <p><strong>Note:</strong> Quasi tutto al coperto ma con brevi spostamenti esterni tra edifici. Dura 45-60 min, prenotate in anticipo (spesso 12:30/14:00). Costa sui 30-50€/persona. Perfetto per whiteout: location spettacolare ma protetta.</p>
+                <div class="planb-grid">
+                    <div class="planb-card">
+                        <div class="planb-card-header">
+                            <span class="planb-icon">🏭</span>
+                            <h3>Visita guidata ad Aurora Spirit</h3>
+                        </div>
+                        <p class="planb-desc">Tour nella distilleria Bivrost/Aurora Spirit a Årøybukt. Produzione whisky/vodka/gin/aquavit con ingredienti artici, bunker NATO per maturazione, tasting incluso.</p>
+                        <p class="planb-note">Dura 45–60 min, ~30-50€/persona. Prenotare in anticipo.</p>
                     </div>
 
-                    <div class="activity-card">
-                        <h3>🏛️ Discesa a Tromsø per musei e attrazioni indoor</h3>
-                        <p><strong>Descrizione:</strong> Guidate fino a Tromsø e visitate Polaria (acquario/artico con foche e film), Polar Museum (storia esplorazioni polari, caccia foche/baleniera), Tromsø Museum (Sami, Northern Lights, natura artica) o Arctic Cathedral.</p>
-                        <p><strong>Note:</strong> Strada E8 spesso aperta anche con neve (controllate vegvesen.no). Ideale se whiteout dura 2+ giorni. Musei caldi, caffè dentro. Evitate se bufera totale blocca la strada.</p>
+                    <div class="planb-card">
+                        <div class="planb-card-header">
+                            <span class="planb-icon">🏛️</span>
+                            <h3>Discesa a Tromsø per musei</h3>
+                        </div>
+                        <p class="planb-desc">Polaria (acquario con foche), Polar Museum (esplorazioni polari), Tromsø Museum (Sami, Northern Lights), Arctic Cathedral.</p>
+                        <p class="planb-note">Strada E8 spesso aperta. Musei caldi con caffè.</p>
                     </div>
 
-                    <div class="activity-card">
-                        <h3>🛁 Sauna + bagno artico pubblico o semi-privato</h3>
-                        <p><strong>Descrizione:</strong> Andate a Tromsø per sauna galleggiante (Tromsø Badstuforening o simili) o floating sauna con vista fiordo: caldo estremo + tuffo/rotolata neve/acqua gelida. O cercate opzioni locali in Lyngen (alcune lodge/baite hanno sauna esterna accessibile).</p>
-                        <p><strong>Note:</strong> Esperienza norvegese classica. In Lyngen meno opzioni pubbliche, ma Tromsø ne ha diverse (prenotate). Resiste a vento/neve se sauna coperta.</p>
+                    <div class="planb-card">
+                        <div class="planb-card-header">
+                            <span class="planb-icon">🛁</span>
+                            <h3>Sauna + bagno artico</h3>
+                        </div>
+                        <p class="planb-desc">Sauna galleggiante a Tromsø o floating sauna con vista fiordo: caldo estremo + tuffo in acqua gelida.</p>
+                        <p class="planb-note">Prenotare in anticipo. Esperienza norvegese classica!</p>
                     </div>
 
-                    <div class="activity-card">
-                        <h3>🌌 Aurora hunting low-risk da auto o spot costieri</h3>
-                        <p><strong>Descrizione:</strong> Se forecast KP decente (3+), guidate in auto verso spot bui lungo fiordo (es. est Lyngenfjord o verso Skjervøy) senza salire quota. Fermatevi in punti sicuri con vista aperta, luci spente, guardate dal finestrino o breve sosta fuori.</p>
-                        <p><strong>Note:</strong> Whiteout diurno non sempre = nuvolo notturno. Portate thermos caffè. Zero hiking, solo drive & watch.</p>
+                    <div class="planb-card">
+                        <div class="planb-card-header">
+                            <span class="planb-icon">🌌</span>
+                            <h3>Aurora hunting da auto</h3>
+                        </div>
+                        <p class="planb-desc">Se KP ≥3, guidate verso spot bui lungo il fiordo senza salire quota. Zero hiking, solo drive & watch dal finestrino.</p>
+                        <p class="planb-note">Whiteout diurno ≠ nuvolo notturno. Portate thermos.</p>
                     </div>
 
-                    <div class="activity-card">
-                        <h3>🏖️ Passeggiata facile costiera o viewpoint accessibile in auto</h3>
-                        <p><strong>Descrizione:</strong> Andate a spot come Bollmannsveien (strada WWII con vista Lyngenfjord e Alpi, info boards), o viewpoint vicino Lyngseidet/Skjervøy (es. Stussneset o aree parcheggio con panorama). Breve camminata piatta se neve permette, altrimenti guardate dall'auto.</p>
-                        <p><strong>Note:</strong> Low elevation, no rischio valanghe. Controllate vento; se >40 nodi saltate. Vista epica anche grigio.</p>
+                    <div class="planb-card">
+                        <div class="planb-card-header">
+                            <span class="planb-icon">🏖️</span>
+                            <h3>Passeggiata costiera</h3>
+                        </div>
+                        <p class="planb-desc">Bollmannsveien (strada WWII con vista) o viewpoint vicino Lyngseidet. Breve camminata piatta o panorama dall'auto.</p>
+                        <p class="planb-note">Low elevation, no rischio valanghe. Vista epica anche con grigio.</p>
                     </div>
 
-                    <div class="activity-card">
-                        <h3>🏞️ Visita centro visitatori Reisa National Park (Ovi Raishiin)</h3>
-                        <p><strong>Descrizione:</strong> In Reisa valley (breve drive da Lyngen), centro info su parco nazionale: exhibit su natura artica, Sami, fauna, brevi film.</p>
-                        <p><strong>Note:</strong> Indoor ma con vibe outdoor/educativa. Buono per capire zona se meteo blocca gite alte.</p>
+                    <div class="planb-card">
+                        <div class="planb-card-header">
+                            <span class="planb-icon">🏞️</span>
+                            <h3>Centro visitatori Reisa National Park</h3>
+                        </div>
+                        <p class="planb-desc">In Reisa valley: exhibit su natura artica, Sami, fauna, brevi film. Vibe outdoor/educativa.</p>
+                        <p class="planb-note">Breve drive da Lyngen. Buono se meteo blocca gite alte.</p>
                     </div>
 
-                    <div class="activity-card">
-                        <h3>🛍️ Shopping o caffè a Tromsø + giro centro</h3>
-                        <p><strong>Descrizione:</strong> Parcheggiate a Tromsø, girate centro pedonale (Storgata), entrate negozi gear/souvenir, caffè caldo da posti iconici (Risø, Helmersen, Ølhallen birreria Mack).</p>
-                        <p><strong>Note:</strong> Camminata urbana coperta da vento/neve. Birra locale o cioccolato caldo. Economico e zero impegno.</p>
+                    <div class="planb-card">
+                        <div class="planb-card-header">
+                            <span class="planb-icon">🛍️</span>
+                            <h3>Shopping e caffè a Tromsø</h3>
+                        </div>
+                        <p class="planb-desc">Centro pedonale Storgata, negozi gear/souvenir, caffè iconici (Risø, Helmersen, Ølhallen birreria Mack).</p>
+                        <p class="planb-note">Birra locale o cioccolato caldo. Economico e zero impegno.</p>
                     </div>
                 </div>
             </div>
@@ -1127,19 +1177,73 @@
             });
         });
 
+        // Mostra tutte / Nascondi toggle
+        const VISIBLE_TRIPS = 6;
+        let tripsExpanded = false;
+
+        function updateTripsVisibility() {
+            const cards = document.querySelectorAll('.trip-card');
+            const btn = document.getElementById('trips-toggle-btn');
+            const visibleCards = Array.from(cards).filter(c => !c.classList.contains('hidden'));
+
+            visibleCards.forEach((card, index) => {
+                if (!tripsExpanded && index >= VISIBLE_TRIPS) {
+                    card.classList.add('collapsed');
+                } else {
+                    card.classList.remove('collapsed');
+                }
+            });
+
+            const totalVisible = visibleCards.length;
+            if (totalVisible <= VISIBLE_TRIPS) {
+                btn.style.display = 'none';
+            } else {
+                btn.style.display = 'inline-flex';
+                if (tripsExpanded) {
+                    btn.innerHTML = 'Nascondi <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>';
+                    btn.classList.add('expanded');
+                } else {
+                    btn.innerHTML = `Mostra tutte (${totalVisible}) <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>`;
+                    btn.classList.remove('expanded');
+                }
+            }
+        }
+
+        function toggleTrips() {
+            tripsExpanded = !tripsExpanded;
+            updateTripsVisibility();
+        }
+
+        // Override applyFilters to also update trips visibility
+        const originalApplyFilters = applyFilters;
+        applyFilters = function() {
+            originalApplyFilters();
+            updateTripsVisibility();
+        };
+
+        // Initial collapse
+        updateTripsVisibility();
+
         // Packing List functionality
 
         // Navbar toggle per mobile
         function toggleNavbar() {
             const links = document.getElementById('navbar-links');
+            const overlay = document.getElementById('navbar-overlay');
+            const isOpen = links.classList.contains('open');
             links.classList.toggle('open');
+            overlay.classList.toggle('open');
+            document.body.style.overflow = isOpen ? '' : 'hidden';
         }
 
         // Chiudi navbar quando si clicca su un link (mobile)
         document.querySelectorAll('.navbar-link').forEach(link => {
             link.addEventListener('click', () => {
                 const links = document.getElementById('navbar-links');
+                const overlay = document.getElementById('navbar-overlay');
                 links.classList.remove('open');
+                overlay.classList.remove('open');
+                document.body.style.overflow = '';
             });
         });
 

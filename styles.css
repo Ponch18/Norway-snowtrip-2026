@@ -97,38 +97,145 @@ body {
     padding: 5px;
 }
 
+.navbar-overlay {
+    display: none;
+}
+
+.navbar-drawer-header {
+    display: none;
+}
+
+.navbar-link-icon {
+    display: none;
+}
+
+.navbar-close {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .navbar-toggle {
         display: block;
     }
 
-    .navbar-links {
+    .navbar-overlay {
         display: none;
-        position: absolute;
-        top: 64px;
+        position: fixed;
+        top: 0;
         left: 0;
         right: 0;
-        background: rgba(12, 18, 32, 0.98);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        padding: 15px;
-        gap: 4px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        z-index: 1999;
     }
 
-    .navbar-links.open {
+    .navbar-overlay.open {
+        display: block;
+    }
+
+    .navbar-links {
+        position: fixed;
+        top: 0;
+        right: -320px;
+        width: 300px;
+        max-width: 85vw;
+        height: 100vh;
+        background: rgba(15, 23, 42, 0.97);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        flex-direction: column;
+        padding: 0 20px 30px;
+        gap: 0;
+        border-left: 1px solid rgba(255, 255, 255, 0.08);
+        z-index: 2000;
+        overflow-y: auto;
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         display: flex;
     }
 
-    .navbar-link {
-        padding: 12px 15px;
+    .navbar-links.open {
+        right: 0;
+    }
+
+    .navbar-drawer-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 0;
+        margin-bottom: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .navbar-drawer-header .navbar-brand {
+        font-size: 1.05em;
+    }
+
+    .navbar-close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background: none;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 50%;
+        color: #94a3b8;
+        font-size: 1em;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .navbar-close:hover {
+        border-color: #00d4ff;
+        color: #00d4ff;
+    }
+
+    .navbar-link-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 10px;
+        font-size: 1em;
+    }
+
+    .navbar-link {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 4px;
+        border-radius: 12px;
+        font-size: 1em;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.75);
+        transition: all 0.2s ease;
+    }
+
+    .navbar-link:hover {
+        background: rgba(0, 212, 255, 0.06);
+        color: #00d4ff;
+    }
+
+    .navbar-link:hover .navbar-link-icon {
+        border-color: rgba(0, 212, 255, 0.25);
+        background: rgba(0, 212, 255, 0.08);
     }
 
     .navbar-link.active {
         border-bottom: none;
-        border-radius: 10px;
-        background: rgba(0, 212, 255, 0.1);
+        border-radius: 12px;
+        background: rgba(0, 212, 255, 0.08);
+        color: #00d4ff;
+    }
+
+    .navbar-link.active .navbar-link-icon {
+        border-color: rgba(0, 212, 255, 0.3);
+        background: rgba(0, 212, 255, 0.12);
     }
 }
 
@@ -392,7 +499,7 @@ header {
 /* Dark Glass Cards - Base                      */
 /* ============================================ */
 .dark-card {
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(30, 41, 59, 0.65);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 16px;
@@ -414,7 +521,7 @@ header {
 }
 
 .travel-card {
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(30, 41, 59, 0.65);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 16px;
@@ -671,11 +778,12 @@ header {
 /* ============================================ */
 .trips-grid {
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
 }
 
 .trip-card {
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(30, 41, 59, 0.65);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 14px;
@@ -690,13 +798,12 @@ header {
 
 .trip-card h4 {
     color: #f1f5f9;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
+    gap: 0;
     font-weight: 600;
+    font-size: 1.05em;
 }
 
 .trip-card p {
@@ -738,62 +845,58 @@ header {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
     background: rgba(0, 212, 255, 0.15);
     color: #00d4ff;
-    border-radius: 10px;
+    border-radius: 50%;
     font-weight: bold;
     font-size: 0.9em;
-    margin-right: 10px;
+    margin-right: 12px;
     flex-shrink: 0;
-    border: 1px solid rgba(0, 212, 255, 0.2);
-}
-
-.trip-card h4 {
-    display: flex;
-    align-items: center;
+    border: 1px solid rgba(0, 212, 255, 0.25);
 }
 
 /* Trip Links */
 .trip-links {
     display: flex;
-    gap: 8px;
-    margin-top: 12px;
+    gap: 16px;
+    margin-top: 14px;
     flex-wrap: wrap;
 }
 
 .trip-link {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 6px 12px;
-    border-radius: 8px;
+    gap: 4px;
     text-decoration: none;
-    font-size: 0.8em;
+    font-size: 0.85em;
     font-weight: 500;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: #00d4ff;
+    transition: opacity 0.2s ease;
+    background: none;
+    padding: 0;
+    border-radius: 0;
 }
 
 .trip-link svg {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     fill: currentColor;
 }
 
 .trip-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0.75;
 }
 
-.trip-link.gulliver { background: #2e7d32; color: white; }
-.trip-link.wikiloc { background: #1976d2; color: white; }
-.trip-link.strava { background: #fc4c02; color: white; }
-.trip-link.garmin { background: #007dbe; color: white; }
+.trip-link.gulliver,
+.trip-link.wikiloc,
+.trip-link.strava,
+.trip-link.garmin { color: #00d4ff; background: none; }
 
 /* Filters */
 .filters {
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(30, 41, 59, 0.65);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 14px;
     padding: 20px;
@@ -874,11 +977,54 @@ header {
     display: none;
 }
 
+.trip-card.collapsed {
+    display: none;
+}
+
+/* Mostra tutte toggle button */
+.trips-toggle {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.trips-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: rgba(30, 41, 59, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 30px;
+    color: #e2e8f0;
+    font-size: 0.95em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Inter", sans-serif;
+}
+
+.trips-toggle-btn:hover {
+    border-color: rgba(0, 212, 255, 0.3);
+    background: rgba(0, 212, 255, 0.08);
+}
+
+.trips-toggle-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    transition: transform 0.3s ease;
+}
+
+.trips-toggle-btn.expanded svg {
+    transform: rotate(180deg);
+}
+
 /* ============================================ */
 /* Weather Section                              */
 /* ============================================ */
 .weather-intro {
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(30, 41, 59, 0.65);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 16px;
     padding: 25px;
@@ -906,7 +1052,7 @@ header {
 }
 
 .weather-card {
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(30, 41, 59, 0.65);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 14px;
     padding: 20px;
@@ -963,7 +1109,7 @@ header {
 }
 
 .weather-stat {
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(30, 41, 59, 0.65);
     border: 1px solid rgba(255, 255, 255, 0.06);
     padding: 14px 20px;
     border-radius: 12px;
@@ -1026,7 +1172,7 @@ header {
 }
 
 .weather-embed-card {
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(30, 41, 59, 0.65);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 14px;
     padding: 20px;
@@ -1103,7 +1249,7 @@ header {
 }
 
 .avalanche-card {
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(30, 41, 59, 0.65);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 14px;
     padding: 20px;
@@ -1201,7 +1347,7 @@ header {
 }
 
 .packing-category {
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(30, 41, 59, 0.65);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 14px;
     padding: 20px;
@@ -1246,49 +1392,73 @@ header {
 /* ============================================ */
 /* Plan B / Alternative Activities              */
 /* ============================================ */
-.alternative-activities {
+.planb-grid {
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
-.activity-card {
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+.planb-card {
+    background: rgba(30, 41, 59, 0.65);
+    border: 1px solid rgba(0, 212, 255, 0.2);
     border-radius: 14px;
-    padding: 20px;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-    border-left: 3px solid #fb923c;
+    padding: 24px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.activity-card:hover {
+.planb-card:hover {
     transform: translateY(-2px);
-    border-color: rgba(251, 146, 60, 0.2);
+    border-color: rgba(0, 212, 255, 0.4);
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.08);
 }
 
-.activity-card h3 {
-    color: #f1f5f9;
-    margin-bottom: 12px;
+.planb-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.planb-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 10px;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.2);
     font-size: 1.1em;
-    font-weight: 600;
 }
 
-.activity-card p {
-    color: #94a3b8;
-    font-size: 0.95em;
-    line-height: 1.6;
-    margin-bottom: 8px;
-}
-
-.activity-card p strong {
+.planb-card h3 {
     color: #f1f5f9;
+    font-size: 1.05em;
     font-weight: 600;
+    margin: 0;
+}
+
+.planb-desc {
+    color: #94a3b8;
+    font-size: 0.93em;
+    line-height: 1.6;
+    margin-bottom: 14px;
+}
+
+.planb-note {
+    color: #22d3ee;
+    font-size: 0.88em;
+    font-style: italic;
+    line-height: 1.5;
+    margin: 0;
 }
 
 /* ============================================ */
 /* Aurora Boreale Section                       */
 /* ============================================ */
 .aurora-intro {
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.6) 100%);
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.65) 100%);
     border: 1px solid rgba(118, 255, 3, 0.15);
     border-radius: 16px;
     padding: 25px;
@@ -1313,7 +1483,7 @@ header {
 }
 
 .aurora-card {
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(30, 41, 59, 0.65);
     border: 1px solid rgba(139, 92, 246, 0.15);
     border-radius: 14px;
     padding: 20px;
@@ -1391,7 +1561,7 @@ header {
 /* Info Section                                 */
 /* ============================================ */
 .info-box {
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(30, 41, 59, 0.65);
     border: 1px solid rgba(234, 179, 8, 0.15);
     border-radius: 14px;
     padding: 20px;
@@ -1420,7 +1590,7 @@ header {
 
 /* Currency Converter */
 .converter-widget {
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(30, 41, 59, 0.65);
     border: 1px solid rgba(74, 222, 128, 0.15);
     border-radius: 14px;
     padding: 20px;
@@ -1536,7 +1706,7 @@ header {
 /* Food & Supermarkets Section                  */
 /* ============================================ */
 .food-from-home {
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(30, 41, 59, 0.65);
     border: 1px solid rgba(251, 146, 60, 0.15);
     border-radius: 14px;
     padding: 20px;
@@ -1580,7 +1750,7 @@ header {
 }
 
 .supermarket-card {
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(30, 41, 59, 0.65);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 14px;
     padding: 20px;
@@ -1806,7 +1976,7 @@ footer p {
 /* Legend (trips difficulty)                     */
 /* ============================================ */
 .legend-box {
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(30, 41, 59, 0.65);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 14px;
     padding: 15px 20px;
@@ -1873,6 +2043,7 @@ footer p {
         padding: 20px 15px;
     }
 
+    .trips-grid { grid-template-columns: repeat(2, 1fr); }
     .weather-grid { grid-template-columns: 1fr; }
     .weather-stats { justify-content: center; }
     .packing-grid { grid-template-columns: 1fr; }
@@ -1880,6 +2051,7 @@ footer p {
     #map { height: 400px; }
     .weather-embeds { grid-template-columns: 1fr; }
     .aurora-grid { grid-template-columns: 1fr; }
+    .planb-grid { grid-template-columns: 1fr; }
     .supermarket-grid { grid-template-columns: 1fr; }
 }
 
@@ -1952,21 +2124,26 @@ footer p {
     }
 
     .navbar-links {
-        top: 56px;
-        padding: 10px;
-        max-height: 70vh;
-        overflow-y: auto;
+        width: 280px;
+        padding: 0 16px 24px;
     }
 
     .navbar-link {
-        padding: 14px 15px;
+        padding: 12px 4px;
         font-size: 0.95em;
+        gap: 12px;
+    }
+
+    .navbar-link-icon {
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+        font-size: 0.9em;
         border-radius: 8px;
-        background: rgba(255,255,255,0.03);
     }
 
     .navbar-link:active {
-        background: rgba(0, 212, 255, 0.15);
+        background: rgba(0, 212, 255, 0.12);
     }
 
     .content {
@@ -2002,6 +2179,10 @@ footer p {
     .flight-arrow { font-size: 1.2em; margin: 10px 0; }
     .tag { font-size: 0.75em; padding: 4px 10px; }
 
+    .trips-grid {
+        grid-template-columns: 1fr;
+    }
+
     .trip-card {
         padding: 15px;
         border-radius: 12px;
@@ -2009,24 +2190,22 @@ footer p {
 
     .trip-card h4 {
         font-size: 0.95em;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
+        gap: 0;
     }
 
     .trip-number {
         width: 28px;
         height: 28px;
         font-size: 0.85em;
-        margin-bottom: 8px;
+        margin-right: 10px;
     }
 
     .trip-info { gap: 6px; }
     .trip-stat { font-size: 0.8em; padding: 3px 8px; }
     .difficulty { font-size: 0.7em; }
-    .trip-links { margin-top: 10px; gap: 6px; }
-    .trip-link { padding: 8px 10px; font-size: 0.75em; }
-    .trip-link svg { width: 14px; height: 14px; }
+    .trip-links { margin-top: 10px; gap: 12px; }
+    .trip-link { font-size: 0.8em; }
+    .trip-link svg { width: 12px; height: 12px; }
 
     .filters { padding: 12px; border-radius: 10px; margin-bottom: 15px; }
     .filters-title { font-size: 0.9em; margin-bottom: 10px; }
@@ -2247,7 +2426,7 @@ footer p {
 }
 
 div[style*="background: #f5f5f5"] {
-    background: rgba(15, 23, 42, 0.6) !important;
+    background: rgba(30, 41, 59, 0.65) !important;
     border: 1px solid rgba(255, 255, 255, 0.06) !important;
 }
 
