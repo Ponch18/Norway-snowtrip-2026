@@ -250,6 +250,189 @@ body {
     }
 }
 
+/* Mobile landscape - use drawer nav instead of wrapped horizontal nav */
+@media (max-height: 500px) and (orientation: landscape) {
+    .navbar-container {
+        height: 48px;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        z-index: 1999;
+    }
+
+    .navbar-overlay.open {
+        display: block;
+    }
+
+    .navbar-links {
+        display: flex;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: -320px;
+        width: 280px;
+        max-width: 85vw;
+        background: rgba(15, 23, 42, 0.97);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-content: flex-start;
+        flex-wrap: nowrap;
+        padding: 0 16px 24px;
+        gap: 0;
+        border-left: 1px solid rgba(255, 255, 255, 0.08);
+        z-index: 2000;
+        overflow-y: auto;
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .navbar-links.open {
+        right: 0;
+    }
+
+    .navbar-drawer-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 0;
+        margin-bottom: 6px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .navbar-drawer-header .navbar-brand {
+        font-size: 1em;
+    }
+
+    .navbar-close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        background: none;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 50%;
+        color: #94a3b8;
+        font-size: 1em;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .navbar-close:hover {
+        border-color: #00d4ff;
+        color: #00d4ff;
+    }
+
+    .navbar-link-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        font-size: 0.9em;
+    }
+
+    .navbar-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 4px;
+        border-radius: 10px;
+        font-size: 0.92em;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.75);
+        transition: all 0.2s ease;
+    }
+
+    .navbar-link:hover {
+        background: rgba(0, 212, 255, 0.06);
+        color: #00d4ff;
+    }
+
+    .navbar-link:hover .navbar-link-icon {
+        border-color: rgba(0, 212, 255, 0.25);
+        background: rgba(0, 212, 255, 0.08);
+    }
+
+    .navbar-link.active {
+        border-bottom: none;
+        border-radius: 10px;
+        background: rgba(0, 212, 255, 0.08);
+        color: #00d4ff;
+    }
+
+    .navbar-link.active .navbar-link-icon {
+        border-color: rgba(0, 212, 255, 0.3);
+        background: rgba(0, 212, 255, 0.12);
+    }
+
+    .hero-fullscreen {
+        min-height: 100vh;
+        padding: 60px 20px 30px;
+    }
+
+    .hero-title {
+        font-size: 2.2em;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9em;
+    }
+
+    .hero-date-badge {
+        font-size: 0.85em;
+        padding: 6px 16px;
+        margin-bottom: 10px;
+    }
+
+    .countdown {
+        gap: 8px;
+    }
+
+    .countdown-item {
+        padding: 8px 12px;
+        min-width: 60px;
+    }
+
+    .countdown-number {
+        font-size: 1.4em;
+    }
+
+    .countdown-label {
+        font-size: 0.6em;
+    }
+
+    .hero-tags {
+        gap: 4px;
+    }
+
+    .hero-tag {
+        padding: 4px 10px;
+        font-size: 0.75em;
+    }
+
+    .hero-scroll-indicator {
+        display: none;
+    }
+}
+
 /* ============================================ */
 /* Hero Section - Full Screen                   */
 /* ============================================ */
