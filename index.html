@@ -1228,21 +1228,25 @@
 
         // Navbar toggle per mobile
         function toggleNavbar() {
+            const navbar = document.querySelector('.navbar');
             const links = document.getElementById('navbar-links');
             const overlay = document.getElementById('navbar-overlay');
             const isOpen = links.classList.contains('open');
             links.classList.toggle('open');
             overlay.classList.toggle('open');
+            navbar.classList.toggle('menu-open');
             document.body.style.overflow = isOpen ? '' : 'hidden';
         }
 
         // Chiudi navbar quando si clicca su un link (mobile)
         document.querySelectorAll('.navbar-link').forEach(link => {
             link.addEventListener('click', () => {
+                const navbar = document.querySelector('.navbar');
                 const links = document.getElementById('navbar-links');
                 const overlay = document.getElementById('navbar-overlay');
                 links.classList.remove('open');
                 overlay.classList.remove('open');
+                navbar.classList.remove('menu-open');
                 document.body.style.overflow = '';
             });
         });
